@@ -1,0 +1,18 @@
+{
+    "editor.formatOnSave": true,
+    "php.version": "8.3",
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "app/Models/.*\\.php$",
+                "isAsync": true,
+                "cmd": "docker compose exec laravel php artisan ide-helper:models -n"
+            },
+            {
+                "match": "app/.*\\.php$",
+                "isAsync": true,
+                "cmd": "docker compose exec laravel php artisan ide-helper:generate"
+            }
+        ]
+    }
+}
