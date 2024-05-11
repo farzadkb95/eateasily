@@ -5,6 +5,11 @@ const routes = [
         name: "home",
         meta: {},
     },
+    {
+        path: "/1",
+        component: () => import("./pages/temps/P1.vue"),
+        meta: {},
+    },
 ];
 
 import {
