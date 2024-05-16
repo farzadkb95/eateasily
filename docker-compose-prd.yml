@@ -4,7 +4,7 @@ services:
             file: docker-compose-common.yml
             service: mnr-laravel
         ports:
-            - "8000:80"
+            - "8012:80"
         restart: unless-stopped
         depends_on:
             - mysql
@@ -33,7 +33,7 @@ services:
             file: docker-compose-common.yml
             service: phpmyadmin
         ports:
-            - "8080:80"
+            - "8092:80"
 
 networks:
     mnr-network:
