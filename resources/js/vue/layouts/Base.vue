@@ -5,7 +5,7 @@ import { Icon } from "@iconify/vue";
 </script>
 
 <template>
-  <div>
+  <div class="mb-48">
     <header
       class="shadow-emerald-100 shadow-lg flex items-center justify-center h-12"
     >
@@ -27,23 +27,22 @@ import { Icon } from "@iconify/vue";
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="fixed w-full bottom-0 h-0 -z-10">
-    <div
-      class="rounded-full w-[500px] mix-w-[500px] aspect-square bg-emerald-50 p-8 absolute bottom-[-360px] ms-[50%] translate-x-1/2"
-    >
+    <div class="fixed w-full bottom-0 h-0 -z-10">
       <div
-        class="rounded-full w-full aspect-square bg-emerald-100 bottom-0 p-8"
+        class="rounded-full w-[500px] mix-w-[500px] aspect-square bg-emerald-50 p-8 absolute bottom-[-360px] ms-[50%] translate-x-1/2"
       >
         <div
-          class="rounded-full w-full aspect-square bg-emerald-200 bottom-0"
-        ></div>
+          class="rounded-full w-full aspect-square bg-emerald-100 bottom-0 p-8"
+        >
+          <div
+            class="rounded-full w-full aspect-square bg-emerald-200 bottom-0"
+          ></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <main>
-    <slot></slot>
-  </main>
+    <main>
+      <slot></slot>
+    </main>
+  </div>
 </template>
