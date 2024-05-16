@@ -1,5 +1,5 @@
 services:
-    mnr-laravel:
+    laravel:
         extends:
             file: docker-compose-common.yml
             service: laravel
