@@ -10,6 +10,16 @@ const routes = [
         component: () => import("./pages/temps/P1.vue"),
         meta: {},
     },
+    {
+        path: "/2",
+        component: () => import("./pages/temps/P2.vue"),
+        meta: {},
+    },
+    {
+        path: "/6",
+        component: () => import("./pages/temps/P6.vue"),
+        meta: {},
+    },
 ];
 
 import {
