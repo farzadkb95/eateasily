@@ -10,6 +10,19 @@ import Base from "../../layouts/Base.vue";
     <div class="c-box">
       <QuestionBox><p>چند سالته؟</p></QuestionBox>
       <div class="flex flex-col gap-4">
+        <ItemBox class="text-lg">
+          <div class="pt-2 ms-5 h-full relative">
+            <div
+              class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 -right-1 aspect-square"
+            ></div>
+            <img
+              src="@/assets/18woman.png"
+              alt=""
+              class="h-full z-10 relative"
+            />
+          </div>
+          <div>18 تا 30</div>
+        </ItemBox class="text-lg">
         <ItemBox>
           <div class="pt-2 ms-5 h-full relative">
             <div
@@ -23,7 +36,7 @@ import Base from "../../layouts/Base.vue";
           </div>
           <div>18 تا 30</div>
         </ItemBox>
-        <ItemBox>
+        <ItemBox class="text-lg">
           <div class="pt-2 ms-5 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 -right-1 aspect-square"
@@ -36,20 +49,7 @@ import Base from "../../layouts/Base.vue";
           </div>
           <div>18 تا 30</div>
         </ItemBox>
-        <ItemBox>
-          <div class="pt-2 ms-5 h-full relative">
-            <div
-              class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 -right-1 aspect-square"
-            ></div>
-            <img
-              src="@/assets/18woman.png"
-              alt=""
-              class="h-full z-10 relative"
-            />
-          </div>
-          <div>18 تا 30</div>
-        </ItemBox>
-        <ItemBox>
+        <ItemBox class="text-lg">
           <div class="pt-2 ms-5 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 -right-1 aspect-square"
