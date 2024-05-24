@@ -1,5 +1,7 @@
 <script setup>
+import Btn from "../../components/Btn.vue";
 import InfoBox from "../../components/InfoBox.vue";
+import LightInfoBox from "../../components/LightInfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 </script>
@@ -19,6 +21,15 @@ import Base from "../../layouts/Base.vue";
       <div class="w-fit mx-auto relative">
         <img src="@/assets/chart_raw.svg" />
       </div>
+    </div>
+    <div class="c-box">
+      <LightInfoBox class="text-lg font-bold text-slate-800"
+        >خوشبختانه <span class="text-green-500">%93</span> از افـراد با وضعیت
+        مشابه شما فقط <span class="text-green-500">2 ماه</span> زمـان نیـاز
+        داشتـن تـا زیر نظـر تیم پزشکـی مـا به وزن ایده آلشون برسن.</LightInfoBox
+      >
+
+      <Btn class="w-full mt-6 !rounded-xl !h-14">ادامه</Btn>
     </div>
   </Base>
 </template>
