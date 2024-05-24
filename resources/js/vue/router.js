@@ -125,6 +125,31 @@ const routes = [
         component: () => import("./pages/temps/P24.vue"),
         meta: {},
     },
+    {
+        path: "/25",
+        component: () => import("./pages/temps/P25.vue"),
+        meta: {},
+    },
+    {
+        path: "/26",
+        component: () => import("./pages/temps/P26.vue"),
+        meta: {},
+    },
+    {
+        path: "/27",
+        component: () => import("./pages/temps/P27.vue"),
+        meta: {},
+    },
+    {
+        path: "/28",
+        component: () => import("./pages/temps/P28.vue"),
+        meta: {},
+    },
+    {
+        path: "/29",
+        component: () => import("./pages/temps/P29.vue"),
+        meta: {},
+    },
 ];
 
 import {
