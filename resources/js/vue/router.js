@@ -16,6 +16,11 @@ const routes = [
         meta: {},
     },
     {
+        path: "/3",
+        component: () => import("./pages/temps/P3.vue"),
+        meta: {},
+    },
+    {
         path: "/6",
         component: () => import("./pages/temps/P6.vue"),
         meta: {},
