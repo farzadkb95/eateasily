@@ -40,6 +40,11 @@ const routes = [
         component: () => import("./pages/temps/P7.vue"),
         meta: {},
     },
+    {
+        path: "/8",
+        component: () => import("./pages/temps/P8.vue"),
+        meta: {},
+    },
 ];
 
 import {
