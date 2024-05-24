@@ -110,6 +110,21 @@ const routes = [
         component: () => import("./pages/temps/P21.vue"),
         meta: {},
     },
+    {
+        path: "/22",
+        component: () => import("./pages/temps/P22.vue"),
+        meta: {},
+    },
+    {
+        path: "/23",
+        component: () => import("./pages/temps/P23.vue"),
+        meta: {},
+    },
+    {
+        path: "/24",
+        component: () => import("./pages/temps/P24.vue"),
+        meta: {},
+    },
 ];
 
 import {
