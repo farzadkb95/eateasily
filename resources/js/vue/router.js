@@ -80,6 +80,21 @@ const routes = [
         component: () => import("./pages/temps/P15.vue"),
         meta: {},
     },
+    {
+        path: "/16",
+        component: () => import("./pages/temps/P16.vue"),
+        meta: {},
+    },
+    {
+        path: "/17",
+        component: () => import("./pages/temps/P17.vue"),
+        meta: {},
+    },
+    {
+        path: "/18",
+        component: () => import("./pages/temps/P18.vue"),
+        meta: {},
+    },
 ];
 
 import {
