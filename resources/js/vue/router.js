@@ -95,6 +95,21 @@ const routes = [
         component: () => import("./pages/temps/P18.vue"),
         meta: {},
     },
+    {
+        path: "/19",
+        component: () => import("./pages/temps/P19.vue"),
+        meta: {},
+    },
+    {
+        path: "/20",
+        component: () => import("./pages/temps/P20.vue"),
+        meta: {},
+    },
+    {
+        path: "/21",
+        component: () => import("./pages/temps/P21.vue"),
+        meta: {},
+    },
 ];
 
 import {
