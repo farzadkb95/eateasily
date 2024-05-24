@@ -55,6 +55,31 @@ const routes = [
         component: () => import("./pages/temps/P10.vue"),
         meta: {},
     },
+    {
+        path: "/11",
+        component: () => import("./pages/temps/P11.vue"),
+        meta: {},
+    },
+    {
+        path: "/12",
+        component: () => import("./pages/temps/P12.vue"),
+        meta: {},
+    },
+    {
+        path: "/13",
+        component: () => import("./pages/temps/P13.vue"),
+        meta: {},
+    },
+    {
+        path: "/14",
+        component: () => import("./pages/temps/P14.vue"),
+        meta: {},
+    },
+    {
+        path: "/15",
+        component: () => import("./pages/temps/P15.vue"),
+        meta: {},
+    },
 ];
 
 import {

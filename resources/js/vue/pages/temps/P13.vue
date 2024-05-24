@@ -9,18 +9,18 @@ import ItemBox from "../../components/ItemBox.vue";
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>معمولا با چند ساعت خواب احساس سرحالی می‌کنی؟</p></QuestionBox
+        ><p>در مورد چاقیت کدوم مورد بیشتر اذیتت می‌کنه؟</p></QuestionBox
       >
 
       <div class="flex flex-col gap-4">
         <ItemBox class="px-5 !text-lg">
-          <p>6-7 ساعت خواب</p>
+          <p>وقتی لباس های قشنگی که دوست دارم اندازم نیست</p>
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
-          <p>7-8 ساعت خواب</p>
+          <p>وقتی برای از پله بالا رفتن باید کلی به خودم زحمت بدم و درد بکشم</p>
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
-          <p>9 ساعت و بیشتر</p>
+          <p>وقتی بقیه اضافه وزنم رو یادم میارن</p>
         </ItemBox>
       </div>
     </div>

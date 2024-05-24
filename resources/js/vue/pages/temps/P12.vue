@@ -9,18 +9,21 @@ import ItemBox from "../../components/ItemBox.vue";
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>معمولا با چند ساعت خواب احساس سرحالی می‌کنی؟</p></QuestionBox
+        ><p>کدام روش را برای لاغری بهترین روش می‌دانید؟</p></QuestionBox
       >
 
       <div class="flex flex-col gap-4">
         <ItemBox class="px-5 !text-lg">
-          <p>6-7 ساعت خواب</p>
+          <p>استفاده از قرص ها و دارو های لاغری</p>
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
-          <p>7-8 ساعت خواب</p>
+          <p>محدود کردن شدید کالری و ورزش سنگین</p>
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
-          <p>9 ساعت و بیشتر</p>
+          <p>حذف نان و برنج (کتوژنیک)</p>
+        </ItemBox>
+        <ItemBox class="px-5 !text-lg">
+          <p>حذف وعده های غذایی (فستینگ)</p>
         </ItemBox>
       </div>
     </div>
