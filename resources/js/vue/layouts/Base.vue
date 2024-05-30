@@ -9,7 +9,9 @@ import { Icon } from "@iconify/vue";
     <header
       class="shadow-emerald-100 shadow-lg flex items-center justify-center h-12"
     >
-      eateasily
+      <div class="py-2 h-full">
+        <img src="@/assets/logo.png" alt="" class="h-full" />
+      </div>
     </header>
     <div class="max-md:px-3">
       <div class="px-2">
