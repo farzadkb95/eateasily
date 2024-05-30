@@ -1,4 +1,7 @@
 {
+    "path-intellisense.mappings": {
+        "@": "${workspaceFolder}/resources/js/vue"
+    },
     "editor.formatOnSave": true,
     "php.version": "8.3",
     "emeraldwalk.runonsave": {
