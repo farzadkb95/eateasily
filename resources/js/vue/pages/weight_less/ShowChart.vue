@@ -4,6 +4,15 @@ import InfoBox from "../../components/InfoBox.vue";
 import LightInfoBox from "../../components/LightInfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -29,7 +38,7 @@ import Base from "../../layouts/Base.vue";
         داشتـن تـا زیر نظـر تیم پزشکـی مـا به وزن ایده آلشون برسن.</LightInfoBox
       >
 
-      <Btn class="w-full mt-6 !rounded-xl !h-14">ادامه</Btn>
+      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ادامه</Btn>
     </div>
   </Base>
 </template>

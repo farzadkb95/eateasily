@@ -7,8 +7,17 @@ import Input from "../../components/Input.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import ItemCheckBox from "../../components/ItemCheckBox.vue";
 import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
 
 const items = ref([]);
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -76,7 +85,7 @@ const items = ref([]);
           >
         </ItemBox>
       </div>
-      <Btn class="w-full mt-6 !rounded-xl !h-14">ثبت</Btn>
+      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
     </div>
   </Base>
 </template>

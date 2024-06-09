@@ -2,6 +2,16 @@
 import Btn from "@/components/Btn.vue";
 import ProgressBar from "@/components/ProgressBar.vue";
 import { Icon } from "@iconify/vue";
+
+import { useRoute, useRouter } from "vue-router";
+import { previousPageName } from "../modules/config";
+
+const route = useRoute();
+const router = useRouter();
+
+function previousPage() {
+  router.push({ name: previousPageName(route.name) });
+}
 </script>
 
 <template>
@@ -20,7 +30,7 @@ import { Icon } from "@iconify/vue";
         >
           <ProgressBar />
           <div class="flex gap-5 shrink-0 max-sm:w-full">
-            <Btn class="gap-2 !rounded-2xl max-sm:w-full">
+            <Btn class="gap-2 !rounded-2xl max-sm:w-full" @click="previousPage">
               <Icon icon="solar:alt-arrow-right-outline" class="h-full w-6" />
               سوال قبل
             </Btn>
