@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('data_id')->nullable();
             $table->string('key');
             $table->enum('type', ['text', 'json', 'number']);
-            $table->varchar('value');
+            $table->string('value');
             $table->timestamps();
         });
     }
