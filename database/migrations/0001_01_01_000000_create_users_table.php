@@ -13,18 +13,40 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('phone')->unique()->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->timestamp('phone_verified_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->boolean('is_admin')->default(false);
+            $table->timestamp('last_login_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
 
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('guests', function (Blueprint $table) {
+            $table->id();
+            $table->string('token')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('ip')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('user_actions', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('guest_id')->nullable();
+            $table->string('action', 128)->nullable();
+            $table->string('code', 32)->nullable();
+            $table->string('token')->nullable();
+            $table->unsignedTinyInteger('fails')->nullable();
+            $table->unsignedTinyInteger('resend')->nullable();
+            $table->timestamp('last_fail_at')->nullable();
+            $table->timestamp('last_resend_at')->nullable();
+            $table->timestamp('used_at')->nullable();
+            $table->timestamps();
         });
 
         Schema::create('sessions', function (Blueprint $table) {
