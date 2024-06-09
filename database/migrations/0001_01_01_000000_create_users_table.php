@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('name')->nullable();
             $table->string('phone')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('phone_verified_at')->nullable();
@@ -29,6 +28,7 @@ return new class extends Migration
         Schema::create('guests', function (Blueprint $table) {
             $table->id();
             $table->string('token')->nullable();
+            $table->string('name')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('ip')->nullable();
             $table->timestamps();
