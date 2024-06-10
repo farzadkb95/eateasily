@@ -7,6 +7,15 @@ import image2 from "@/assets/woman-p-7-2.png";
 import image3 from "@/assets/woman-p-7-3.png";
 import image4 from "@/assets/woman-p-7-4.png";
 import image5 from "@/assets/woman-p-7-5.png";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -18,7 +27,7 @@ import image5 from "@/assets/woman-p-7-5.png";
         </p></QuestionBox
       >
       <div class="flex flex-col gap-4">
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -32,7 +41,7 @@ import image5 from "@/assets/woman-p-7-5.png";
           </div>
           <div>لاغر هستم و فقط شکم و پهلو دارم</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -46,7 +55,7 @@ import image5 from "@/assets/woman-p-7-5.png";
           </div>
           <div>چاق هستم و بیشترین چربی در شکم و پهلو است(سیبی)</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -60,7 +69,7 @@ import image5 from "@/assets/woman-p-7-5.png";
           </div>
           <div>قسمت ران و باسن چاق تری دارم</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -74,7 +83,7 @@ import image5 from "@/assets/woman-p-7-5.png";
           </div>
           <div>بالاتنه چاقی دارم (سینه، شانه و بازو)</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >

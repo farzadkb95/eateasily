@@ -3,6 +3,15 @@ import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -15,25 +24,25 @@ import ItemBox from "../../components/ItemBox.vue";
       >
 
       <div class="flex flex-col gap-4">
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <div class="h-full py-2">
             <img src="@/assets/dish1.png" alt="" class="h-full z-10 relative" />
           </div>
           <p>1/4 ظرف</p>
         </ItemBox>
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <div class="h-full py-2">
             <img src="@/assets/dish2.png" alt="" class="h-full z-10 relative" />
           </div>
           <p>نصف ظرف</p>
         </ItemBox>
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <div class="h-full py-2">
             <img src="@/assets/dish3.png" alt="" class="h-full z-10 relative" />
           </div>
           <p>یک ظرف پر غذا</p>
         </ItemBox>
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <div class="h-full py-2 flex">
             <img src="@/assets/dish3.png" alt="" class="h-full z-10 relative" />
             <img src="@/assets/dish3.png" alt="" class="h-full z-10 relative" />

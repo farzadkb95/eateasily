@@ -7,8 +7,15 @@ import Input from "../../components/Input.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import ItemCheckBox from "../../components/ItemCheckBox.vue";
 import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
 
-const items = ref([]);
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -26,10 +33,10 @@ const items = ref([]);
       </InfoBox>
 
       <div class="flex flex-col gap-4">
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <p>وقتی خسته، غمگین، نگرانم و یا استرس دارم</p>
         </ItemBox>
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <p>وقتی از آخرین وعده غذاییم زمان زیادی گذشته</p>
         </ItemBox>
       </div>

@@ -6,6 +6,15 @@ import image1 from "@/assets/hand1.png";
 import image2 from "@/assets/hand2.png";
 import image3 from "@/assets/hand3.png";
 import image4 from "@/assets/hand4.png";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -17,7 +26,7 @@ import image4 from "@/assets/hand4.png";
         </p></QuestionBox
       >
       <div class="flex flex-col gap-4">
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -31,7 +40,7 @@ import image4 from "@/assets/hand4.png";
           </div>
           <div>تپل و کوتاه</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -45,7 +54,7 @@ import image4 from "@/assets/hand4.png";
           </div>
           <div>تپل و دراز</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -59,7 +68,7 @@ import image4 from "@/assets/hand4.png";
           </div>
           <div>لاغر و کوتاه</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base">
+        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >

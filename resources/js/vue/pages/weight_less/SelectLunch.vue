@@ -14,8 +14,17 @@ import image6 from "@/assets/food-p-20-6.png";
 import image7 from "@/assets/food-p-20-7.png";
 import image8 from "@/assets/food-p-20-8.png";
 import Btn from "../../components/Btn.vue";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
 
 const items = ref([]);
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -170,7 +179,7 @@ const items = ref([]);
           >
         </ItemBox>
       </div>
-      <Btn class="w-full mt-6 !rounded-xl !h-14">ثبت</Btn>
+      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
     </div>
   </Base>
 </template>

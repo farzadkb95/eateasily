@@ -3,6 +3,15 @@ import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -13,10 +22,10 @@ import ItemBox from "../../components/ItemBox.vue";
       >
 
       <div class="flex flex-col gap-4">
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <p>بین وعده های اصلی مدام هله هوله می‌خورم</p>
         </ItemBox>
-        <ItemBox class="px-5 !text-lg">
+        <ItemBox class="px-5 !text-lg" @click="operation">
           <p>معمولا بین وعده های اصلی چیزی نمی‌خورم</p>
         </ItemBox>
       </div>

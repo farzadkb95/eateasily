@@ -12,8 +12,17 @@ import image4 from "@/assets/deser-p21-4.png";
 import image5 from "@/assets/deser-p21-5.png";
 import image6 from "@/assets/deser-p21-6.png";
 import Btn from "../../components/Btn.vue";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
 
 const items = ref([]);
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -134,7 +143,7 @@ const items = ref([]);
           >
         </ItemBox>
       </div>
-      <Btn class="w-full mt-6 !rounded-xl !h-14">ثبت</Btn>
+      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
     </div>
   </Base>
 </template>

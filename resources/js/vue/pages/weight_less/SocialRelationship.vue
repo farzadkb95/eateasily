@@ -5,6 +5,15 @@ import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import image1 from "@/assets/girl-p28-1.png";
 import image2 from "@/assets/girl-p28-2.png";
+import { useRoute, useRouter } from "vue-router";
+import { nextPageName } from "../../modules/config";
+
+const route = useRoute();
+const router = useRouter();
+
+function operation() {
+  router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -20,6 +29,7 @@ import image2 from "@/assets/girl-p28-2.png";
       <div class="flex gap-5">
         <div
           class="p-5 border-2 border-zinc-200 bg-zinc-50 rounded-3xl flex flex-col items-center shrink-0 w-1/2 cursor-pointer"
+          @click="operation"
         >
           <div
             class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-center"
@@ -29,6 +39,7 @@ import image2 from "@/assets/girl-p28-2.png";
         </div>
         <div
           class="p-6 border-2 border-zinc-200 bg-zinc-50 rounded-3xl flex flex-col items-center shrink-0 w-1/2 cursor-pointer"
+          @click="operation"
         >
           <div
             class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-center"
