@@ -4,7 +4,7 @@ import ProgressBar from "@/components/ProgressBar.vue";
 import { Icon } from "@iconify/vue";
 
 import { useRoute, useRouter } from "vue-router";
-import { previousPageName } from "../modules/config";
+import { previousPageName, pageNumber, pagesCount } from "../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -28,7 +28,7 @@ function previousPage() {
         <div
           class="c-container min-h-20 border-b flex items-center gap-8 sm:gap-20 max-sm:flex-col-reverse max-sm:py-8"
         >
-          <ProgressBar />
+          <ProgressBar :step="pageNumber(route.name)" />
           <div class="flex gap-5 shrink-0 max-sm:w-full">
             <Btn class="gap-2 !rounded-2xl max-sm:w-full" @click="previousPage">
               <Icon icon="solar:alt-arrow-right-outline" class="h-full w-6" />
@@ -37,7 +37,7 @@ function previousPage() {
             <div
               class="max-sm:w-full border border-gray-300 rounded-md px-5 h-10 flex items-center justify-center font-bold text-pink-500 text-xl"
             >
-              سوال 1 از 30
+              سوال {{ pageNumber(route.name) }} از {{ pagesCount() }}
             </div>
           </div>
         </div>

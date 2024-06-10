@@ -46,15 +46,23 @@ export const pages = [
 ]
 
 export const steps = pages.map((x) => x.length)
+const allPages = _.flatten(pages)
 
 export function nextPageName(currentPageName) {
-    let allPages = _.flatten(pages)
     let index = allPages.indexOf(currentPageName)
     return allPages[index + 1];
 }
 
 export function previousPageName(currentPageName) {
-    let allPages = _.flatten(pages)
     let index = allPages.indexOf(currentPageName)
     return allPages[index - 1];
+}
+
+export function pagesCount() {
+    return allPages.length;
+}
+
+export function pageNumber(currentPageName) {
+    let index = allPages.indexOf(currentPageName);
+    return index + 1;
 }
