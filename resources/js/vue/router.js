@@ -6,6 +6,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/start",
+        component: () => import("./pages/weight_less/_Start.vue"),
+        name: "weight-less|start",
+        meta: {},
+    },
+    {
         path: "/weight-less/select-gender",
         component: () => import("./pages/weight_less/SelectGender.vue"),
         name: "weight-less|select-gender",

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('guest_id')->nullable();
-            $table->enum('status', ['in_process', 'finished', 'unfinished']);
-            $table->string('step', 256);
+            $table->enum('status', ['in_process', 'finished', 'unfinished'])->default('in_process');
+            $table->string('step', 256)->nullable();
             $table->string('type', 128);
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->unsignedTinyInteger('age')->nullable();

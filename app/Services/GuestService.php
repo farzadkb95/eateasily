@@ -13,7 +13,7 @@ class GuestService
         if ($this->guest) {
             return $this->guest;
         }
-        $this->guest = Guest::where('token', $token)->whereNull('user_id')->first();
+        $this->guest = Guest::where('token', $token)->with('latestTest')->whereNull('user_id')->first();
 
         return $this->guest;
     }
