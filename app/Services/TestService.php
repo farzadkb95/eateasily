@@ -20,4 +20,10 @@ final class TestService
 
         return $newTest;
     }
+
+    public function setGender(Guest $guest, $value)
+    {
+        $guest->latestTest->gender = $value;
+        $guest->latestTest->save();
+    }
 }

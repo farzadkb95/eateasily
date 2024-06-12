@@ -1,0 +1,25 @@
+<script setup>
+const props = defineProps(["on"]);
+</script>
+
+<template>
+  <div
+    class="w-6 aspect-square border-2 rounded-md flex items-center justify-center border-white"
+  >
+    <svg
+      v-show="on"
+      width="18"
+      height="13"
+      viewBox="0 0 18 13"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 1L6.70711 11.2929C6.31658 11.6834 5.68342 11.6834 5.29289 11.2929L1 7"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  </div>
+</template>

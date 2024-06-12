@@ -2,12 +2,19 @@
 import user from "@/modules/user";
 import axios from "axios";
 import { onMounted } from "vue";
+import { useTestStore } from "./store/TestStore";
+
+let testStore = useTestStore();
 
 onMounted(async () => {
   await user.initial();
 });
 axios.interceptors.response.use(
   function (response) {
+    if (response.data.latest_test) {
+      testStore.test = response.data.latest_test;
+    }
+
     if (response.data.gid) {
       localStorage.setItem("gid", response.data.gid);
       axios.defaults.headers["gid"] = response.data.gid;
