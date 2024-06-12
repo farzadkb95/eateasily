@@ -1,16 +1,21 @@
 <script setup>
-import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import Btn from "../../components/Btn.vue";
 import Input from "../../components/Input.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
+import { useTestStore } from "../../store/TestStore";
 
 const route = useRoute();
 const router = useRouter();
 const height = ref(null);
+const testStore = useTestStore();
+
+watchEffect(() => {
+  height.value = testStore.test?.height;
+});
 
 function operation() {
   axios
