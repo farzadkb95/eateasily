@@ -6,11 +6,17 @@ import Btn from "../../components/Btn.vue";
 import Input from "../../components/Input.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
+import { useTestStore } from "../../store/TestStore";
 
 const route = useRoute();
 const router = useRouter();
 const weight = ref(null);
+const testStore = useTestStore();
+
+watchEffect(() => {
+  weight.value = testStore.test?.weight;
+});
 
 function operation() {
   axios
