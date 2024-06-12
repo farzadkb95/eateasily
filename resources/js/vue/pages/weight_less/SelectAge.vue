@@ -11,9 +11,11 @@ import image4 from "@/assets/50woman.png";
 
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
+import { useTestStore } from "../../store/TestStore";
 
 const route = useRoute();
 const router = useRouter();
+const testStore = useTestStore();
 
 function operation(age) {
   axios
@@ -38,7 +40,11 @@ function operation(age) {
     <div class="c-box">
       <QuestionBox><p>چند سالته؟</p></QuestionBox>
       <div class="flex flex-col gap-4">
-        <ItemBox class="text-lg font-semibold" @click="operation(18)">
+        <ItemBox
+          class="text-lg font-semibold"
+          @click="operation(18)"
+          :select="testStore.test.age == 18"
+        >
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
@@ -50,7 +56,11 @@ function operation(age) {
           </div>
           <div>18 تا 30</div>
         </ItemBox>
-        <ItemBox class="text-lg font-semibold" @click="operation(30)">
+        <ItemBox
+          class="text-lg font-semibold"
+          @click="operation(30)"
+          :select="testStore.test.age == 30"
+        >
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
@@ -62,7 +72,11 @@ function operation(age) {
           </div>
           <div>30 تا 40</div>
         </ItemBox>
-        <ItemBox class="text-lg font-semibold" @click="operation(40)">
+        <ItemBox
+          class="text-lg font-semibold"
+          @click="operation(40)"
+          :select="testStore.test.age == 40"
+        >
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
@@ -74,7 +88,11 @@ function operation(age) {
           </div>
           <div>40 تا 50</div>
         </ItemBox>
-        <ItemBox class="text-lg font-semibold" @click="operation(50)">
+        <ItemBox
+          class="text-lg font-semibold"
+          @click="operation(50)"
+          :select="testStore.test.age == 50"
+        >
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
