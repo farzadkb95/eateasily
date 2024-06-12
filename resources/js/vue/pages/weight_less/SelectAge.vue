@@ -15,7 +15,20 @@ import { nextPageName } from "../../modules/config";
 const route = useRoute();
 const router = useRouter();
 
-function operation() {
+function operation(age) {
+  axios
+    .post(`/api/weight-less/select-age`, {
+      age: age,
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+
   router.push({ name: nextPageName(route.name) });
 }
 </script>
@@ -25,7 +38,7 @@ function operation() {
     <div class="c-box">
       <QuestionBox><p>چند سالته؟</p></QuestionBox>
       <div class="flex flex-col gap-4">
-        <ItemBox class="text-lg font-semibold" @click="operation">
+        <ItemBox class="text-lg font-semibold" @click="operation(18)">
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
@@ -37,7 +50,7 @@ function operation() {
           </div>
           <div>18 تا 30</div>
         </ItemBox>
-        <ItemBox class="text-lg font-semibold" @click="operation">
+        <ItemBox class="text-lg font-semibold" @click="operation(30)">
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
@@ -47,9 +60,9 @@ function operation() {
               :style="{ 'background-image': 'url(' + image2 + ')' }"
             ></div>
           </div>
-          <div>18 تا 30</div>
+          <div>30 تا 40</div>
         </ItemBox>
-        <ItemBox class="text-lg font-semibold" @click="operation">
+        <ItemBox class="text-lg font-semibold" @click="operation(40)">
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
@@ -59,9 +72,9 @@ function operation() {
               :style="{ 'background-image': 'url(' + image3 + ')' }"
             ></div>
           </div>
-          <div>18 تا 30</div>
+          <div>40 تا 50</div>
         </ItemBox>
-        <ItemBox class="text-lg font-semibold" @click="operation">
+        <ItemBox class="text-lg font-semibold" @click="operation(50)">
           <div class="pt-2 ms-1 h-full relative">
             <div
               class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
@@ -71,7 +84,7 @@ function operation() {
               :style="{ 'background-image': 'url(' + image4 + ')' }"
             ></div>
           </div>
-          <div>18 تا 30</div>
+          <div>بالای 50</div>
         </ItemBox>
       </div>
     </div>

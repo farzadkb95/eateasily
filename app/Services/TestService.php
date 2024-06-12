@@ -21,9 +21,31 @@ final class TestService
         return $newTest;
     }
 
-    public function setGender(Guest $guest, $value)
+    public function setGender(Guest $guest, $step, $value)
     {
         $guest->latestTest->gender = $value;
+        $guest->latestTest->step = $step;
+        $guest->latestTest->save();
+    }
+
+    public function setAge(Guest $guest, $step, $value)
+    {
+        $guest->latestTest->age = $value;
+        $guest->latestTest->step = $step;
+        $guest->latestTest->save();
+    }
+
+    public function setHeight(Guest $guest, $step, $value)
+    {
+        $guest->latestTest->height = $value;
+        $guest->latestTest->step = $step;
+        $guest->latestTest->save();
+    }
+
+    public function setWeight(Guest $guest, $step, $value)
+    {
+        $guest->latestTest->weight = $value;
+        $guest->latestTest->step = $step;
         $guest->latestTest->save();
     }
 }

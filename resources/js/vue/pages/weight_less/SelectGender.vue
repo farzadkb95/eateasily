@@ -17,6 +17,7 @@ function operation(gender) {
   axios
     .post(`/api/weight-less/select-gender`, {
       gender: gender,
+      step: route.name,
     })
     .then(function (response) {
       console.log(response.data);
@@ -54,7 +55,7 @@ function operation(gender) {
             class="py-2 px-8 text-2xl font-bold text-white flex justify-between items-center"
           >
             <span>زن</span>
-            <ReadCheckBox :on="testStore.test.gender == 'female'" />
+            <ReadCheckBox :on="testStore.test?.gender == 'female'" />
           </div>
         </div>
         <div
@@ -69,7 +70,7 @@ function operation(gender) {
             class="py-2 px-8 text-2xl font-bold text-white flex justify-between items-center"
           >
             <span>مرد</span>
-            <ReadCheckBox :on="testStore.test.gender == 'male'" />
+            <ReadCheckBox :on="testStore.test?.gender == 'male'" />
           </div>
         </div>
       </div>

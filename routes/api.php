@@ -16,4 +16,7 @@ Route::post('/new-test', [TestController::class, 'newTest']);
 
 Route::prefix('weight-less/')->group(function () {
     Route::post('/select-gender', [WeightLessTestController::class, 'selectGender']);
+    Route::post('/select-age', [WeightLessTestController::class, 'selectAge']);
+    Route::post('/select-height', [WeightLessTestController::class, 'selectHeight']);
+    Route::post('/select-weight', [WeightLessTestController::class, 'selectWeight']);
 });

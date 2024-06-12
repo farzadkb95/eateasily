@@ -3,11 +3,26 @@ import user from "@/modules/user";
 import axios from "axios";
 import { onMounted } from "vue";
 import { useTestStore } from "./store/TestStore";
+import { useRoute } from "vue-router";
 
-let testStore = useTestStore();
+const testStore = useTestStore();
+const route = useRoute();
 
 onMounted(async () => {
   await user.initial();
+  const pathPart = route.path.split("/");
+  console.log("rrrr", pathPart);
+  if (pathPart[1] == "weight-less" && useTestStore.test == undefined) {
+    axios
+      .get(`/api/get-latest-test`)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      })
+      .finally(function () {});
+  }
 });
 axios.interceptors.response.use(
   function (response) {

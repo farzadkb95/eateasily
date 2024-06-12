@@ -6,11 +6,26 @@ import Btn from "../../components/Btn.vue";
 import Input from "../../components/Input.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
+import { ref } from "vue";
 
 const route = useRoute();
 const router = useRouter();
+const weight = ref(null);
 
 function operation() {
+  axios
+    .post(`/api/weight-less/select-weight`, {
+      weight: weight.value,
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+
   router.push({ name: nextPageName(route.name) });
 }
 </script>
@@ -20,7 +35,7 @@ function operation() {
     <div class="c-box">
       <QuestionBox><p>وزنت چقدره؟</p></QuestionBox>
 
-      <Input placeholder="kg (کیلو گرم)" />
+      <Input placeholder="kg (کیلو گرم)" v-model="weight" type="number" />
 
       <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
     </div>
