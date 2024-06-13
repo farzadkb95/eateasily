@@ -6,9 +6,12 @@ import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
+import { useTestStore } from "../../store/TestStore";
+import Chart from "../../components/chart.vue";
 
 const route = useRoute();
 const router = useRouter();
+const testStore = useTestStore();
 
 function operation() {
   router.push({ name: nextPageName(route.name) });
@@ -28,7 +31,7 @@ function operation() {
     </p>
     <div class="c-box">
       <div class="w-fit mx-auto relative">
-        <img src="@/assets/chart_raw.svg" />
+        <Chart :current="testStore.test?.weight" :ideal="96" :long="2" />
       </div>
     </div>
     <div class="c-box">
