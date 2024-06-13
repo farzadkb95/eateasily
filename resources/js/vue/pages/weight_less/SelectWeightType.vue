@@ -9,11 +9,34 @@ import image4 from "@/assets/woman-p-7-4.png";
 import image5 from "@/assets/woman-p-7-5.png";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
+import { useTestStore } from "../../store/TestStore";
 
 const route = useRoute();
 const router = useRouter();
+const testStore = useTestStore();
+const items = [
+  "لاغر هستم و فقط شکم و پهلو دارم",
+  "چاق هستم و بیشترین چربی در شکم و پهلو است(سیبی)",
+  "قسمت ران و باسن چاق تری دارم",
+  "بالاتنه چاقی دارم (سینه، شانه و بازو)",
+  "چاقی به صورت متوازن و سراسری در بدن من وجود دارد (بادکنکی)",
+];
 
-function operation() {
+function operation(index) {
+  axios
+    .post(`/api/weight-less/set-other`, {
+      key: route.name,
+      value: items[index],
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+
   router.push({ name: nextPageName(route.name) });
 }
 </script>
@@ -27,7 +50,11 @@ function operation() {
         </p></QuestionBox
       >
       <div class="flex flex-col gap-4">
-        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
+        <ItemBox
+          class="!font-normal pe-1 !text-base"
+          @click="operation(0)"
+          :select="testStore.test?.other?.[route.name] == items[0]"
+        >
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -39,9 +66,13 @@ function operation() {
               :style="{ 'background-image': 'url(' + image1 + ')' }"
             ></div>
           </div>
-          <div>لاغر هستم و فقط شکم و پهلو دارم</div>
+          <div>{{ items[0] }}</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
+        <ItemBox
+          class="!font-normal pe-1 !text-base"
+          @click="operation(1)"
+          :select="testStore.test?.other?.[route.name] == items[1]"
+        >
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -53,9 +84,13 @@ function operation() {
               :style="{ 'background-image': 'url(' + image2 + ')' }"
             ></div>
           </div>
-          <div>چاق هستم و بیشترین چربی در شکم و پهلو است(سیبی)</div>
+          <div>{{ items[1] }}</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
+        <ItemBox
+          class="!font-normal pe-1 !text-base"
+          @click="operation(2)"
+          :select="testStore.test?.other?.[route.name] == items[2]"
+        >
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -67,9 +102,13 @@ function operation() {
               :style="{ 'background-image': 'url(' + image3 + ')' }"
             ></div>
           </div>
-          <div>قسمت ران و باسن چاق تری دارم</div>
+          <div>{{ items[2] }}</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
+        <ItemBox
+          class="!font-normal pe-1 !text-base"
+          @click="operation(3)"
+          :select="testStore.test?.other?.[route.name] == items[3]"
+        >
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -81,9 +120,13 @@ function operation() {
               :style="{ 'background-image': 'url(' + image4 + ')' }"
             ></div>
           </div>
-          <div>بالاتنه چاقی دارم (سینه، شانه و بازو)</div>
+          <div>{{ items[3] }}</div>
         </ItemBox>
-        <ItemBox class="!font-normal pe-1 !text-base" @click="operation">
+        <ItemBox
+          class="!font-normal pe-1 !text-base"
+          @click="operation(4)"
+          :select="testStore.test?.other?.[route.name] == items[4]"
+        >
           <div
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
@@ -95,7 +138,7 @@ function operation() {
               :style="{ 'background-image': 'url(' + image5 + ')' }"
             ></div>
           </div>
-          <div>چاقی به صورت متوازن و سراسری در بدن من وجود دارد (بادکنکی)</div>
+          <div>{{ items[4] }}</div>
         </ItemBox>
       </div>
     </div>
