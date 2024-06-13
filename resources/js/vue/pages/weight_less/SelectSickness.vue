@@ -3,19 +3,38 @@ import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import Btn from "../../components/Btn.vue";
-import Input from "../../components/Input.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import ItemCheckBox from "../../components/ItemCheckBox.vue";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
+import { useTestStore } from "../../store/TestStore";
 
 const items = ref([]);
 
 const route = useRoute();
 const router = useRouter();
+const testStore = useTestStore();
+
+watchEffect(() => {
+  items.value = testStore.test?.other?.[route.name];
+});
 
 function operation() {
+  axios
+    .post(`/api/weight-less/set-other`, {
+      key: route.name,
+      value: items.value,
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+
   router.push({ name: nextPageName(route.name) });
 }
 </script>

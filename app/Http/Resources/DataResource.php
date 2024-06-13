@@ -14,6 +14,20 @@ class DataResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            // 'id' => $this->id,
+            // 'user_id' => $this->user_id,
+            // 'guest_id' => $this->guest_id,
+            'status' => $this->status,
+            'step' => $this->step,
+            'type' => $this->type,
+            'gender' => $this->gender,
+            'age' => $this->age,
+            'height' => $this->height,
+            'weight' => $this->weight,
+            'other' => collect($this->other)->mapWithKeys(function ($item) {
+                return [$item['key'] => $item['type'] == 'json' ? json_decode($item['value']) : $item['type']];
+            }),
+        ];
     }
 }

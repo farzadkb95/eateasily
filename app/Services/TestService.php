@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Data;
 use App\Models\Guest;
+use App\Models\OtherData;
 
 final class TestService
 {
@@ -47,5 +48,26 @@ final class TestService
         $guest->latestTest->weight = $value;
         $guest->latestTest->step = $step;
         $guest->latestTest->save();
+    }
+
+    public function setOther(Guest $guest, $step, $key, $value)
+    {
+        $type = 'text';
+        if (is_numeric($value)) {
+            $type = 'number';
+        } elseif (is_array($value)) {
+            $type = 'json';
+        }
+        OtherData::updateOrCreate([
+            'data_id' => $guest->latestTest->id,
+            'key' => $key,
+        ], [
+            'type' => $type,
+            'value' => $type == 'json' ? json_encode($value) : $value,
+        ]);
+
+        $guest->latestTest->step = $step;
+        $guest->latestTest->save();
+        $guest->latestTest->load('other');
     }
 }

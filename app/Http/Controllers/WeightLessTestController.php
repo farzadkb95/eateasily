@@ -35,4 +35,11 @@ class WeightLessTestController extends Controller
 
         return response()->json(new GuestDataResource($request->guest()));
     }
+
+    public function setOther(Request $request, TestService $testService)
+    {
+        $testService->setOther($request->guest(), $request->step, $request->key, $request->value);
+
+        return response()->json(new GuestDataResource($request->guest()));
+    }
 }
