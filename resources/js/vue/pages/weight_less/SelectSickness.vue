@@ -15,15 +15,16 @@ const items = ref([]);
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();
+const question = "کدام یک از شرایط زیر را دارید؟";
 
 watchEffect(() => {
-  items.value = testStore.test?.other?.[route.name];
+  items.value = testStore.test?.other?.[route.name] || [];
 });
 
 function operation() {
   axios
     .post(`/api/weight-less/set-other`, {
-      key: route.name,
+      question: question,
       value: items.value,
       step: route.name,
     })
@@ -43,7 +44,7 @@ function operation() {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-3"
-        ><p>کدام یک از شرایط زیر را دارید؟</p></QuestionBox
+        ><p>{{ question }}</p></QuestionBox
       >
       <p class="text-gray-400 text-center">یک یا چند گزینه انتخاب کنید</p>
 

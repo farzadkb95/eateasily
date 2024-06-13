@@ -21,11 +21,12 @@ const items = [
   "بالاتنه چاقی دارم (سینه، شانه و بازو)",
   "چاقی به صورت متوازن و سراسری در بدن من وجود دارد (بادکنکی)",
 ];
+const question = "کدام گزینه تجمع چربی در بدن شما رو بهتر توصیف می‌کنه؟";
 
 function operation(index) {
   axios
     .post(`/api/weight-less/set-other`, {
-      key: route.name,
+      question: question,
       value: items[index],
       step: route.name,
     })
@@ -46,7 +47,7 @@ function operation(index) {
     <div class="c-box">
       <QuestionBox
         ><p>
-          کدام گزینه تجمع چربی در بدن شما رو بهتر توصیف می‌کنه؟
+          {{ question }}
         </p></QuestionBox
       >
       <div class="flex flex-col gap-4">

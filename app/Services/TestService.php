@@ -50,7 +50,7 @@ final class TestService
         $guest->latestTest->save();
     }
 
-    public function setOther(Guest $guest, $step, $key, $value)
+    public function setOther(Guest $guest, $step, $question, $value)
     {
         $type = 'text';
         if (is_numeric($value)) {
@@ -60,8 +60,9 @@ final class TestService
         }
         OtherData::updateOrCreate([
             'data_id' => $guest->latestTest->id,
-            'key' => $key,
+            'key' => $step,
         ], [
+            'question' => $question,
             'type' => $type,
             'value' => $type == 'json' ? json_encode($value) : $value,
         ]);

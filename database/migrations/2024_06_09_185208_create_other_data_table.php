@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('other_data', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('data_id')->nullable();
+            $table->string('question', 600);
             $table->string('key');
             $table->enum('type', ['text', 'json', 'number']);
-            $table->string('value');
+            $table->string('value', 4000);
             $table->timestamps();
         });
     }
