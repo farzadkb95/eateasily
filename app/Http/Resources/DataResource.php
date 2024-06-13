@@ -26,7 +26,7 @@ class DataResource extends JsonResource
             'height' => $this->height,
             'weight' => $this->weight,
             'other' => collect($this->other)->mapWithKeys(function ($item) {
-                return [$item['key'] => $item['type'] == 'json' ? json_decode($item['value']) : $item['type']];
+                return [$item['key'] => $item['type'] == 'json' ? json_decode($item['value']) : $item['value']];
             }),
         ];
     }
