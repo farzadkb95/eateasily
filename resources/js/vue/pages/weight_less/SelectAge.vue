@@ -43,7 +43,7 @@ function operation(age) {
         <ItemBox
           class="text-lg font-semibold"
           @click="operation(18)"
-          :select="testStore.test.age == 18"
+          :select="testStore.test?.age == 18"
         >
           <div class="pt-2 ms-1 h-full relative">
             <div
@@ -59,7 +59,7 @@ function operation(age) {
         <ItemBox
           class="text-lg font-semibold"
           @click="operation(30)"
-          :select="testStore.test.age == 30"
+          :select="testStore.test?.age == 30"
         >
           <div class="pt-2 ms-1 h-full relative">
             <div
@@ -75,7 +75,7 @@ function operation(age) {
         <ItemBox
           class="text-lg font-semibold"
           @click="operation(40)"
-          :select="testStore.test.age == 40"
+          :select="testStore.test?.age == 40"
         >
           <div class="pt-2 ms-1 h-full relative">
             <div
@@ -91,7 +91,7 @@ function operation(age) {
         <ItemBox
           class="text-lg font-semibold"
           @click="operation(50)"
-          :select="testStore.test.age == 50"
+          :select="testStore.test?.age == 50"
         >
           <div class="pt-2 ms-1 h-full relative">
             <div
