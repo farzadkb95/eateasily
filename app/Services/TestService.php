@@ -50,7 +50,7 @@ final class TestService
         $guest->latestTest->save();
     }
 
-    public function setOther(Guest $guest, $step, $question, $value)
+    public function setOther(Guest $guest, $step, $value)
     {
         $type = 'text';
         if (is_numeric($value)) {
@@ -62,7 +62,6 @@ final class TestService
             'data_id' => $guest->latestTest->id,
             'key' => $step,
         ], [
-            'question' => $question,
             'type' => $type,
             'value' => $type == 'json' ? json_encode($value) : $value,
         ]);

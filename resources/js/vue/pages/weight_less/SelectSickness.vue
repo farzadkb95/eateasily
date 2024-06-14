@@ -24,7 +24,6 @@ watchEffect(() => {
 function operation() {
   axios
     .post(`/api/weight-less/set-other`, {
-      question: question,
       value: items.value,
       step: route.name,
     })
@@ -58,7 +57,7 @@ function operation() {
       <div class="flex flex-col gap-4">
         <ItemBox>
           <ItemCheckBox
-            value="کبد چرب"
+            value="1"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
             ><span>کبد چرب</span></ItemCheckBox
@@ -66,7 +65,7 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
-            value="فشار خون"
+            value="2"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
             ><span>فشار خون</span></ItemCheckBox
@@ -74,7 +73,7 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
-            value="دیابت"
+            value="3"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
             ><span>دیابت</span></ItemCheckBox
@@ -82,7 +81,7 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
-            value="چربی خون"
+            value="4"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
             ><span>چربی خون</span></ItemCheckBox
@@ -90,7 +89,7 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
-            value="بارداری/شیر دهی"
+            value="5"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
             ><span>بارداری/شیر دهی</span></ItemCheckBox
@@ -98,7 +97,7 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
-            value="هیچ کدام"
+            value="0"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
             ><span>هیچ کدام</span></ItemCheckBox
