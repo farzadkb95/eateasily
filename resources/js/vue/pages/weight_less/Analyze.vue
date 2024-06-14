@@ -191,7 +191,9 @@ import mezajChart from "@/assets/mezaj_chart.png";
     </div>
 
     <div class="c-box">
-      <Btn class="w-full mt-10 !rounded-xl !h-14"
+      <Btn
+        class="w-full mt-10 !rounded-xl !h-14"
+        :to="{ name: 'weight-less|buy' }"
         >دریافت روش لاغری زیر نظر تیم پزشکی</Btn
       >
     </div>

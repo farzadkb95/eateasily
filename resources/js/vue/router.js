@@ -192,6 +192,12 @@ const routes = [
         name: "weight-less|analyze",
         meta: {},
     },
+    {
+        path: "/weight-less/buy",
+        component: () => import("./pages/weight_less/Buy.vue"),
+        name: "weight-less|buy",
+        meta: {},
+    },
 ];
 
 import {
