@@ -30,6 +30,7 @@ const props = defineProps({
     :class="{
       'bg-green-500 px-6 text-white rounded-2xl shadow-md shadow-green-100 hover:bg-green-600 font-normal':
         props.color == 'green',
+      '!opacity-60 !cursor-not-allowed': disabled,
     }"
     @click="
       props.disabled == false &&
