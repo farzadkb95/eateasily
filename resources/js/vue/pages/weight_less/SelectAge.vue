@@ -9,6 +9,11 @@ import image2 from "@/assets/30woman.png";
 import image3 from "@/assets/40woman.png";
 import image4 from "@/assets/50woman.png";
 
+import mImage1 from "@/assets/18man.png";
+import mImage2 from "@/assets/30man.png";
+import mImage3 from "@/assets/40man.png";
+import mImage4 from "@/assets/50man.png";
+
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
@@ -51,7 +56,12 @@ function operation(age) {
             ></div>
             <div
               class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image1 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test.gender == 'male' ? mImage1 : image1) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>18 تا 30</div>
@@ -67,7 +77,12 @@ function operation(age) {
             ></div>
             <div
               class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image2 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test.gender == 'male' ? mImage2 : image2) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>30 تا 40</div>
@@ -83,7 +98,12 @@ function operation(age) {
             ></div>
             <div
               class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image3 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test.gender == 'male' ? mImage3 : image3) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>40 تا 50</div>
@@ -99,7 +119,12 @@ function operation(age) {
             ></div>
             <div
               class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-bottom"
-              :style="{ 'background-image': 'url(' + image4 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test.gender == 'male' ? mImage4 : image4) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>بالای 50</div>
