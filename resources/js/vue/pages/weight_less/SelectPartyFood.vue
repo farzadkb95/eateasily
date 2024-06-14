@@ -5,11 +5,26 @@ import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
+import { useTestStore } from "../../store/TestStore";
 
 const route = useRoute();
 const router = useRouter();
+const testStore = useTestStore();
 
-function operation() {
+function operation(index) {
+  axios
+    .post(`/api/weight-less/set-other`, {
+      value: index,
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+
   router.push({ name: nextPageName(route.name) });
 }
 </script>
@@ -27,15 +42,23 @@ function operation() {
       <div class="flex gap-5">
         <div
           class="p-5 border-2 border-zinc-200 bg-zinc-50 rounded-3xl flex items-center shrink-0 w-1/2 cursor-pointer"
-          @click="operation"
+          :class="{
+            '!bg-green-50 !border-green-400':
+              testStore.test?.other?.[route.name] == 1,
+          }"
+          @click="operation(1)"
         >
-          <img src="@/assets/food-p27-2.png" alt="" />
+          <img src="@/assets/food-p27-2.png" alt="fast food" />
         </div>
         <div
           class="p-6 border-2 border-zinc-200 bg-zinc-50 rounded-3xl flex items-center shrink-0 w-1/2 cursor-pointer"
-          @click="operation"
+          :class="{
+            '!bg-green-50 !border-green-400':
+              testStore.test?.other?.[route.name] == 2,
+          }"
+          @click="operation(2)"
         >
-          <img src="@/assets/food-p27-1.png" alt="" />
+          <img src="@/assets/food-p27-1.png" alt="vegetables" />
         </div>
       </div>
     </div>

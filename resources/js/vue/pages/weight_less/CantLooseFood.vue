@@ -3,7 +3,7 @@ import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import ItemCheckBox from "../../components/ItemCheckBox.vue";
 import image1 from "@/assets/deser-p21-1.png";
 import image2 from "@/assets/deser-p21-2.png";
@@ -14,13 +14,32 @@ import image6 from "@/assets/deser-p21-6.png";
 import Btn from "../../components/Btn.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
+import { useTestStore } from "../../store/TestStore";
 
 const items = ref([]);
 
 const route = useRoute();
 const router = useRouter();
+const testStore = useTestStore();
+
+watchEffect(() => {
+  items.value = testStore.test?.other?.[route.name] || [];
+});
 
 function operation() {
+  axios
+    .post(`/api/weight-less/set-other`, {
+      value: items.value,
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+
   router.push({ name: nextPageName(route.name) });
 }
 </script>
@@ -42,7 +61,7 @@ function operation() {
       <div class="flex flex-col gap-4">
         <ItemBox class="!text-lg">
           <ItemCheckBox
-            value="شیرینی خامه ای"
+            value="1"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
           >
@@ -59,7 +78,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="!text-lg">
           <ItemCheckBox
-            value="باقلوا"
+            value="2"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
           >
@@ -76,7 +95,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="!text-lg">
           <ItemCheckBox
-            value="نوشابه و دلستر"
+            value="3"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
           >
@@ -93,7 +112,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="!text-lg">
           <ItemCheckBox
-            value="شیرکاکائو با کیک"
+            value="4"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
           >
@@ -110,7 +129,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="!text-lg">
           <ItemCheckBox
-            value="چیپس و پفک"
+            value="5"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
           >
@@ -127,7 +146,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="!text-lg">
           <ItemCheckBox
-            value="پاستیل"
+            value="6"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
           >
