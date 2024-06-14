@@ -6,8 +6,7 @@ const props = defineProps(["current", "ideal", "long"]);
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xml:space="preserve"
-    width="3.99999in"
-    height="2.99999in"
+    class="w-[400px] max-w-full"
     version="1.1"
     style="
       shape-rendering: geometricPrecision;
