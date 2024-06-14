@@ -11,6 +11,7 @@ import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
 
 const items = ref([]);
+const none = ref(false);
 
 const route = useRoute();
 const router = useRouter();
@@ -56,6 +57,7 @@ function operation() {
       <div class="flex flex-col gap-4">
         <ItemBox>
           <ItemCheckBox
+            @on="none = false"
             value="1"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -64,6 +66,7 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
+            @on="none = false"
             value="2"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -72,6 +75,7 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
+            @on="none = false"
             value="3"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -80,14 +84,16 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
+            @on="none = false"
             value="4"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
             ><span>چربی خون</span></ItemCheckBox
           >
         </ItemBox>
-        <ItemBox>
+        <ItemBox v-if="testStore.test?.gender != 'male'">
           <ItemCheckBox
+            @on="none = false"
             value="5"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -96,8 +102,9 @@ function operation() {
         </ItemBox>
         <ItemBox>
           <ItemCheckBox
+            @on="items = []"
             value="0"
-            v-model="items"
+            v-model="none"
             class="px-3 h-full w-full cursor-pointer"
             ><span>هیچ کدام</span></ItemCheckBox
           >
