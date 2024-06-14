@@ -41,9 +41,16 @@ function operation() {
     <div class="c-box">
       <QuestionBox><p>وزنت چقدره؟</p></QuestionBox>
 
-      <Input placeholder="kg (کیلو گرم)" v-model="weight" type="number" />
+      <form @submit.prevent="operation">
+        <Input placeholder="kg (کیلو گرم)" v-model="weight" type="number" />
 
-      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
+        <Btn
+          class="w-full mt-6 !rounded-xl !h-14"
+          type="submit"
+          :disabled="!weight"
+          >ثبت</Btn
+        >
+      </form>
     </div>
   </Base>
 </template>

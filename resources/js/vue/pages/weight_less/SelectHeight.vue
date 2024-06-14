@@ -40,9 +40,16 @@ function operation() {
     <div class="c-box">
       <QuestionBox><p>قد خودت رو وارد کن!</p></QuestionBox>
 
-      <Input placeholder="cm (سانتی متر)" v-model="height" type="number" />
+      <form @submit.prevent="operation">
+        <Input placeholder="cm (سانتی متر)" v-model="height" type="number" />
 
-      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
+        <Btn
+          class="w-full mt-6 !rounded-xl !h-14"
+          type="submit"
+          :disabled="!height"
+          >ثبت</Btn
+        >
+      </form>
     </div>
   </Base>
 </template>
