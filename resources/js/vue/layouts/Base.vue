@@ -5,6 +5,7 @@ import { Icon } from "@iconify/vue";
 
 import { useRoute, useRouter } from "vue-router";
 import { previousPageName, pageNumber, pagesCount } from "../modules/config";
+import Raw from "./Raw.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -15,14 +16,7 @@ function previousPage() {
 </script>
 
 <template>
-  <div class="mb-48">
-    <header
-      class="shadow-emerald-100 shadow-lg flex items-center justify-center h-12"
-    >
-      <div class="py-2 h-full">
-        <img src="@/assets/logo.png" alt="" class="h-full" />
-      </div>
-    </header>
+  <Raw>
     <div class="max-md:px-3">
       <div class="px-2">
         <div
@@ -60,5 +54,5 @@ function previousPage() {
         <slot></slot>
       </main>
     </div>
-  </div>
+  </Raw>
 </template>
