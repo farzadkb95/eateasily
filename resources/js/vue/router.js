@@ -186,7 +186,12 @@ const routes = [
         meta: {},
     },
 
-
+    {
+        path: "/weight-less/analyze",
+        component: () => import("./pages/weight_less/Analyze.vue"),
+        name: "weight-less|analyze",
+        meta: {},
+    },
 ];
 
 import {

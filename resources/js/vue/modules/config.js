@@ -42,6 +42,7 @@ export const pages = [
         "weight-less|select-party-food",
         "weight-less|social-relationship",
         "weight-less|community-influence",
+        "weight-less|analyze",
     ]
 ]
 
