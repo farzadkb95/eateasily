@@ -153,10 +153,10 @@ import QuestionDropDown from "../../components/QuestionDropDown.vue";
         </IconSideCard>
       </div>
       <div
-        class="sm:border-2 rounded-2xl border-pink-500 px-10 py-12 mt-16 relative"
+        class="sm:border-2 rounded-2xl border-pink-500 px-5 sm:px-10 py-12 mt-16 relative"
       >
         <div
-          class="bg-white absolute -top-4 px-10 right-1/2 translate-x-1/2 text-2xl font-bold"
+          class="bg-white absolute -top-4 sm:px-10 right-1/2 translate-x-1/2 text-2xl font-bold"
         >
           دریافت ایت ایزیلی
         </div>
