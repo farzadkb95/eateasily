@@ -1,23 +1,26 @@
 <script setup>
 import Btn from "../../components/Btn.vue";
+import ScrollX from "../../components/ScrollX.vue";
 import Base from "../../layouts/Base.vue";
 import mezajChart from "@/assets/mezaj_chart.png";
 </script>
 
 <template>
   <Base>
-    <div class="flex gap-2 my-4 justify-center">
-      <div class="border rounded-full px-2 py-1 text-zinc-500">آنالیز وزنی</div>
-      <div class="border rounded-full px-2 py-1 text-zinc-500">
+    <ScrollX class="flex gap-2 my-4 md:justify-center max-w-full">
+      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
+        آنالیز وزنی
+      </div>
+      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
         آنالیز سن واقعی
       </div>
-      <div class="border rounded-full px-2 py-1 text-zinc-500">
+      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
         آنالیز مزاج شناسی
       </div>
-      <div class="border rounded-full px-2 py-1 text-zinc-500">
+      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
         آنالیز نیم کره
       </div>
-    </div>
+    </ScrollX>
     <div class="c-container h-0 !my-10 px-1">
       <hr />
       <div
@@ -118,7 +121,7 @@ import mezajChart from "@/assets/mezaj_chart.png";
         </div>
       </div>
       <div
-        class="w-[340px] aspect-square bg-contain bg-no-repeat bg-center mx-auto my-5 flex items-center justify-center"
+        class="max-w-full w-[340px] aspect-square bg-contain bg-no-repeat bg-center mx-auto my-5 flex items-center justify-center"
         :style="{
           'background-image': 'url(' + mezajChart + ')',
         }"
