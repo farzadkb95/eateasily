@@ -14,11 +14,11 @@ const props = defineProps(["image1", "image2", "w1", "w2"]);
             :style="{ 'background-image': 'url(' + props.image1 + ')' }"
           ></div>
         </div>
-        <dir
+        <div
           class="border border-white border-t-0 rounded-b-xl w-[70%] bg-pink-500 my-0 text-white text-center px-0"
         >
           <span class="text-xl">{{ props.w1 }}</span> کیلو
-        </dir>
+        </div>
       </div>
       <div class="w-1/2 flex flex-col items-center relative">
         <img
@@ -32,11 +32,11 @@ const props = defineProps(["image1", "image2", "w1", "w2"]);
             :style="{ 'background-image': 'url(' + props.image2 + ')' }"
           ></div>
         </div>
-        <dir
+        <div
           class="border border-white border-t-0 rounded-b-xl w-[70%] bg-pink-500 my-0 text-white text-center px-0"
         >
           <span class="text-xl">{{ props.w2 }}</span> کیلو
-        </dir>
+        </div>
       </div>
       <svg
         class="absolute bottom-4 right-1/2 translate-x-1/2"

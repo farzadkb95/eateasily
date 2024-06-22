@@ -4,7 +4,7 @@ const props = defineProps(["time"]);
 
 <template>
   <div
-    class="flex gap-3 p-5 rounded-xl relative"
+    class="flex gap-3 p-5 sm:rounded-xl relative"
     :class="{ 'bg-pink-100': props.time }"
   >
     <div

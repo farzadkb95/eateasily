@@ -11,10 +11,13 @@ import before2 from "@/assets/before2.jpg";
 import after2 from "@/assets/after2.jpg";
 import before3 from "@/assets/before3.png";
 import after3 from "@/assets/after3.png";
+import ScrollX from "../../components/ScrollX.vue";
+import UserNote from "../../components/UserNote.vue";
+import QuestionDropDown from "../../components/QuestionDropDown.vue";
 </script>
 
 <template>
-  <Raw>
+  <Raw class="bg-white">
     <div class="bg-gradient-to-t from-green-50 to-white">
       <div class="c-container flex max-md:flex-col gap-5 pt-16 md:pb-10">
         <div class="w-full flex justify-center">
@@ -22,6 +25,11 @@ import after3 from "@/assets/after3.png";
             <h1 class="text-5xl font-black leading-normal">
               کاهش وزن 6 تا 8 کیلوگرم در ماه با
               <span class="text-green-500">ایت ایزیلی</span>
+              <img
+                src="@/assets/draw.png"
+                class="inline-block mx-2 w-24"
+                alt=""
+              />
             </h1>
             <p class="text-xl mt-5">
               به جمع هــزاران نفری که با کمک ایت ایزیلی به وزن و اندام دلخواهشون
@@ -145,7 +153,7 @@ import after3 from "@/assets/after3.png";
         </IconSideCard>
       </div>
       <div
-        class="border-2 rounded-2xl border-pink-500 px-10 py-12 mt-16 relative"
+        class="sm:border-2 rounded-2xl border-pink-500 px-10 py-12 mt-16 relative"
       >
         <div
           class="bg-white absolute -top-4 px-10 right-1/2 translate-x-1/2 text-2xl font-bold"
@@ -189,7 +197,9 @@ import after3 from "@/assets/after3.png";
       <div class="mb-10 text-center text-2xl font-bold">
         تغییرات کاربران ایت ایزیلی
       </div>
-      <div class="flex gap-5 justify-center">
+      <div
+        class="flex max-md:flex-col gap-5 justify-center max-md:items-center"
+      >
         <UserChange
           :image1="before1"
           :image2="after1"
@@ -210,5 +220,68 @@ import after3 from "@/assets/after3.png";
         ></UserChange>
       </div>
     </div>
+    <div class="mt-20">
+      <div class="mb-10 text-center text-2xl font-bold">
+        نظرات کاربران ایت ایزیلی
+      </div>
+      <div class="flex justify-center">
+        <ScrollX class="flex py-10 px-5 w-[1000px]">
+          <div class="w-[320px] p-2 shrink-0">
+            <UserNote></UserNote>
+          </div>
+          <div class="w-[320px] p-2 shrink-0">
+            <UserNote></UserNote>
+          </div>
+          <div class="w-[320px] p-2 shrink-0">
+            <UserNote></UserNote>
+          </div>
+          <div class="w-[320px] p-2 shrink-0">
+            <UserNote></UserNote>
+          </div>
+        </ScrollX>
+      </div>
+    </div>
+    <div class="mt-20 bg-gradient-to-b from-emerald-100 to-white relative">
+      <svg
+        viewBox="0 0 276.04 46.08"
+        class="w-60 fill-white absolute -top-[5px] right-1/2 translate-x-1/2"
+      >
+        <path
+          class="fil0"
+          d="M37.89 14.09c13.24,7.84 19.97,16.4 32.42,22.83 15.86,8.18 25.95,8.95 46.19,9.01 7.1,0.03 14.3,0.1 21.52,0.15 7.22,-0.05 14.42,-0.12 21.52,-0.15 20.24,-0.06 30.32,-0.83 46.19,-9.01 12.45,-6.43 19.18,-14.99 32.42,-22.83 12.22,-7.25 24.5,-8.17 37.89,-8.25l0 -5.84 -138.02 0 -138.02 0 0 5.84c13.39,0.08 25.67,1 37.89,8.25z"
+        />
+      </svg>
+      <div
+        class="absolute -top-[5px] right-1/2 translate-x-1/2 font-bold text-xl"
+      >
+        سوالات متداول
+      </div>
+
+      <div class="max-w-full w-[612px] mx-auto pt-20 px-5">
+        <div class="flex flex-col gap-5">
+          <QuestionDropDown></QuestionDropDown>
+          <QuestionDropDown></QuestionDropDown>
+          <QuestionDropDown></QuestionDropDown>
+          <QuestionDropDown></QuestionDropDown>
+          <QuestionDropDown></QuestionDropDown>
+        </div>
+        <Btn class="max-w-full mx-auto mt-10 !rounded-xl !h-14 w-[500px]"
+          >دریافت برنامه</Btn
+        >
+      </div>
+    </div>
   </Raw>
+  <div class="fixed w-full bottom-0 h-0 -z-10">
+    <div
+      class="rounded-full w-[500px] mix-w-[500px] aspect-square bg-emerald-50 p-8 absolute bottom-[-360px] ms-[50%] translate-x-1/2"
+    >
+      <div
+        class="rounded-full w-full aspect-square bg-emerald-100 bottom-0 p-8"
+      >
+        <div
+          class="rounded-full w-full aspect-square bg-emerald-200 bottom-0"
+        ></div>
+      </div>
+    </div>
+  </div>
 </template>
