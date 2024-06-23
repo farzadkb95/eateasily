@@ -3,12 +3,18 @@ import Btn from "../../components/Btn.vue";
 import ScrollX from "../../components/ScrollX.vue";
 import Base from "../../layouts/Base.vue";
 import mezajChart from "@/assets/mezaj_chart.png";
+import { useTestStore } from "../../store/TestStore";
+import { ref } from "vue";
+
+const testStore = useTestStore();
+const result = ref({});
 
 function getAnalyze() {
   axios
     .get(`/api/weight-less/analyze`)
     .then(function (response) {
       console.log("aaa", response.data);
+      result.value = response.data;
     })
     .catch(function (error) {
       console.log(error.message);
@@ -51,10 +57,17 @@ getAnalyze();
       <div>
         <p class="my-5 p-5">
           دوست خوبم! با توجه به شرایط شمـا، وزن ایده آل شما
-          <span class="text-green-500">70 کیلو</span> هست و فقط کافیه
-          <span class="text-green-500">2 ماه</span> با تیم پزشکی همراه باشی تا
-          از شر این
-          <span class="text-red-500">10 کیلو اضافه وزن</span>
+          <span class="text-green-500"
+            >{{ testStore.test?.ideal_weight }} کیلو</span
+          >
+          هست و فقط کافیه
+          <span class="text-green-500"
+            >{{ testStore.test?.ideal_weight_time }} ماه</span
+          >
+          با تیم پزشکی همراه باشی تا از شر این
+          <span class="text-red-500"
+            >{{ testStore.test?.extra_weight }} کیلو اضافه وزن</span
+          >
           خلاص بشی!!
         </p>
       </div>
@@ -142,8 +155,8 @@ getAnalyze();
         <div
           class="bg-green-300 w-6 h-6 rounded-full p-1"
           :style="{
-            'margin-top': -2 * 60 + 'px',
-            'margin-right': -2 * 60 + 'px',
+            'margin-top': -result?.y * 60 + 'px',
+            'margin-right': -result?.x * 60 + 'px',
           }"
         >
           <div class="bg-green-500 w-full h-full rounded-full"></div>
