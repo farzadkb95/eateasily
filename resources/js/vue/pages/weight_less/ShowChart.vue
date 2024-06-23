@@ -22,8 +22,11 @@ function operation() {
   <Base>
     <QuestionBox class="mb-4 !text-xl"
       ><p>
-        شما در حال حاضر <span class="text-red-500">10 کیلوگرم</span> اضافه وزن
-        دارید و تنها نیستید!
+        شما در حال حاضر
+        <span class="text-red-500"
+          >{{ testStore.test?.extra_weight }} کیلوگرم</span
+        >
+        اضافه وزن دارید و تنها نیستید!
       </p></QuestionBox
     >
     <p class="text-center text-lg font-[400] my-5">
@@ -31,14 +34,22 @@ function operation() {
     </p>
     <div class="c-box">
       <div class="w-fit mx-auto relative">
-        <Chart :current="testStore.test?.weight" :ideal="96" :long="2" />
+        <Chart
+          :current="testStore.test?.weight"
+          :ideal="testStore.test?.ideal_weight"
+          :long="testStore.test?.ideal_weight_time"
+        />
       </div>
     </div>
     <div class="c-box">
       <LightInfoBox class="text-lg font-bold text-slate-800"
         >خوشبختانه <span class="text-green-500">%93</span> از افـراد با وضعیت
-        مشابه شما فقط <span class="text-green-500">2 ماه</span> زمـان نیـاز
-        داشتـن تـا زیر نظـر تیم پزشکـی مـا به وزن ایده آلشون برسن.</LightInfoBox
+        مشابه شما فقط
+        <span class="text-green-500"
+          >{{ testStore.test?.ideal_weight_time }} ماه</span
+        >
+        زمـان نیـاز داشتـن تـا زیر نظـر تیم پزشکـی مـا به وزن ایده آلشون
+        برسن.</LightInfoBox
       >
 
       <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ادامه</Btn>
