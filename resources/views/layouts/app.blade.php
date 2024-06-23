@@ -16,9 +16,6 @@
     {{-- other meta tags --}}
 
     {{-- tags we want add just in production mode --}}
-    @production
-        <link rel="manifest" href="/manifest.json" />
-    @endproduction
 </head>
 
 <body>
