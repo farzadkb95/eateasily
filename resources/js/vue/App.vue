@@ -1,14 +1,16 @@
 <script setup>
 import user from "@/modules/user";
 import axios from "axios";
-import { onMounted } from "vue";
+import { onMounted, watchEffect } from "vue";
 import { useTestStore } from "./store/TestStore";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const testStore = useTestStore();
 const route = useRoute();
+const router = useRouter();
 
 onMounted(async () => {
+  await router.isReady();
   await user.initial();
   const pathPart = route.path.split("/");
   console.log("rrrr", pathPart);
