@@ -50,7 +50,14 @@ getAnalyze();
     </div>
     <div class="c-box">
       <img
+        v-if="testStore.test?.gender == 'female'"
         src="@/assets/woman-change-weight.png"
+        class="w-[300px] max-w-full mx-auto"
+        alt=""
+      />
+      <img
+        v-else
+        src="@/assets/man-change-weight.png"
         class="w-[300px] max-w-full mx-auto"
         alt=""
       />
@@ -80,7 +87,7 @@ getAnalyze();
         سن واقعی شما
       </div>
     </div>
-    <div class="c-box">
+    <div class="c-box" v-if="result.age_offset > 0">
       <div
         class="bg-red-50 border border-red-500 text-red-600 text-lg text-center rounded-md p-5 relative !mt-16"
       >
@@ -90,7 +97,8 @@ getAnalyze();
           هشدار
         </div>
         <p class="mt-5">
-          شما توی 30 سالگی داری با یک بدن 34 ساله زندگی می‌کنی!
+          شما توی {{ testStore.test?.age }} سالگی داری با یک بدن
+          {{ testStore.test?.age + result.age_offset }} ساله زندگی می‌کنی!
           <br />
           لطفا مراقب سلامتیت باش!
         </p>
@@ -100,6 +108,25 @@ getAnalyze();
       </div>
       <p class="text-lg px-5 text-center">
         99% افـراد تونستن با 2 تا راهکار سـاده جلوی پیری زودرس خودشون رو بگیرند!
+      </p>
+    </div>
+    <div class="c-box" v-else>
+      <div
+        class="bg-green-50 border border-green-500 text-green-600 text-lg text-center rounded-md p-5 relative !mt-16"
+      >
+        <div
+          class="absolute w-fit bg-green-500 text-white px-10 py-1 rounded-md -top-4 right-1/2 translate-x-1/2"
+        >
+          تبریک!
+        </div>
+        <p class="mt-5">
+          شما توی {{ testStore.test?.age }} سالگی داری با یک بدن
+          {{ testStore.test?.age + result.age_offset }} ساله زندگی می‌کنی!
+        </p>
+      </div>
+      <p class="text-lg px-5 text-center mt-8">
+        فقط %0.7 افراد سن بیولوژیک کمتری نسبت به سن واقعی خودشون دارن، قدر خودت
+        رو بدون!
       </p>
     </div>
     <div class="c-container h-0 !my-10 px-1">
@@ -172,9 +199,20 @@ getAnalyze();
       </div>
     </div>
     <div class="c-box">
-      <img src="@/assets/right-brain.png" class="w-[200px] mx-auto" alt="" />
+      <img
+        v-if="result.r >= result.l"
+        src="@/assets/right-brain.png"
+        class="w-[200px] mx-auto"
+        alt=""
+      />
+      <img
+        v-else
+        src="@/assets/right-brain.png"
+        class="w-[200px] mx-auto"
+        alt=""
+      />
 
-      <div class="text-xl my-5">
+      <div class="text-xl my-5" v-if="result.r >= result.l">
         طبق آنالیز سمت <span class="text-green-500">راست</span> مغز شما فعال تر
         هست! <br />
         برنـامه غـذایی سختگیرانه مثل فستینگ، کـالـری شمـار و یا کتوژنیک
@@ -184,6 +222,13 @@ getAnalyze();
         <br />
         یادت باشـه شمـا نباید سفـره‌ت از سفره خانواده جدا بشه.
       </div>
+      <div class="text-xl my-5" v-else>
+        طبق آنالیز سمت <span class="text-green-500">چپ</span> مغز شما فعال تر
+        هست! <br />
+        شما فرد پر اراده ای هستی ولی برای کاهش وزن نیاز به برنامه هـای منظم و
+        سختگـیرانه مثل کـالری شمـار و یا کتوژنیک نداری!
+      </div>
+
       <div class="!mt-16">
         <div
           class="w-fit bg-red-500 text-white px-10 pt-2 text-xl rounded-t-xl mx-auto"
@@ -195,7 +240,7 @@ getAnalyze();
         >
           <p class="">
             با توجه با آنالیز رفتار شناسی شما، اگر با همین سبک تغذیه‌ فعلـی
-            ادامه بدی به احتمال %80 طـی چندماه آینده
+            ادامه بدی به احتمال %{{ result.fat_risk }} طـی چندماه آینده
             <span class="text-red-600">8kg (کیلوگرم)</span> ریسک افزایش وزن
             دارید!!!
           </p>
