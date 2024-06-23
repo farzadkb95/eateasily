@@ -87,21 +87,21 @@ final class TestService
         $test['other'] = $other;
 
         return [
-            'x' => $this->calcX($test),
-            'y' => $this->calcY($test),
-            'r' => $this->calcR($test),
-            'l' => $this->calcL($test),
-            'age_offset' => $this->calcAgeOffset($test),
-            'fat_risk' => $this->calcFatRisk($test),
+            'x' => round($this->calcX($test), 1),
+            'y' => round($this->calcY($test), 1),
+            'r' => round($this->calcR($test), 0),
+            'l' => round($this->calcL($test), 0),
+            'age_offset' => round($this->calcAgeOffset($test), 1),
+            'fat_risk' => round($this->calcFatRisk($test), 0),
         ];
 
     }
 
     protected function calcX($test)
     {
-        $x = 0;
+        $x = [];
 
-        $x += [
+        $x[] = [
             1 => -2,
             2 => 3,
             3 => 3,
@@ -109,20 +109,20 @@ final class TestService
             5 => 4,
         ][$test['other']['weight-less|select-weight-type']];
 
-        $x += [
+        $x[] = [
             1 => -1,
             2 => 0,
             3 => 3,
         ][$test['other']['weight-less|sleep-question']];
 
-        $x += [
+        $x[] = [
             1 => -2,
             2 => 2,
             3 => 2,
             4 => -2,
         ][$test['other']['weight-less|fingers-form']];
 
-        $x += [
+        $x[] = [
             1 => 0,
             2 => 0,
             3 => 2,
@@ -130,40 +130,42 @@ final class TestService
             5 => -3,
         ][$test['other']['weight-less|your-description-two']];
 
-        $x += [
+        $x[] = [
             1 => 3,
             2 => 0,
             3 => -3,
         ][$test['other']['weight-less|wrist-size']];
 
-        return $x;
+        $x = array_filter($x);
+
+        return array_sum($x) / count($x);
     }
 
     protected function calcY($test)
     {
-        $y = 0;
+        $y = [];
 
-        $y += [
+        $y[] = [
             1 => -2,
             2 => 0,
             3 => 2,
             4 => 1,
         ][$test['other']['weight-less|smooth-muscle']];
 
-        $y += [
+        $y[] = [
             1 => 2,
             2 => 2,
             3 => -2,
             4 => -2,
         ][$test['other']['weight-less|fingers-form']];
 
-        $y += [
+        $y[] = [
             1 => 3,
             2 => 0,
             3 => -4,
         ][$test['other']['weight-less|pulse-status']];
 
-        $y += [
+        $y[] = [
             1 => -3,
             2 => 3,
             3 => 0,
@@ -171,89 +173,99 @@ final class TestService
             5 => 2,
         ][$test['other']['weight-less|your-description-two']];
 
-        $y += [
+        $y[] = [
             1 => -2,
             2 => 0,
             3 => 2,
         ][$test['other']['weight-less|wrist-size']];
 
-        return $y;
+        $y = array_filter($y);
+
+        return array_sum($y) / count($y);
     }
 
     protected function calcR($test)
     {
-        $r = 0;
+        $r = [];
 
-        $r += [
+        $r[] = [
             1 => 60,
             2 => 40,
         ][$test['other']['weight-less|relish-condition']];
 
-        $r += [
+        $r[] = [
             1 => 60,
             2 => 40,
         ][$test['other']['weight-less|weight-less-target']];
 
-        return $r;
+        $r = array_filter($r);
+
+        return array_sum($r) / count($r);
     }
 
     protected function calcL($test)
     {
-        $l = 0;
+        $l = [];
 
-        $l += [
+        $l[] = [
             1 => 40,
             2 => 60,
         ][$test['other']['weight-less|relish-condition']];
 
-        $l += [
+        $l[] = [
             1 => 40,
             2 => 60,
         ][$test['other']['weight-less|weight-less-target']];
 
-        return $l;
+        $l = array_filter($l);
+
+        return array_sum($l) / count($l);
     }
 
     protected function calcAgeOffset($test)
     {
-        $age = 0;
+        $age = [];
 
-        $age += [
+        $age[] = [
             1 => 5,
             2 => 3,
             3 => 0,
             4 => -1.5,
         ][$test['other']['weight-less|walking-condition']];
 
-        $age += [
+        $age[] = [
             1 => -1,
             2 => 0,
             3 => 4,
         ][$test['other']['weight-less|sleep-question']];
 
-        return $age;
+        $age = array_filter($age);
+
+        return array_sum($age) / count($age);
     }
 
     protected function calcFatRisk($test)
     {
-        $risk = 0;
+        $risk = [];
 
-        $risk += [
+        $risk[] = [
             1 => 60,
             2 => 20,
         ][$test['other']['weight-less|your-description']];
 
-        $risk += [
+        $risk[] = [
             1 => 70,
             2 => 30,
         ][$test['other']['weight-less|social-relationship']];
 
-        $risk += [
+        $risk[] = [
             1 => 70,
             2 => 50,
             3 => 30,
         ][$test['other']['weight-less|community-influence']];
 
-        return $risk;
+        $risk = array_filter($risk);
+
+        return array_sum($risk) / count($risk);
     }
 }
