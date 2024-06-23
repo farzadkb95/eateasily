@@ -91,7 +91,6 @@ final class TestService
             'y' => $this->calcY($test),
             'r' => $this->calcR($test),
             'l' => $this->calcL($test),
-            'pfc' => $this->calcPFC($test),
             'age_offset' => $this->calcAgeOffset($test),
             'fat_risk' => $this->calcFatRisk($test),
         ];
@@ -213,34 +212,6 @@ final class TestService
         ][$test['other']['weight-less|weight-less-target']];
 
         return $l;
-    }
-
-    protected function calcPFC($test)
-    {
-        $pfc = 0;
-
-        $pfc += [
-            1 => 30,
-            2 => 70,
-        ][$test['other']['weight-less|relish-condition']];
-
-        $pfc += [
-            1 => 30,
-            2 => 70,
-        ][$test['other']['weight-less|weight-less-target']];
-
-        $pfc += [
-            1 => 40,
-            2 => 60,
-        ][$test['other']['weight-less|social-relationship']];
-
-        $pfc += [
-            1 => 30,
-            2 => 50,
-            3 => 80,
-        ][$test['other']['weight-less|community-influence']];
-
-        return $pfc;
     }
 
     protected function calcAgeOffset($test)
