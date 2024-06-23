@@ -3,6 +3,19 @@ import Btn from "../../components/Btn.vue";
 import ScrollX from "../../components/ScrollX.vue";
 import Base from "../../layouts/Base.vue";
 import mezajChart from "@/assets/mezaj_chart.png";
+
+function getAnalyze() {
+  axios
+    .get(`/api/weight-less/analyze`)
+    .then(function (response) {
+      console.log("aaa", response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+}
+getAnalyze();
 </script>
 
 <template>

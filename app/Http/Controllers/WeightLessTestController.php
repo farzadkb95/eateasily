@@ -42,4 +42,11 @@ class WeightLessTestController extends Controller
 
         return response()->json(new GuestDataResource($request->guest()));
     }
+
+    public function getAnalyze(Request $request, TestService $testService)
+    {
+        $result = $testService->analyze($request->guest());
+
+        return response()->json($result);
+    }
 }
