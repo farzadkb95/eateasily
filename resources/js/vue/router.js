@@ -198,6 +198,12 @@ const routes = [
         name: "weight-less|buy",
         meta: {},
     },
+    {
+        path: "/login",
+        component: () => import("./pages/Login.vue"),
+        name: "login",
+        meta: {},
+    },
 ];
 
 import {
