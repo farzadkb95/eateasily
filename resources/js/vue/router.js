@@ -204,6 +204,12 @@ const routes = [
         name: "login",
         meta: {},
     },
+    {
+        path: "/panel",
+        component: () => import("./pages/admin/Panel.vue"),
+        name: "panel",
+        meta: {},
+    },
 ];
 
 import {
