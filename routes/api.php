@@ -4,12 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\WeightLessTestController;
 use App\Http\Middleware\NotEnterMiddleware;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
 
 Route::post('/login', [AuthController::class, 'login'])->middleware(NotEnterMiddleware::class);
 Route::get('/initial-data', [AuthController::class, 'initialData']);
