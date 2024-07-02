@@ -76,7 +76,12 @@ final class TestService
 
     public function analyze(Guest $guest)
     {
+        /**
+         * @var Data $test
+         */
         $test = $guest->latestTest()->where('status', 'in_process')->with('other')->first();
+        $test->status = 'finished';
+        $test->save();
 
         $other = $test->other->mapWithKeys(function ($item) {
             return [$item['key'] => $item['type'] == 'json' ? json_decode($item['value']) : $item['value']];

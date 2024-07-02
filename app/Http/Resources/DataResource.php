@@ -28,7 +28,7 @@ class DataResource extends JsonResource
         }
 
         return [
-            // 'id' => $this->id,
+            'id' => $this->id,
             // 'user_id' => $this->user_id,
             // 'guest_id' => $this->guest_id,
             'status' => $this->status,

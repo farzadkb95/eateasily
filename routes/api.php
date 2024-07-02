@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\WeightLessTestController;
@@ -10,6 +11,9 @@ Route::post('/login', [AuthController::class, 'login'])->middleware(NotEnterMidd
 Route::get('/initial-data', [AuthController::class, 'initialData']);
 Route::get('/get-latest-test', [TestController::class, 'latestTest']);
 Route::post('/new-test', [TestController::class, 'newTest']);
+
+Route::get('/admin/get-tests', [AdminController::class, 'getTests']);
+Route::get('/admin/get-tests-count', [AdminController::class, 'getTestsCount']);
 
 Route::prefix('weight-less/')->group(function () {
     Route::post('/select-gender', [WeightLessTestController::class, 'selectGender']);
