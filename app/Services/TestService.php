@@ -136,9 +136,9 @@ final class TestService
             3 => -3,
         ][$test['other']['weight-less|wrist-size']];
 
-        $x = array_filter($x);
-
-        return array_sum($x) / count($x);
+        return collect($x)->reject(function ($value) {
+            return $value === null || $value === '';
+        })->avg();
     }
 
     protected function calcY($test)
@@ -179,9 +179,9 @@ final class TestService
             3 => 2,
         ][$test['other']['weight-less|wrist-size']];
 
-        $y = array_filter($y);
-
-        return array_sum($y) / count($y);
+        return collect($y)->reject(function ($value) {
+            return $value === null || $value === '';
+        })->avg();
     }
 
     protected function calcR($test)
@@ -198,9 +198,9 @@ final class TestService
             2 => 40,
         ][$test['other']['weight-less|weight-less-target']];
 
-        $r = array_filter($r);
-
-        return array_sum($r) / count($r);
+        return collect($r)->reject(function ($value) {
+            return $value === null || $value === '';
+        })->avg();
     }
 
     protected function calcL($test)
@@ -217,9 +217,9 @@ final class TestService
             2 => 60,
         ][$test['other']['weight-less|weight-less-target']];
 
-        $l = array_filter($l);
-
-        return array_sum($l) / count($l);
+        return collect($l)->reject(function ($value) {
+            return $value === null || $value === '';
+        })->avg();
     }
 
     protected function calcAgeOffset($test)
@@ -239,9 +239,9 @@ final class TestService
             3 => 4,
         ][$test['other']['weight-less|sleep-question']];
 
-        $age = array_filter($age);
-
-        return array_sum($age) / count($age);
+        return collect($age)->reject(function ($value) {
+            return $value === null || $value === '';
+        })->avg();
     }
 
     protected function calcFatRisk($test)
@@ -264,8 +264,13 @@ final class TestService
             3 => 30,
         ][$test['other']['weight-less|community-influence']];
 
-        $risk = array_filter($risk);
+        return collect($risk)->reject(function ($value) {
+            return $value === null || $value === '';
+        })->avg();
+    }
 
-        return array_sum($risk) / count($risk);
+    protected function removeNull($var)
+    {
+        return $var !== null && $var !== false && $var !== '';
     }
 }
