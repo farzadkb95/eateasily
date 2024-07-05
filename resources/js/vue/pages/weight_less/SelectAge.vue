@@ -17,15 +17,41 @@ import mImage4 from "@/assets/50man.png";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import Btn from "../../components/Btn.vue";
+import Input from "../../components/Input.vue";
+import { computed, ref } from "vue";
 
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();
+const age = ref(null);
 
-function operation(age) {
+const image = computed(() => {
+  if (testStore.test.gender == "male") {
+    if (age.value >= 50) {
+      return mImage4;
+    } else if (age.value >= 40) {
+      return mImage3;
+    } else if (age.value >= 30) {
+      return mImage2;
+    }
+    return mImage1;
+  } else {
+    if (age.value >= 50) {
+      return image4;
+    } else if (age.value >= 40) {
+      return image3;
+    } else if (age.value >= 30) {
+      return image2;
+    }
+    return image1;
+  }
+});
+
+function operation() {
   axios
     .post(`/api/weight-less/select-age`, {
-      age: age,
+      age: age.value,
       step: route.name,
     })
     .then(function (response) {
@@ -44,91 +70,33 @@ function operation(age) {
   <Base>
     <div class="c-box">
       <QuestionBox><p>چند سالته؟</p></QuestionBox>
-      <div class="flex flex-col gap-4">
-        <ItemBox
-          class="text-lg font-semibold"
-          @click="operation(18)"
-          :select="testStore.test?.age == 18"
-        >
-          <div class="pt-2 ms-1 h-full relative">
-            <div
-              class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
-            ></div>
-            <div
-              class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{
-                'background-image':
-                  'url(' +
-                  (testStore.test.gender == 'male' ? mImage1 : image1) +
-                  ')',
-              }"
-            ></div>
-          </div>
-          <div>18 تا 30</div>
-        </ItemBox>
-        <ItemBox
-          class="text-lg font-semibold"
-          @click="operation(30)"
-          :select="testStore.test?.age == 30"
-        >
-          <div class="pt-2 ms-1 h-full relative">
-            <div
-              class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
-            ></div>
-            <div
-              class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{
-                'background-image':
-                  'url(' +
-                  (testStore.test.gender == 'male' ? mImage2 : image2) +
-                  ')',
-              }"
-            ></div>
-          </div>
-          <div>30 تا 40</div>
-        </ItemBox>
-        <ItemBox
-          class="text-lg font-semibold"
-          @click="operation(40)"
-          :select="testStore.test?.age == 40"
-        >
-          <div class="pt-2 ms-1 h-full relative">
-            <div
-              class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
-            ></div>
-            <div
-              class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{
-                'background-image':
-                  'url(' +
-                  (testStore.test.gender == 'male' ? mImage3 : image3) +
-                  ')',
-              }"
-            ></div>
-          </div>
-          <div>40 تا 50</div>
-        </ItemBox>
-        <ItemBox
-          class="text-lg font-semibold"
-          @click="operation(50)"
-          :select="testStore.test?.age == 50"
-        >
-          <div class="pt-2 ms-1 h-full relative">
-            <div
-              class="bg-green-200 rounded-full absolute z-0 w-[3.3rem] -bottom-1 right-2 aspect-square"
-            ></div>
-            <div
-              class="h-full w-20 relative z-10 bg-contain bg-no-repeat bg-bottom"
-              :style="{
-                'background-image':
-                  'url(' +
-                  (testStore.test.gender == 'male' ? mImage4 : image4) +
-                  ')',
-              }"
-            ></div>
-          </div>
-          <div>بالای 50</div>
-        </ItemBox>
+      <div class="flex flex-col">
+        <div class="flex w-full h-32 items-center justify-center relative">
+          <div
+            class="bg-green-200 rounded-full absolute z-0 w-24 aspect-square"
+          ></div>
+          <div
+            class="h-32 w-full relative z-10 bg-contain bg-no-repeat bg-center"
+            :style="{
+              'background-image': 'url(' + image + ')',
+            }"
+          ></div>
+        </div>
+        <form @submit.prevent="operation">
+          <Input
+            placeholder="سن خود را وارد کنید"
+            v-model="age"
+            type="number"
+            class="!mt-0"
+          />
+
+          <Btn
+            class="w-full mt-6 !rounded-xl !h-14"
+            type="submit"
+            :disabled="!age"
+            >ثبت</Btn
+          >
+        </form>
       </div>
     </div>
   </Base>
