@@ -240,9 +240,11 @@ getAnalyze();
         >
           <p class="">
             با توجه با آنالیز رفتار شناسی شما، اگر با همین سبک تغذیه‌ فعلـی
-            ادامه بدی به احتمال %{{ result.fat_risk }} طـی چندماه آینده
-            <span class="text-red-600">8kg (کیلوگرم)</span> ریسک افزایش وزن
-            دارید!!!
+            ادامه بدی به احتمال
+            <span class="text-red-600 font-bold">%{{ result.fat_risk }}</span>
+            طـی چندماه آینده
+            <span class="text-red-600 font-bold">8kg (کیلوگرم)</span> ریسک
+            افزایش وزن دارید!!!
           </p>
         </div>
       </div>

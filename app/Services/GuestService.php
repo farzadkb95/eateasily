@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Guest;
+use Illuminate\Database\Eloquent\Builder;
 
 class GuestService
 {
@@ -13,7 +14,21 @@ class GuestService
         if ($this->guest) {
             return $this->guest;
         }
-        $this->guest = Guest::where('token', $token)->with('latestTest.other')->whereNull('user_id')->first();
+        $this->guest = Guest::where('token', $token)->with('latestTest.other')->first();
+
+        return $this->guest;
+    }
+
+    public function asGuestByTest(int $testId): ?Guest
+    {
+        if ($this->guest) {
+            return $this->guest;
+        }
+        $this->guest = Guest::whereHas('tests', function (Builder $query) use ($testId) {
+            $query->where('id', $testId);
+        })->with('test', function ($query) use ($testId) {
+            $query->where('id', $testId)->with('other');
+        })->first();
 
         return $this->guest;
     }

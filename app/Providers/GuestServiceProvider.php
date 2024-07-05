@@ -28,11 +28,15 @@ class GuestServiceProvider extends ServiceProvider
     {
         if (request()->is('api/*')) {
             Request::macro('guest', function () use ($guestService): ?Guest {
-                if (request()->hasHeader('gid')) {
-                    $guest = $guestService->identifyGuest(request()->header('gid'));
-                }
-                if (blank(@$guest)) {
-                    $guest = $guestService->createGuest(request()->ip());
+                if (request()->user()->is_admin && request()->test_id) {
+                    $guest = $guestService->asGuestByTest(request()->test_id);
+                } else {
+                    if (request()->hasHeader('gid')) {
+                        $guest = $guestService->identifyGuest(request()->header('gid'));
+                    }
+                    if (blank(@$guest)) {
+                        $guest = $guestService->createGuest(request()->ip());
+                    }
                 }
 
                 return $guest;

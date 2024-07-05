@@ -5,7 +5,11 @@ import { ref } from "vue";
 import { pageNumber } from "../../modules/config";
 import Paginate from "../../components/paginate.vue";
 import { useRoute, useRouter } from "vue-router";
+import Btn from "@/components/Btn.vue";
+import { pages } from "../../modules/config";
+import { useTestStore } from "../../store/TestStore";
 
+const testStore = useTestStore();
 const test = ref(null);
 const testCounts = ref(null);
 const page = ref(1);
@@ -44,6 +48,12 @@ function getTestsCount() {
       console.log(error.message);
     })
     .finally(function () {});
+}
+
+function goTo(selectedTest) {
+  testStore.test = selectedTest;
+
+  router.push({ name: pages[0][0], query: { test_id: selectedTest.id } });
 }
 
 getTests();
@@ -122,7 +132,12 @@ getTestsCount();
               }[item.status]
             }}
           </div>
-          <div>مشاهده</div>
+          <Btn
+            @click="goTo(item)"
+            class="cursor-pointer !bg-blue-500 !h-6 rounded-md px-2 text-white"
+          >
+            مشاهده
+          </Btn>
         </div>
       </div>
     </div>

@@ -16,6 +16,11 @@ class Guest extends Model
         return $this->hasMany(Data::class);
     }
 
+    public function test(): HasOne
+    {
+        return $this->hasOne(Data::class);
+    }
+
     public function latestTest(): HasOne
     {
         return $this->hasOne(Data::class)->latestOfMany();

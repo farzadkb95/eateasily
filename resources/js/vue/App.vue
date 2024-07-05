@@ -9,6 +9,14 @@ const testStore = useTestStore();
 const route = useRoute();
 const router = useRouter();
 
+router.beforeEach((to, from, next) => {
+  if (from.query.test_id && !to.query.test_id) {
+    next({ name: to.name, query: { test_id: from.query.test_id } });
+  } else {
+    next();
+  }
+});
+
 onMounted(async () => {
   await router.isReady();
   await user.initial();
@@ -26,6 +34,19 @@ onMounted(async () => {
       .finally(function () {});
   }
 });
+axios.interceptors.request.use(
+  function (config) {
+    // Do something before request is sent
+    if (route.query.test_id) {
+      config.params = { ...config.params, test_id: route.query.test_id };
+    }
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
 axios.interceptors.response.use(
   function (response) {
     if (response.data.latest_test) {
@@ -44,17 +65,7 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    if (error.response.status >= 500) {
-      notify({
-        type: "error",
-        text: "خطای سرور",
-      });
-    } else if (error.response.status >= 400) {
-      notify({
-        type: "error",
-        text: error.response.data.message,
-      });
-    }
+    console.log(error.response.data);
 
     return Promise.reject(error);
   }

@@ -16,7 +16,7 @@ class GuestDataResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'latest_test' => new DataResource($this->latestTest),
+            'latest_test' => $this->relationLoaded('test') ? new DataResource($this->test) : new DataResource($this->latestTest),
         ];
     }
 }
