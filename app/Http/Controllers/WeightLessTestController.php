@@ -11,7 +11,7 @@ class WeightLessTestController extends Controller
 {
     public function selectGender(Request $request, TestService $testService)
     {
-        if (! (request()->user()->is_admin && request()->has('test_id'))) {
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setGender($request->guest(), $request->step, $request->gender);
         }
 
@@ -20,7 +20,7 @@ class WeightLessTestController extends Controller
 
     public function selectAge(Request $request, TestService $testService)
     {
-        if (! (request()->user()->is_admin && request()->has('test_id'))) {
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setAge($request->guest(), $request->step, $request->age);
         }
 
@@ -29,7 +29,7 @@ class WeightLessTestController extends Controller
 
     public function selectHeight(Request $request, TestService $testService)
     {
-        if (! (request()->user()->is_admin && request()->has('test_id'))) {
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setHeight($request->guest(), $request->step, $request->height);
         }
 
@@ -38,7 +38,7 @@ class WeightLessTestController extends Controller
 
     public function selectWeight(Request $request, TestService $testService)
     {
-        if (! (request()->user()->is_admin && request()->has('test_id'))) {
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setWeight($request->guest(), $request->step, $request->weight);
         }
 
@@ -47,7 +47,7 @@ class WeightLessTestController extends Controller
 
     public function setOther(Request $request, TestService $testService)
     {
-        if (! (request()->user()->is_admin && request()->has('test_id'))) {
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setOther($request->guest(), $request->step, $request->value);
         }
 
@@ -56,7 +56,7 @@ class WeightLessTestController extends Controller
 
     public function getAnalyze(Request $request, TestAnalyzeService $testService)
     {
-        if (request()->user()->is_admin && request()->has('test_id')) {
+        if (request()->user()?->is_admin && request()->has('test_id')) {
             $result = $testService->analyze($request->guest()->test);
         } else {
             $test = $request->guest()->latestTest;
