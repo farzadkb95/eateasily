@@ -28,7 +28,7 @@ class GuestServiceProvider extends ServiceProvider
     {
         if (request()->is('api/*')) {
             Request::macro('guest', function () use ($guestService): ?Guest {
-                if (request()->user()->is_admin && request()->test_id) {
+                if (request()->user()?->is_admin && request()->test_id) {
                     $guest = $guestService->asGuestByTest(request()->test_id);
                 } else {
                     if (request()->hasHeader('gid')) {
