@@ -27,7 +27,7 @@ const testStore = useTestStore();
 const age = ref(null);
 
 const image = computed(() => {
-  if (testStore.test.gender == "male") {
+  if (testStore.test?.gender == "male") {
     if (age.value >= 50) {
       return mImage4;
     } else if (age.value >= 40) {
