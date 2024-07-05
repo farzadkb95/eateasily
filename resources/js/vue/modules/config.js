@@ -11,6 +11,7 @@ export const pages = [
         "weight-less|select-weight",
         "weight-less|select-sickness",
         "weight-less|show-chart",
+        "weight-less|insert-phone",
     ],
     [
         "weight-less|select-weight-type",

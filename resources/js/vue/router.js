@@ -48,6 +48,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/insert-phone",
+        component: () => import("./pages/weight_less/InsertPhone.vue"),
+        name: "weight-less|insert-phone",
+        meta: {},
+    },
+    {
         path: "/weight-less/select-weight-type",
         component: () => import("./pages/weight_less/SelectWeightType.vue"),
         name: "weight-less|select-weight-type",
