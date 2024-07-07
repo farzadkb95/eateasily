@@ -3,9 +3,11 @@ import Input from "../components/Input.vue";
 import Btn from "../components/Btn.vue";
 import { ref } from "vue";
 import user from "../modules/user";
+import { useRouter } from "vue-router";
 
 const email = ref(null);
 const password = ref(null);
+const router = useRouter();
 
 function login() {
   axios
@@ -19,9 +21,9 @@ function login() {
       axios.defaults.headers["Authorization"] =
         "Bearer " + localStorage.getItem("token");
       user.setUser(response.data.user);
-      data.value = null;
-      code.value = null;
+      email.value = null;
       password.value = null;
+      router.push({ name: "panel" });
     })
     .catch(function (error) {
       console.log(error.message);

@@ -1,5 +1,5 @@
 <script setup>
-import user from "@/modules/user";
+import user from "./modules/user";
 import axios from "axios";
 import { onMounted, watchEffect } from "vue";
 import { useTestStore } from "./store/TestStore";
@@ -9,20 +9,25 @@ const testStore = useTestStore();
 const route = useRoute();
 const router = useRouter();
 
-router.beforeEach((to, from, next) => {
-  if (from.query.test_id && !to.query.test_id) {
-    next({ name: to.name, query: { test_id: from.query.test_id } });
-  } else {
-    next();
-  }
-});
-
 onMounted(async () => {
   await router.isReady();
   await user.initial();
+
+  router.beforeEach((to, from, next) => {
+    if (from.query.test_id && !to.query.test_id) {
+      next({ name: to.name, query: { test_id: from.query.test_id } });
+    } else if (to.name == "login" && user.getUser()?.login) {
+      next({ name: "panel" });
+    } else if (to.name == "panel" && !user.getUser()?.is_admin) {
+      next({ name: "home" });
+    } else {
+      next();
+    }
+  });
+
   const pathPart = route.path.split("/");
   console.log("rrrr", pathPart);
-  if (pathPart[1] == "weight-less" && useTestStore.test == undefined) {
+  if (pathPart[1] == "weight-less" && testStore.test == undefined) {
     axios
       .get(`/api/get-latest-test`)
       .then(function (response) {
@@ -51,6 +56,21 @@ axios.interceptors.response.use(
   function (response) {
     if (response.data.latest_test) {
       testStore.test = response.data.latest_test;
+    }
+    let url = new URL(response.request.responseURL);
+    if (
+      url.pathname == "/api/initial-data" &&
+      response.data?.user?.is_admin &&
+      route.name == "login"
+    ) {
+      router.push({ name: "panel" });
+    }
+    if (
+      url.pathname == "/api/initial-data" &&
+      !response.data?.user?.is_admin &&
+      route.name == "panel"
+    ) {
+      router.push({ name: "home" });
     }
 
     if (response.data.gid) {

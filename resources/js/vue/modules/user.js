@@ -1,9 +1,10 @@
 import { useUserStore } from "@/store/UserStore";
 import axios from "axios";
 
-function setUser(user) {
+async function setUser(user) {
     const userStore = useUserStore();
-    userStore.$patch({
+
+    await userStore.$patch({
         name: user.full_name,
         firstName: user.first_name,
         lastName: user.last_name,
@@ -12,6 +13,7 @@ function setUser(user) {
         isAdmin: user.is_admin,
         login: true,
     });
+    console.log('bbb set', user);
 }
 
 function getUser() {
@@ -23,8 +25,9 @@ function getUser() {
 async function initial() {
     try {
         const response = await axios.get("/api/initial-data");
+        console.log('bbb req', response);
         if (response.data.user) {
-            setUser(response.data.user);
+            await setUser(response.data.user);
         }
     } catch (error) {
         console.error(error);

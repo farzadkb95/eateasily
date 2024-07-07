@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\WeightLessTestController;
+use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\NotEnterMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -12,8 +13,8 @@ Route::get('/initial-data', [AuthController::class, 'initialData']);
 Route::get('/get-latest-test', [TestController::class, 'latestTest']);
 Route::post('/new-test', [TestController::class, 'newTest']);
 
-Route::get('/admin/get-tests', [AdminController::class, 'getTests']);
-Route::get('/admin/get-tests-count', [AdminController::class, 'getTestsCount']);
+Route::get('/admin/get-tests', [AdminController::class, 'getTests'])->middleware(IsAdminMiddleware::class);
+Route::get('/admin/get-tests-count', [AdminController::class, 'getTestsCount'])->middleware(IsAdminMiddleware::class);
 
 Route::prefix('weight-less/')->group(function () {
     Route::post('/select-gender', [WeightLessTestController::class, 'selectGender']);
