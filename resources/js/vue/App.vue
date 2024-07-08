@@ -19,10 +19,15 @@ onMounted(async () => {
     } else if (to.name == "login" && user.getUser()?.login) {
       next({ name: "panel" });
     } else if (to.name == "panel" && !user.getUser()?.is_admin) {
+      console.log("eeeeeee", to.name, user.getUser()?.is_admin);
       next({ name: "home" });
     } else {
       next();
     }
+  });
+
+  router.afterEach(() => {
+    window.scrollTo(0, 0);
   });
 
   const pathPart = route.path.split("/");
@@ -70,6 +75,7 @@ axios.interceptors.response.use(
       !response.data?.user?.is_admin &&
       route.name == "panel"
     ) {
+      console.log("oooo");
       router.push({ name: "home" });
     }
 

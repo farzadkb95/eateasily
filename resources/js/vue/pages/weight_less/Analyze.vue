@@ -5,9 +5,15 @@ import Base from "../../layouts/Base.vue";
 import mezajChart from "@/assets/mezaj_chart.png";
 import { useTestStore } from "../../store/TestStore";
 import { ref } from "vue";
+import { RouterLink } from "vue-router";
+import { scrollTo } from "../../modules/utility";
 
 const testStore = useTestStore();
 const result = ref({});
+const weightAnalyze = ref(null);
+const realAge = ref(null);
+const mezaj = ref(null);
+const brainAnalyze = ref(null);
 
 function getAnalyze() {
   axios
@@ -27,16 +33,28 @@ getAnalyze();
 <template>
   <Base>
     <ScrollX class="flex gap-2 my-4 md:justify-center max-w-full">
-      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
+      <div
+        class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+        @click="scrollTo(weightAnalyze)"
+      >
         آنالیز وزنی
       </div>
-      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
+      <div
+        class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+        @click="scrollTo(realAge)"
+      >
         آنالیز سن واقعی
       </div>
-      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
+      <div
+        class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+        @click="scrollTo(mezaj)"
+      >
         آنالیز مزاج شناسی
       </div>
-      <div class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0">
+      <div
+        class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+        @click="scrollTo(brainAnalyze)"
+      >
         آنالیز نیم کره
       </div>
     </ScrollX>
@@ -44,6 +62,7 @@ getAnalyze();
       <hr />
       <div
         class="relative w-fit bg-white px-4 -top-3 mx-auto font-bold text-xl text-pink-500"
+        ref="weightAnalyze"
       >
         آنالیز وزنی
       </div>
@@ -83,6 +102,7 @@ getAnalyze();
       <hr />
       <div
         class="relative w-fit bg-white px-4 -top-3 mx-auto font-bold text-xl text-pink-500"
+        ref="realAge"
       >
         سن واقعی شما
       </div>
@@ -133,6 +153,7 @@ getAnalyze();
       <hr />
       <div
         class="relative w-fit bg-white px-4 -top-3 mx-auto font-bold text-xl text-pink-500"
+        ref="mezaj"
       >
         آنالیز مزاج شناسی
       </div>
@@ -194,6 +215,7 @@ getAnalyze();
       <hr />
       <div
         class="relative w-fit bg-white px-4 -top-3 mx-auto font-bold text-xl text-pink-500"
+        ref="brainAnalyze"
       >
         آنالیز نیمکره مغز
       </div>

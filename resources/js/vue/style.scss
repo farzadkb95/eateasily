@@ -23,6 +23,10 @@
     font-display: swap;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 #app {
     font-family: yekan, Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
