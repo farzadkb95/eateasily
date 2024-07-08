@@ -3,9 +3,11 @@ import user from "./modules/user";
 import axios from "axios";
 import { onMounted, watchEffect } from "vue";
 import { useTestStore } from "./store/TestStore";
+import { useUserStore } from "./store/UserStore";
 import { useRoute, useRouter } from "vue-router";
 
 const testStore = useTestStore();
+const userStore = useUserStore();
 const route = useRoute();
 const router = useRouter();
 
@@ -16,10 +18,10 @@ onMounted(async () => {
   router.beforeEach((to, from, next) => {
     if (from.query.test_id && !to.query.test_id) {
       next({ name: to.name, query: { test_id: from.query.test_id } });
-    } else if (to.name == "login" && user.getUser()?.login) {
+    } else if (to.name == "login" && userStore?.login) {
       next({ name: "panel" });
-    } else if (to.name == "panel" && !user.getUser()?.is_admin) {
-      console.log("eeeeeee", to.name, user.getUser()?.is_admin);
+    } else if (to.name == "panel" && !userStore?.is_admin) {
+      console.log("eeeeeee", to.name, userStore?.is_admin);
       next({ name: "home" });
     } else {
       next();
