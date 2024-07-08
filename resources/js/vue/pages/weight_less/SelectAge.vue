@@ -19,12 +19,16 @@ import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
 import Btn from "../../components/Btn.vue";
 import Input from "../../components/Input.vue";
-import { computed, ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
 
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();
 const age = ref(null);
+
+watchEffect(() => {
+  age.value = testStore.test?.age;
+});
 
 const image = computed(() => {
   if (testStore.test?.gender == "male") {
