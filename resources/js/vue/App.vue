@@ -20,8 +20,8 @@ onMounted(async () => {
       next({ name: to.name, query: { test_id: from.query.test_id } });
     } else if (to.name == "login" && userStore?.login) {
       next({ name: "panel" });
-    } else if (to.name == "panel" && !userStore?.is_admin) {
-      console.log("eeeeeee", to.name, userStore?.is_admin);
+    } else if (to.name == "panel" && !userStore?.isAdmin) {
+      console.log("eeeeeee", to.name, userStore?.isAdmin);
       next({ name: "home" });
     } else {
       next();
