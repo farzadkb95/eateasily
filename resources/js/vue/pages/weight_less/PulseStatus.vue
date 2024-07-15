@@ -62,5 +62,10 @@ function operation(index) {
         </ItemBox>
       </div>
     </div>
+    <img
+      src="@/assets/pulse.png"
+      class="h-32 fixed block bottom-5 left-1/2 -translate-x-1/2 -z-10"
+      alt=""
+    />
   </Base>
 </template>
