@@ -60,5 +60,17 @@ function operation(index) {
         </ItemBox>
       </div>
     </div>
+    <img
+      v-if="testStore.test?.gender == 'male'"
+      src="@/assets/men-finger.png"
+      class="h-32 fixed block bottom-5 left-[40%] -z-10"
+      alt=""
+    />
+    <img
+      v-else
+      src="@/assets/finger.png"
+      class="h-32 fixed block bottom-5 left-[40%] -z-10"
+      alt=""
+    />
   </Base>
 </template>
