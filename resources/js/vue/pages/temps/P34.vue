@@ -4,7 +4,7 @@ import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import Btn from "../../components/Btn.vue";
-import { Icon } from "@iconify/vue/dist/iconify.js";
+import { Icon } from "@iconify/vue";
 </script>
 
 <template>

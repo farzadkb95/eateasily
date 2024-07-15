@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { Icon } from "@iconify/vue/dist/iconify.js";
+import { Icon } from "@iconify/vue";
 
 const open = ref(false);
 </script>

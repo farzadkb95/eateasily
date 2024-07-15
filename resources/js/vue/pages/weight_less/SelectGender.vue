@@ -8,6 +8,7 @@ import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import ReadCheckBox from "../../components/ReadCheckBox.vue";
 import { useTestStore } from "../../store/TestStore";
+import { Icon } from "@iconify/vue";
 
 const route = useRoute();
 const router = useRouter();

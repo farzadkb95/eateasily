@@ -2,7 +2,7 @@
 import Raw from "../layouts/Raw.vue";
 import Btn from "../components/Btn.vue";
 import IconSideCard from "../components/IconSideCard.vue";
-import { Icon } from "@iconify/vue/dist/iconify.js";
+import { Icon } from "@iconify/vue";
 import logo from "@/assets/white-logo.png";
 import UserChange from "../components/UserChange.vue";
 import before1 from "@/assets/before1.png";
