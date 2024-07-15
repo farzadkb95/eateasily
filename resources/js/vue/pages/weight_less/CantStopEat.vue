@@ -7,6 +7,11 @@ import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
 
+import imgBerger from "../../assets/berger.png";
+import imgDrink from "../../assets/drink.png";
+import imgIceCream from "../../assets/icecream.png";
+import imgCake from "../../assets/deser-p21-1.png";
+
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();
@@ -45,31 +50,71 @@ function operation(index) {
 
       <div class="flex flex-col gap-4">
         <ItemBox
-          class="px-5 !text-lg"
+          class="px-2 !gap-2 !text-lg"
           @click="operation(1)"
           :select="testStore.test?.other?.[route.name] == 1"
         >
+          <div
+            class="py-1 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
+          >
+            <div
+              class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
+              :style="{
+                'background-image': 'url(' + imgBerger + ')',
+              }"
+            ></div>
+          </div>
           <p>فست فود</p>
         </ItemBox>
         <ItemBox
-          class="px-5 !text-lg"
+          class="px-2 !gap-2 !text-lg"
           @click="operation(2)"
           :select="testStore.test?.other?.[route.name] == 2"
         >
+          <div
+            class="py-1 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
+          >
+            <div
+              class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
+              :style="{
+                'background-image': 'url(' + imgDrink + ')',
+              }"
+            ></div>
+          </div>
           <p>نوشابه و دلستر</p>
         </ItemBox>
         <ItemBox
-          class="px-5 !text-lg"
+          class="px-2 !gap-2 !text-lg"
           @click="operation(3)"
           :select="testStore.test?.other?.[route.name] == 3"
         >
+          <div
+            class="py-1 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
+          >
+            <div
+              class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
+              :style="{
+                'background-image': 'url(' + imgIceCream + ')',
+              }"
+            ></div>
+          </div>
           <p>هله هوله و بستنی</p>
         </ItemBox>
         <ItemBox
-          class="px-5 !text-lg"
+          class="px-2 !gap-2 !text-lg"
           @click="operation(4)"
           :select="testStore.test?.other?.[route.name] == 4"
         >
+          <div
+            class="py-1 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
+          >
+            <div
+              class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
+              :style="{
+                'background-image': 'url(' + imgCake + ')',
+              }"
+            ></div>
+          </div>
           <p>کیک و شیرینی</p>
         </ItemBox>
       </div>
