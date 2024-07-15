@@ -6,15 +6,25 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { ref, watchEffect } from "vue";
+import ItemCheckBox from "../../components/ItemCheckBox.vue";
+import Btn from "../../components/Btn.vue";
+
+const items = ref([]);
+const none = ref(false);
 
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();
 
-function operation(index) {
+watchEffect(() => {
+  items.value = testStore.test?.other?.[route.name] || [];
+});
+
+function operation() {
   axios
     .post(`/api/weight-less/set-other`, {
-      value: index,
+      value: items.value,
       step: route.name,
     })
     .then(function (response) {
@@ -40,42 +50,62 @@ function operation(index) {
       >
 
       <div class="flex flex-col gap-4">
-        <ItemBox
-          class="px-5 !text-lg"
-          @click="operation(1)"
-          :select="testStore.test?.other?.[route.name] == 1"
-        >
-          <p>کتوژنیک</p>
+        <ItemBox class="px-5 !text-lg">
+          <ItemCheckBox
+            value="1"
+            v-model="items"
+            class="px-3 h-full w-full cursor-pointer"
+          >
+            <span>کتوژنیک</span></ItemCheckBox
+          >
         </ItemBox>
-        <ItemBox
-          class="px-5 !text-lg"
-          @click="operation(2)"
-          :select="testStore.test?.other?.[route.name] == 2"
-        >
-          <p>گیاه خواری</p>
+        <ItemBox class="px-5 !text-lg">
+          <ItemCheckBox
+            value="2"
+            v-model="items"
+            class="px-3 h-full w-full cursor-pointer"
+          >
+            <span>گیاه خواری</span></ItemCheckBox
+          >
         </ItemBox>
-        <ItemBox
-          class="px-5 !text-lg"
-          @click="operation(3)"
-          :select="testStore.test?.other?.[route.name] == 3"
-        >
-          <p>کالری شماری</p>
+        <ItemBox class="px-5 !text-lg">
+          <ItemCheckBox
+            value="3"
+            v-model="items"
+            class="px-3 h-full w-full cursor-pointer"
+          >
+            <span>کالری شماری</span></ItemCheckBox
+          >
         </ItemBox>
-        <ItemBox
-          class="px-5 !text-lg"
-          @click="operation(4)"
-          :select="testStore.test?.other?.[route.name] == 4"
-        >
-          <p>بر اساس مزاج</p>
+        <ItemBox class="px-5 !text-lg">
+          <ItemCheckBox
+            value="4"
+            v-model="items"
+            class="px-3 h-full w-full cursor-pointer"
+          >
+            <span>بر اساس مزاج</span></ItemCheckBox
+          >
         </ItemBox>
-        <ItemBox
-          class="px-5 !text-lg"
-          @click="operation(5)"
-          :select="testStore.test?.other?.[route.name] == 5"
-        >
-          <p>زیر نظر پزشک متخصص تغذیه</p>
+        <ItemBox class="px-5 !text-lg">
+          <ItemCheckBox
+            value="5"
+            v-model="items"
+            class="px-3 h-full w-full cursor-pointer"
+          >
+            <span>زیر نظر پزشک متخصص تغذیه</span></ItemCheckBox
+          >
+        </ItemBox>
+        <ItemBox class="px-5 !text-lg">
+          <ItemCheckBox
+            @on="items = []"
+            value="0"
+            v-model="none"
+            class="px-3 h-full w-full cursor-pointer"
+            ><span>هیچ کدام</span></ItemCheckBox
+          >
         </ItemBox>
       </div>
+      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
     </div>
   </Base>
 </template>
