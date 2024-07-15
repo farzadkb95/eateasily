@@ -6,6 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import PinkBox from "../../components/PinkBox.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -34,10 +35,12 @@ function operation(index) {
     <div class="c-box">
       <QuestionBox class="mb-10"><p>چقدر با جمله زیر موافقی؟</p></QuestionBox>
 
-      <p class="mb-10 text-lg text-green-700">
-        “چند باری رژیم گرفتم ولی درگیر درست کردن غذاهای رژیمی پیچیده شدم، منم
-        وقتش رو نداشتم و رژیممو شکستم”
-      </p>
+      <PinkBox>
+        <p class="text-lg">
+          “چند باری رژیم گرفتم ولی درگیر درست کردن غذاهای رژیمی پیچیده شدم، منم
+          وقتش رو نداشتم و رژیممو شکستم”
+        </p>
+      </PinkBox>
 
       <div class="flex flex-col gap-4">
         <ItemBox
