@@ -7,6 +7,11 @@ import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
 
+import imgGirl1 from "../../assets/girl-q9-1.png";
+import imgGirl2 from "../../assets/girl-q9-2.png";
+import imgBoy1 from "../../assets/boy-q9-1.png";
+import imgBoy2 from "../../assets/boy-q9-2.png";
+
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();
@@ -45,17 +50,43 @@ function operation(index) {
 
       <div class="flex flex-col gap-4">
         <ItemBox
-          class="px-5 !text-lg"
+          class="px-2 !gap-2 !text-lg"
           @click="operation(1)"
           :select="testStore.test?.other?.[route.name] == 1"
         >
+          <div
+            class="pt-2 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
+          >
+            <div
+              class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test?.gender == 'male' ? imgBoy1 : imgGirl1) +
+                  ')',
+              }"
+            ></div>
+          </div>
           <p>وقتی خسته، غمگین، نگرانم و یا استرس دارم</p>
         </ItemBox>
         <ItemBox
-          class="px-5 !text-lg"
+          class="px-2 !gap-2 !text-lg"
           @click="operation(2)"
           :select="testStore.test?.other?.[route.name] == 2"
         >
+          <div
+            class="pt-2 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
+          >
+            <div
+              class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test?.gender == 'male' ? imgBoy2 : imgGirl2) +
+                  ')',
+              }"
+            ></div>
+          </div>
           <p>وقتی از آخرین وعده غذاییم زمان زیادی گذشته</p>
         </ItemBox>
       </div>
