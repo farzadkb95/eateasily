@@ -112,18 +112,18 @@ getTestsCount();
       </div> -->
       <div class="flex flex-col gap-2 mt-10" v-if="test?.data">
         <div
-          class="border border-zinc-500 p-2 rounded-md flex gap-x-5 gap-y-2 flex-wrap bg-zinc-50"
+          class="border-s-8 shadow-md border-zinc-500 p-2 rounded-sm flex gap-x-5 gap-y-2 flex-wrap odd:bg-zinc-50 even:bg-white"
           :class="{
-            '!border-amber-500 !bg-amber-50': item.status == 'in_process',
-            '!border-red-500 !bg-red-50': item.status == 'unfinished',
-            '!border-green-500 !bg-green-50': item.status == 'finished',
+            '!border-amber-500': item.status == 'in_process',
+            '!border-red-500': item.status == 'unfinished',
+            '!border-green-500': item.status == 'finished',
           }"
           v-for="(item, index) in test.data"
           :key="index"
         >
           <div class="w-10">{{ item.id }}</div>
-          <div class="w-20">سوال {{ pageNumber(item.step) }}</div>
-          <div class="w-20">
+          <div class="w-28">سوال {{ pageNumber(item.step) }}</div>
+          <div class="w-28">
             {{
               {
                 in_process: "درحال انجام",
@@ -132,6 +132,7 @@ getTestsCount();
               }[item.status]
             }}
           </div>
+          <div class="w-32">64:56:56:6</div>
           <Btn
             @click="goTo(item)"
             class="cursor-pointer !bg-blue-500 !h-6 rounded-md px-2 text-white"
