@@ -7,7 +7,7 @@ import { ref, watchEffect } from "vue";
 import ItemCheckBox from "../../components/ItemCheckBox.vue";
 import image1 from "@/assets/deser-p21-1.png";
 import image2 from "@/assets/deser-p21-2.png";
-import image3 from "@/assets/deser-p21-3.png";
+import image3 from "@/assets/drink.png";
 import image4 from "@/assets/deser-p21-4.png";
 import image5 from "@/assets/deser-p21-5.png";
 import image6 from "@/assets/deser-p21-6.png";
