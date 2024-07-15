@@ -19,10 +19,12 @@ import QuestionDropDown from "../components/QuestionDropDown.vue";
 <template>
   <Raw class="bg-white">
     <div class="bg-gradient-to-t from-green-50 to-white">
-      <div class="c-container flex max-md:flex-col gap-5 pt-16 md:pb-10">
-        <div class="w-[480px] max-w-full mx-auto text-center relative pb-40">
+      <div class="c-container flex max-md:flex-col gap-5 pt-16">
+        <div
+          class="w-[480px] max-w-full mx-auto text-center relative pb-40 px-2"
+        >
           <h1
-            class="text-5xl font-[900] flex items-center justify-center gap-2 mt-10"
+            class="text-4xl xl:text-5xl font-[900] flex items-center justify-center gap-2 mt-10"
           >
             <img src="@/assets/edit-list.svg" alt="" />
             پرسشنامه <span class="text-green-500">ایت ایزیلی</span>
@@ -38,7 +40,7 @@ import QuestionDropDown from "../components/QuestionDropDown.vue";
             >شروع آزمون لاغری</Btn
           >
           <img
-            class="absolute z-10 left-1/2 -translate-x-1/2 -bottom-72"
+            class="absolute z-10 left-1/2 -translate-x-1/2 w-[460px] max-w-[90%]"
             src="@/assets/home.png"
             alt=""
           />
@@ -51,26 +53,32 @@ import QuestionDropDown from "../components/QuestionDropDown.vue";
         />
       </svg>
     </div>
-    <div class="w-[480px] max-w-full mx-auto pt-40 text-center">
+    <div class="w-[480px] max-w-full mx-auto pt-40 text-center px-2">
       <div class="text-2xl font-[500]">راه‌های ارتباطی با ایت ایزلی</div>
       <div class="mt-10">
-        <div class="flex gap-5">
+        <div class="flex gap-3 md:gap-5">
           <div
-            class="px-5 py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center"
+            class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
-            <Icon icon="solar:phone-linear" class="w-6 h-full text-green-500" />
+            <Icon
+              icon="solar:phone-linear"
+              class="w-6 h-full text-green-500 shrink-0"
+            />
             021-123456789
           </div>
 
           <div
-            class="px-5 py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center"
+            class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
-            <Icon icon="hugeicons:mail-02" class="w-6 h-full text-green-500" />
+            <Icon
+              icon="hugeicons:mail-02"
+              class="w-6 h-full text-green-500 shrink-0"
+            />
             sample@gmail.com
           </div>
         </div>
         <div
-          class="p-5 flex rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 mt-5"
+          class="p-5 flex rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 mt-3 md:mt-5"
         >
           <div class="flex gap-2 items-center">
             <Icon
