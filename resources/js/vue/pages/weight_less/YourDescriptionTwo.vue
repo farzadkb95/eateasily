@@ -42,6 +42,9 @@ function operation(index) {
           @click="operation(1)"
           :select="testStore.test?.other?.[route.name] == 1"
         >
+          <div class="flex w-16 justify-center items-center">
+            <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
+          </div>
           <p>هوای گرم رو دوست دارم</p>
         </ItemBox>
         <ItemBox
@@ -49,6 +52,9 @@ function operation(index) {
           @click="operation(2)"
           :select="testStore.test?.other?.[route.name] == 2"
         >
+          <div class="flex w-16 justify-center items-center">
+            <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
+          </div>
           <p>هوای سرد رو دوست دارم</p>
         </ItemBox>
         <ItemBox
@@ -56,6 +62,10 @@ function operation(index) {
           @click="operation(3)"
           :select="testStore.test?.other?.[route.name] == 3"
         >
+          <div class="flex w-16 justify-center items-center gap-1">
+            <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
+            <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
+          </div>
           <p>گرما و سرما برای من یکسان است</p>
         </ItemBox>
         <ItemBox
@@ -63,6 +73,10 @@ function operation(index) {
           @click="operation(4)"
           :select="testStore.test?.other?.[route.name] == 4"
         >
+          <div class="flex w-16 justify-center items-center gap-1">
+            <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
+            <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
+          </div>
           <p>گرمای شدید را به سرمای شدید ترجیح می‌دم</p>
         </ItemBox>
         <ItemBox
@@ -70,6 +84,10 @@ function operation(index) {
           @click="operation(5)"
           :select="testStore.test?.other?.[route.name] == 5"
         >
+          <div class="flex w-16 justify-center items-center gap-1">
+            <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
+            <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
+          </div>
           <p>سرمای شدید را به گرمای شدید ترجیح می‌دم</p>
         </ItemBox>
       </div>
