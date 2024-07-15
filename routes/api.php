@@ -17,6 +17,7 @@ Route::get('/admin/get-tests', [AdminController::class, 'getTests'])->middleware
 Route::get('/admin/get-tests-count', [AdminController::class, 'getTestsCount'])->middleware(IsAdminMiddleware::class);
 
 Route::prefix('weight-less/')->group(function () {
+    Route::get('/get-config', [WeightLessTestController::class, 'getConfig']);
     Route::post('/select-gender', [WeightLessTestController::class, 'selectGender']);
     Route::post('/select-age', [WeightLessTestController::class, 'selectAge']);
     Route::post('/select-height', [WeightLessTestController::class, 'selectHeight']);

@@ -6,6 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -33,7 +34,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-5"
-        ><p>در چه شرایطی میل شما به پیاده روی بیشتر است؟</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <div class="flex flex-col gap-4">
@@ -42,28 +43,28 @@ function operation(index) {
           @click="operation(1)"
           :select="testStore.test?.other?.[route.name] == 1"
         >
-          <p>اصلا نمیتونم پیاده روی کنم و همیشه احساس خستگی دارم</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(2)"
           :select="testStore.test?.other?.[route.name] == 2"
         >
-          <p>10 تا 20 دقیقه و بعد از آن خسته می‌شم</p>
+          <p>{{ questions[$route.name]?.options?.[2] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(3)"
           :select="testStore.test?.other?.[route.name] == 3"
         >
-          <p>30 دقیقه به راحتی می‌تونم پیاده روی کنم ولی بعد از آن خسته میشم</p>
+          <p>{{ questions[$route.name]?.options?.[3] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(4)"
           :select="testStore.test?.other?.[route.name] == 4"
         >
-          <p>40 تا 60 دقیقه بدون خستگی پیاده روی می‌کنم</p>
+          <p>{{ questions[$route.name]?.options?.[4] }}</p>
         </ItemBox>
       </div>
     </div>

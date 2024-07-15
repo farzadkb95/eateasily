@@ -15,6 +15,7 @@ import menImage5 from "@/assets/man-p-7-4.png";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -43,7 +44,7 @@ function operation(index) {
     <div class="c-box">
       <QuestionBox
         ><p>
-          کدام گزینه تجمع چربی در بدن شما رو بهتر توصیف می‌کنه؟
+          {{ questions[$route.name]?.question }}
         </p></QuestionBox
       >
       <div class="flex flex-col gap-4">
@@ -68,7 +69,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <div>لاغر هستم و فقط شکم و پهلو دارم</div>
+          <div>{{ questions[$route.name]?.options?.[1] }}</div>
         </ItemBox>
         <ItemBox
           class="!font-normal pe-1 !text-base"
@@ -91,7 +92,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <div>چاق هستم و بیشترین چربی در شکم و پهلو است(سیبی)</div>
+          <div>{{ questions[$route.name]?.options?.[2] }}</div>
         </ItemBox>
         <ItemBox
           class="!font-normal pe-1 !text-base"
@@ -114,7 +115,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <div>قسمت ران و باسن چاق تری دارم</div>
+          <div>{{ questions[$route.name]?.options?.[3] }}</div>
         </ItemBox>
         <ItemBox
           class="!font-normal pe-1 !text-base"
@@ -137,7 +138,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <div>بالاتنه چاقی دارم (سینه، شانه و بازو)</div>
+          <div>{{ questions[$route.name]?.options?.[4] }}</div>
         </ItemBox>
         <ItemBox
           class="!font-normal pe-1 !text-base"
@@ -160,7 +161,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <div>چاقی به صورت متوازن و سراسری در بدن من وجود دارد (بادکنکی)</div>
+          <div>{{ questions[$route.name]?.options?.[5] }}</div>
         </ItemBox>
       </div>
     </div>

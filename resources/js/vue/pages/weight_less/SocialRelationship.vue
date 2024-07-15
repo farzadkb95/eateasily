@@ -10,6 +10,7 @@ import menImage2 from "@/assets/boy-q29-1.png";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -37,10 +38,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>
-          فرض کنید به یک مهمانی دعوت و همزمان در تلاش برای کاهش وزن هستید. در
-          مهمانی تمایل شما به کدام گزینه بیشتر است؟
-        </p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <div class="flex gap-5">
@@ -61,7 +59,9 @@ function operation(index) {
                 ')',
             }"
           ></div>
-          <div class="mt-5 text-lg">تمایل به برقراری ارتباط</div>
+          <div class="mt-5 text-lg">
+            {{ questions[$route.name]?.options?.[1] }}
+          </div>
         </div>
         <div
           class="p-6 border-2 border-zinc-200 bg-zinc-50 rounded-3xl flex flex-col items-center shrink-0 w-1/2 cursor-pointer"
@@ -80,7 +80,9 @@ function operation(index) {
                 ')',
             }"
           ></div>
-          <div class="mt-5 text-lg">ترجیح به انفرادی رفتار کردن</div>
+          <div class="mt-5 text-lg">
+            {{ questions[$route.name]?.options?.[2] }}
+          </div>
         </div>
       </div>
     </div>

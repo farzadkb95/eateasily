@@ -9,6 +9,7 @@ import { nextPageName } from "../../modules/config";
 import ReadCheckBox from "../../components/ReadCheckBox.vue";
 import { useTestStore } from "../../store/TestStore";
 import { Icon } from "@iconify/vue";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -35,7 +36,9 @@ function operation(gender) {
 <template>
   <Base>
     <div class="c-box">
-      <QuestionBox><p>جنسیتت چیه؟</p></QuestionBox>
+      <QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
+      >
       <InfoBox>
         <p>
           بخـاطر تفـاوت های بین هورمون های خانم ها و آقایون و تاثیراون بر سوخت و

@@ -6,6 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -33,7 +34,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>کدام گزینه اندازه دور مچ شمارو بهتر توضیح میده؟</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <div class="flex flex-col gap-4">
@@ -42,21 +43,21 @@ function operation(index) {
           @click="operation(1)"
           :select="testStore.test?.other?.[route.name] == 1"
         >
-          <p>دو انگشتانم دور مچم بهم نمی‌رسد</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(2)"
           :select="testStore.test?.other?.[route.name] == 2"
         >
-          <p>دو انگشتانم دور مچم روی هم مماس می‌شوند</p>
+          <p>{{ questions[$route.name]?.options?.[2] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(3)"
           :select="testStore.test?.other?.[route.name] == 3"
         >
-          <p>ناخن های انگشتم دور مچم روی هم قرار می‌گیرند</p>
+          <p>{{ questions[$route.name]?.options?.[3] }}</p>
         </ItemBox>
       </div>
     </div>

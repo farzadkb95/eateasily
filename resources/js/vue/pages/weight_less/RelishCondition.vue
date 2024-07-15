@@ -6,6 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 import imgGirl1 from "../../assets/girl-q9-1.png";
 import imgGirl2 from "../../assets/girl-q9-2.png";
@@ -38,7 +39,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-3"
-        ><p>در چه شرایطی میل شما به غذا خوردن بیشتر است؟</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <InfoBox class="">
@@ -67,7 +68,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <p>وقتی خسته، غمگین، نگرانم و یا استرس دارم</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-2 !gap-2 !text-lg"
@@ -87,7 +88,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <p>وقتی از آخرین وعده غذاییم زمان زیادی گذشته</p>
+          <p>{{ questions[$route.name]?.options?.[2] }}</p>
         </ItemBox>
       </div>
     </div>

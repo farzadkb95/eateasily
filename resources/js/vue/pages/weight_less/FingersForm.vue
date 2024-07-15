@@ -9,6 +9,7 @@ import image4 from "@/assets/hand4.png";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -36,9 +37,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox
-        ><p>
-          فرم انگشتان شما در کدام تصویر بهتر نمایش داده می‌شود؟
-        </p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
       <div class="flex flex-col gap-4">
         <ItemBox
@@ -57,7 +56,7 @@ function operation(index) {
               :style="{ 'background-image': 'url(' + image1 + ')' }"
             ></div>
           </div>
-          <div>تپل و کوتاه</div>
+          <div>{{ questions[$route.name]?.options?.[1] }}</div>
         </ItemBox>
         <ItemBox
           class="!font-normal pe-1 !text-base"
@@ -75,7 +74,7 @@ function operation(index) {
               :style="{ 'background-image': 'url(' + image2 + ')' }"
             ></div>
           </div>
-          <div>تپل و دراز</div>
+          <div>{{ questions[$route.name]?.options?.[2] }}</div>
         </ItemBox>
         <ItemBox
           class="!font-normal pe-1 !text-base"
@@ -93,7 +92,7 @@ function operation(index) {
               :style="{ 'background-image': 'url(' + image3 + ')' }"
             ></div>
           </div>
-          <div>لاغر و کوتاه</div>
+          <div>{{ questions[$route.name]?.options?.[3] }}</div>
         </ItemBox>
         <ItemBox
           class="!font-normal pe-1 !text-base"
@@ -111,7 +110,7 @@ function operation(index) {
               :style="{ 'background-image': 'url(' + image4 + ')' }"
             ></div>
           </div>
-          <div>لاغر و دراز</div>
+          <div>{{ questions[$route.name]?.options?.[4] }}</div>
         </ItemBox>
       </div>
     </div>

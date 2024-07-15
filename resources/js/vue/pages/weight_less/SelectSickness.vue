@@ -9,6 +9,7 @@ import { ref, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const items = ref([]);
 const none = ref(false);
@@ -43,7 +44,7 @@ function operation() {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-3"
-        ><p>کدام یک از شرایط زیر را دارید؟</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
       <p class="text-gray-400 text-center">یک یا چند گزینه انتخاب کنید</p>
 
@@ -61,7 +62,9 @@ function operation() {
             value="1"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
-            ><span>کبد چرب</span></ItemCheckBox
+            ><span>{{
+              questions[$route.name]?.options?.[1]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox>
@@ -70,7 +73,9 @@ function operation() {
             value="2"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
-            ><span>فشار خون</span></ItemCheckBox
+            ><span>{{
+              questions[$route.name]?.options?.[2]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox>
@@ -79,7 +84,9 @@ function operation() {
             value="3"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
-            ><span>دیابت</span></ItemCheckBox
+            ><span>{{
+              questions[$route.name]?.options?.[3]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox>
@@ -88,7 +95,9 @@ function operation() {
             value="4"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
-            ><span>چربی خون</span></ItemCheckBox
+            ><span>{{
+              questions[$route.name]?.options?.[4]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox v-if="testStore.test?.gender != 'male'">
@@ -97,7 +106,9 @@ function operation() {
             value="5"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
-            ><span>بارداری/شیر دهی</span></ItemCheckBox
+            ><span>{{
+              questions[$route.name]?.options?.[5]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox>

@@ -20,6 +20,7 @@ import { useTestStore } from "../../store/TestStore";
 import Btn from "../../components/Btn.vue";
 import Input from "../../components/Input.vue";
 import { computed, ref, watchEffect } from "vue";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -73,7 +74,9 @@ function operation() {
 <template>
   <Base>
     <div class="c-box">
-      <QuestionBox><p>چند سالته؟</p></QuestionBox>
+      <QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
+      >
       <div class="flex flex-col">
         <div class="flex w-full h-32 items-center justify-center relative">
           <div

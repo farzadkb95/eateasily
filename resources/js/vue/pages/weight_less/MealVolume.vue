@@ -6,6 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -33,9 +34,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>
-          کدام مورد حجم وعده های غذایی شما را بهتر نشان می‌دهد
-        </p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <div class="flex flex-col gap-4">
@@ -47,7 +46,7 @@ function operation(index) {
           <div class="h-full py-2">
             <img src="@/assets/dish1.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>1/4 ظرف</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
@@ -57,7 +56,7 @@ function operation(index) {
           <div class="h-full py-2">
             <img src="@/assets/dish2.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>نصف ظرف</p>
+          <p>{{ questions[$route.name]?.options?.[2] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
@@ -67,7 +66,7 @@ function operation(index) {
           <div class="h-full py-2">
             <img src="@/assets/dish3.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>یک ظرف پر غذا</p>
+          <p>{{ questions[$route.name]?.options?.[3] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
@@ -78,7 +77,7 @@ function operation(index) {
             <img src="@/assets/dish3.png" alt="" class="h-full z-10 relative" />
             <img src="@/assets/dish3.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>2 ظرف پر غذا</p>
+          <p>{{ questions[$route.name]?.options?.[4] }}</p>
         </ItemBox>
       </div>
     </div>

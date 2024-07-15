@@ -17,6 +17,7 @@ import Btn from "../../components/Btn.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const items = ref([]);
 
@@ -50,7 +51,7 @@ function operation() {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-5"
-        ><p>برای نهار از بین موارد زیر کدوم رو بیشتر دوست داری؟</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <InfoBox class="!my-5">
@@ -75,7 +76,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image1 + ')' }"
               ></div>
             </div>
-            <span>زرشک پلو با مرغ</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[1]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox class="!text-lg">
@@ -92,7 +95,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image2 + ')' }"
               ></div>
             </div>
-            <span>کباب</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[2]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox class="!text-lg">
@@ -109,7 +114,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image3 + ')' }"
               ></div>
             </div>
-            <span>پیتزا</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[3]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox class="!text-lg">
@@ -126,7 +133,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image4 + ')' }"
               ></div>
             </div>
-            <span>ساندویچ سوسیس کالباس</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[4]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox class="!text-lg">
@@ -143,7 +152,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image5 + ')' }"
               ></div>
             </div>
-            <span>سالاد الویه پر سُس</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[5]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox class="!text-lg">
@@ -160,7 +171,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image6 + ')' }"
               ></div>
             </div>
-            <span>قرمه سبزی</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[6]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox class="!text-lg">
@@ -177,7 +190,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image7 + ')' }"
               ></div>
             </div>
-            <span>خورشت بادمجان</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[7]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
         <ItemBox class="!text-lg">
@@ -194,7 +209,9 @@ function operation() {
                 :style="{ 'background-image': 'url(' + image8 + ')' }"
               ></div>
             </div>
-            <span>کتلت و کوکو</span></ItemCheckBox
+            <span>{{
+              questions[$route.name]?.options?.[8]
+            }}</span></ItemCheckBox
           >
         </ItemBox>
       </div>

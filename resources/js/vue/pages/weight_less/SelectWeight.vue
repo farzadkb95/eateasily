@@ -9,6 +9,7 @@ import { nextPageName } from "../../modules/config";
 import { ref, watchEffect } from "vue";
 import { useTestStore } from "../../store/TestStore";
 import { Icon } from "@iconify/vue";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -40,7 +41,9 @@ function operation() {
 <template>
   <Base>
     <div class="c-box">
-      <QuestionBox><p>وزنت چقدره؟</p></QuestionBox>
+      <QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
+      >
 
       <form @submit.prevent="operation">
         <Input placeholder="kg (کیلو گرم)" v-model="weight" type="number">

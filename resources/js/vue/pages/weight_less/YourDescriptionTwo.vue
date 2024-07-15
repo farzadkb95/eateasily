@@ -6,6 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -33,7 +34,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>کدام جمله شما رو بهتر توصیف می‌کنه؟</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <div class="flex flex-col gap-4">
@@ -45,7 +46,7 @@ function operation(index) {
           <div class="flex w-16 justify-center items-center">
             <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>هوای گرم رو دوست دارم</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
@@ -55,7 +56,7 @@ function operation(index) {
           <div class="flex w-16 justify-center items-center">
             <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>هوای سرد رو دوست دارم</p>
+          <p>{{ questions[$route.name]?.options?.[2] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
@@ -66,7 +67,7 @@ function operation(index) {
             <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
             <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>گرما و سرما برای من یکسان است</p>
+          <p>{{ questions[$route.name]?.options?.[3] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
@@ -77,7 +78,7 @@ function operation(index) {
             <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
             <img src="@/assets/Sunny.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>گرمای شدید را به سرمای شدید ترجیح می‌دم</p>
+          <p>{{ questions[$route.name]?.options?.[4] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
@@ -88,7 +89,7 @@ function operation(index) {
             <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
             <img src="@/assets/Union.png" alt="" class="h-full z-10 relative" />
           </div>
-          <p>سرمای شدید را به گرمای شدید ترجیح می‌دم</p>
+          <p>{{ questions[$route.name]?.options?.[5] }}</p>
         </ItemBox>
       </div>
     </div>

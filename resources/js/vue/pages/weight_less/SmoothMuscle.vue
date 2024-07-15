@@ -6,6 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
+import { questions } from "../../modules/config";
 
 const route = useRoute();
 const router = useRouter();
@@ -33,9 +34,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>
-          آیا قسمت های گوشتی بدنتان مانند ران و بازو خیلی نرم است؟
-        </p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <div class="flex flex-col gap-4">
@@ -44,28 +43,28 @@ function operation(index) {
           @click="operation(1)"
           :select="testStore.test?.other?.[route.name] == 1"
         >
-          <p>خیلی نرم</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(2)"
           :select="testStore.test?.other?.[route.name] == 2"
         >
-          <p>معمولی</p>
+          <p>{{ questions[$route.name]?.options?.[2] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(3)"
           :select="testStore.test?.other?.[route.name] == 3"
         >
-          <p>سفت</p>
+          <p>{{ questions[$route.name]?.options?.[3] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
           @click="operation(4)"
           :select="testStore.test?.other?.[route.name] == 4"
         >
-          <p>بازوان لاغری دارم</p>
+          <p>{{ questions[$route.name]?.options?.[4] }}</p>
         </ItemBox>
       </div>
     </div>

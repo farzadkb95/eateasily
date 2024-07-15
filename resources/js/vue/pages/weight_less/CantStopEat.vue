@@ -6,7 +6,7 @@ import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
-
+import { questions } from "../../modules/config";
 import imgBerger from "../../assets/berger.png";
 import imgDrink from "../../assets/drink.png";
 import imgIceCream from "../../assets/icecream.png";
@@ -38,7 +38,7 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-5"
-        ><p>از خوردن کدوم یک از موارد زیر نمی‌تونی دست بکشی؟</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
 
       <InfoBox class="!my-5">
@@ -64,7 +64,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <p>فست فود</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-2 !gap-2 !text-lg"
@@ -81,7 +81,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <p>نوشابه و دلستر</p>
+          <p>{{ questions[$route.name]?.options?.[2] }}</p>
         </ItemBox>
         <ItemBox
           class="px-2 !gap-2 !text-lg"
@@ -98,7 +98,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <p>هله هوله و بستنی</p>
+          <p>{{ questions[$route.name]?.options?.[3] }}</p>
         </ItemBox>
         <ItemBox
           class="px-2 !gap-2 !text-lg"
@@ -115,7 +115,7 @@ function operation(index) {
               }"
             ></div>
           </div>
-          <p>کیک و شیرینی</p>
+          <p>{{ questions[$route.name]?.options?.[4] }}</p>
         </ItemBox>
       </div>
     </div>

@@ -67,4 +67,20 @@ class WeightLessTestController extends Controller
 
         return response()->json($result);
     }
+
+    public function getConfig(Request $request)
+    {
+        $pages = config('weightLess.pages');
+
+        $pages = collect($pages);
+
+        return response()->json([
+            'pages' => $pages->map(function ($part) {
+                return collect($part)->keys();
+            }),
+            'questions' => $pages->flatMap(function (array $values, $key) {
+                return $values;
+            }),
+        ]);
+    }
 }
