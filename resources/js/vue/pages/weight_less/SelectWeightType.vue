@@ -3,10 +3,15 @@ import ItemBox from "../../components/ItemBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import image1 from "@/assets/woman-p-7-1.png";
-import image2 from "@/assets/woman-p-7-2.png";
+import image2 from "@/assets/woman-p-7-5.png";
 import image3 from "@/assets/woman-p-7-3.png";
 import image4 from "@/assets/woman-p-7-4.png";
-import image5 from "@/assets/woman-p-7-5.png";
+import image5 from "@/assets/woman-p-7-2.png";
+import menImage1 from "@/assets/man-p-7-1.png";
+import menImage2 from "@/assets/man-p-7-5.png";
+import menImage3 from "@/assets/man-p-7-3.png";
+import menImage4 from "@/assets/man-p-7-2.png";
+import menImage5 from "@/assets/man-p-7-4.png";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
@@ -55,7 +60,12 @@ function operation(index) {
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image1 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test?.gender == 'male' ? menImage1 : image1) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>لاغر هستم و فقط شکم و پهلو دارم</div>
@@ -73,7 +83,12 @@ function operation(index) {
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image2 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test?.gender == 'male' ? menImage2 : image2) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>چاق هستم و بیشترین چربی در شکم و پهلو است(سیبی)</div>
@@ -91,7 +106,12 @@ function operation(index) {
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image3 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test?.gender == 'male' ? menImage3 : image3) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>قسمت ران و باسن چاق تری دارم</div>
@@ -109,7 +129,12 @@ function operation(index) {
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image4 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test?.gender == 'male' ? menImage4 : image4) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>بالاتنه چاقی دارم (سینه، شانه و بازو)</div>
@@ -127,7 +152,12 @@ function operation(index) {
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
-              :style="{ 'background-image': 'url(' + image5 + ')' }"
+              :style="{
+                'background-image':
+                  'url(' +
+                  (testStore.test?.gender == 'male' ? menImage5 : image5) +
+                  ')',
+              }"
             ></div>
           </div>
           <div>چاقی به صورت متوازن و سراسری در بدن من وجود دارد (بادکنکی)</div>
