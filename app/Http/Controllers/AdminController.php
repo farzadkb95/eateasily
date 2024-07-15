@@ -20,7 +20,7 @@ class AdminController extends Controller
             $tests = $tests->where('status', 'unfinished');
         }
 
-        $tests = $tests->latest()->paginate(20);
+        $tests = $tests->with('guest')->latest()->paginate(20);
 
         return DataResource::collection($tests);
     }

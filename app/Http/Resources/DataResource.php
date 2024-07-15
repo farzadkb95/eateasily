@@ -41,6 +41,7 @@ class DataResource extends JsonResource
             'ideal_weight' => $idealWeight,
             'extra_weight' => $extraWeight,
             'ideal_weight_time' => $idealWeightTime,
+            'guest' => $this->whenLoaded('guest', $this->guest),
             'other' => collect($this->other)->mapWithKeys(function ($item) {
                 return [$item['key'] => $item['type'] == 'json' ? json_decode($item['value']) : $item['value']];
             }),

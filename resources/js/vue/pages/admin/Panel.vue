@@ -123,7 +123,14 @@ getTestsCount();
         >
           <div class="w-10">{{ item.id }}</div>
           <div class="w-28">سوال {{ pageNumber(item.step) }}</div>
-          <div class="w-28">
+          <div
+            class="w-28 font-bold"
+            :class="{
+              '!text-amber-500': item.status == 'in_process',
+              '!text-red-500': item.status == 'unfinished',
+              '!text-green-500': item.status == 'finished',
+            }"
+          >
             {{
               {
                 in_process: "درحال انجام",
@@ -132,7 +139,8 @@ getTestsCount();
               }[item.status]
             }}
           </div>
-          <div class="w-32">64:56:56:6</div>
+          <div class="w-32">{{ item.guest?.ip }}</div>
+          <div class="w-40">{{ item.phone || item.email }}</div>
           <Btn
             @click="goTo(item)"
             class="cursor-pointer !bg-blue-500 !h-6 rounded-md px-2 text-white"
