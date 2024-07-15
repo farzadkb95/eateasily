@@ -8,6 +8,7 @@ import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { ref, watchEffect } from "vue";
 import { useTestStore } from "../../store/TestStore";
+import { Icon } from "@iconify/vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -42,7 +43,11 @@ function operation() {
       <QuestionBox><p>وزنت چقدره؟</p></QuestionBox>
 
       <form @submit.prevent="operation">
-        <Input placeholder="kg (کیلو گرم)" v-model="weight" type="number" />
+        <Input placeholder="kg (کیلو گرم)" v-model="weight" type="number">
+          <template #start
+            ><Icon icon="icon-park-outline:weight" class="w-6 h-full"
+          /></template>
+        </Input>
 
         <Btn
           class="w-full mt-6 !rounded-xl !h-14"
