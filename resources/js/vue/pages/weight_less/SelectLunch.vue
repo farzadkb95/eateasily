@@ -50,7 +50,7 @@ function operation() {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-5"
-        ><p>از خوردن کدوم یک از موارد زیر نمی‌تونی دست بکشی؟</p></QuestionBox
+        ><p>برای نهار از بین موارد زیر کدوم رو بیشتر دوست داری؟</p></QuestionBox
       >
 
       <InfoBox class="!my-5">
