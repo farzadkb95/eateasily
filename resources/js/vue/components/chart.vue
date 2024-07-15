@@ -171,12 +171,6 @@ const props = defineProps(["current", "ideal", "long"]);
 </template>
 
 <style scoped>
-@font-face {
-  font-family: "Arial";
-  font-variant: normal;
-  font-weight: normal;
-  src: url("#FontID0") format(svg);
-}
 .str2 {
   stroke: #777777;
   stroke-width: 21.87;
@@ -250,11 +244,9 @@ const props = defineProps(["current", "ideal", "long"]);
 .fnt0 {
   font-weight: normal;
   font-size: 166.09px;
-  font-family: "Arial";
 }
 .fnt1 {
   font-weight: normal;
   font-size: 177.24px;
-  font-family: "Arial";
 }
 </style>
