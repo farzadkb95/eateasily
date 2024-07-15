@@ -5,6 +5,8 @@ import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import image1 from "@/assets/girl-p28-1.png";
 import image2 from "@/assets/girl-p28-2.png";
+import menImage1 from "@/assets/boy-q29-2.png";
+import menImage2 from "@/assets/boy-q29-1.png";
 import { useRoute, useRouter } from "vue-router";
 import { nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
@@ -52,7 +54,12 @@ function operation(index) {
         >
           <div
             class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-center"
-            :style="{ 'background-image': 'url(' + image2 + ')' }"
+            :style="{
+              'background-image':
+                'url(' +
+                (testStore.test?.gender == 'male' ? menImage2 : image2) +
+                ')',
+            }"
           ></div>
           <div class="mt-5 text-lg">تمایل به برقراری ارتباط</div>
         </div>
@@ -66,7 +73,12 @@ function operation(index) {
         >
           <div
             class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-center"
-            :style="{ 'background-image': 'url(' + image1 + ')' }"
+            :style="{
+              'background-image':
+                'url(' +
+                (testStore.test?.gender == 'male' ? menImage1 : image1) +
+                ')',
+            }"
           ></div>
           <div class="mt-5 text-lg">ترجیح به انفرادی رفتار کردن</div>
         </div>
