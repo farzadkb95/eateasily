@@ -53,7 +53,7 @@ function operation(index) {
           @click="operation(1)"
         >
           <div
-            class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-center"
+            class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-bottom"
             :style="{
               'background-image':
                 'url(' +
@@ -72,7 +72,7 @@ function operation(index) {
           @click="operation(2)"
         >
           <div
-            class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-center"
+            class="w-full aspect-square relative z-10 bg-contain bg-no-repeat bg-bottom"
             :style="{
               'background-image':
                 'url(' +
