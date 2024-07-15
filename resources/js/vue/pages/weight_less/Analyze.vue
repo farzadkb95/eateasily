@@ -201,7 +201,7 @@ getAnalyze();
         }"
       >
         <div
-          class="bg-green-300 w-6 h-6 rounded-full p-1"
+          class="bg-green-300 w-6 h-6 rounded-full p-1 heart-bit-animation"
           :style="{
             'margin-top': -result?.y * 60 + 'px',
             'margin-right': -result?.x * 60 + 'px',
@@ -297,3 +297,20 @@ getAnalyze();
     </div>
   </Base>
 </template>
+
+<style scoped>
+@keyframes heart-beat {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.heart-bit-animation {
+  animation-name: heart-beat;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+</style>
