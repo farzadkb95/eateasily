@@ -5,6 +5,8 @@ namespace App\Services;
 use App\Models\Data;
 use App\Models\Guest;
 use App\Models\OtherData;
+use App\Models\UserAction;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 final class TestService
 {
@@ -49,6 +51,65 @@ final class TestService
     public function setWeight(Guest $guest, $step, $value)
     {
         $guest->latestTest->weight = $value;
+        $guest->latestTest->step = $step;
+        $guest->latestTest->save();
+    }
+
+    public function setPhoneOrMail(Guest $guest, string $step, bool $inside, ?string $phone, ?string $email)
+    {
+        $randomCode = rand(1000, 9999);
+        if ($inside) {
+            $guest->latestTest->phone = $phone;
+            $action = 'weight_less_phone';
+            $smsService = new SmsService();
+            $smsService->sendCode($phone, $randomCode);
+        } else {
+            $guest->latestTest->email = $email;
+            $action = 'weight_less_email';
+            $mailService = new MailService();
+            $mailService->sendCode($email, $randomCode);
+        }
+        $guest->latestTest->step = $step;
+        $guest->latestTest->save();
+
+        $userAction = new UserAction;
+        $userAction->guest_id = $guest->id;
+        $userAction->action = $action;
+        $userAction->code = $randomCode;
+        $userAction->save();
+    }
+
+    public function approveCode(Guest $guest, string $step, int $code)
+    {
+        $userAction = UserAction::where('guest_id', $guest->id)
+            ->where(function (Builder $q) {
+                $q->where('action', 'weight_less_phone')
+                    ->orWhere('action', 'weight_less_email');
+            })
+            ->where('created_at', '>', now()->subMinutes(10))
+            ->whereNull('used_at')
+            ->where('code', $code)
+            ->first();
+
+        info($userAction);
+        info($code);
+
+        if ($guest->latestTest->phone_verified_at || $guest->latestTest->email_verified_at) {
+            return true;
+        }
+
+        if (blank($userAction)) {
+            abort(422, 'code not found!');
+        }
+
+        $userAction->used_at = now();
+        $userAction->save();
+
+        if ($userAction->action == 'weight_less_phone') {
+            $guest->latestTest->phone_verified_at = now();
+        } else {
+            $guest->latestTest->email_verified_at = now();
+        }
         $guest->latestTest->step = $step;
         $guest->latestTest->save();
     }

@@ -45,6 +45,34 @@ class WeightLessTestController extends Controller
         return response()->json(new GuestDataResource($request->guest()));
     }
 
+    public function setPhoneOrMail(Request $request, TestService $testService)
+    {
+        $request->validate([
+            'inside' => ['required', 'boolean'],
+            'phone' => 'required_if_accepted:inside',
+            'email' => 'required_if_declined:inside',
+        ]);
+
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
+            $testService->setPhoneOrMail($request->guest(), $request->step, $request->inside, $request->phone, $request->email);
+        }
+
+        return response()->json(new GuestDataResource($request->guest()));
+    }
+
+    public function approveCode(Request $request, TestService $testService)
+    {
+        $request->validate([
+            'code' => ['required', 'numeric'],
+        ]);
+
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
+            $testService->approveCode($request->guest(), $request->step, $request->code);
+        }
+
+        return response()->json(new GuestDataResource($request->guest()));
+    }
+
     public function setOther(Request $request, TestService $testService)
     {
         if (! (request()->user()?->is_admin && request()->has('test_id'))) {

@@ -14,25 +14,88 @@ const route = useRoute();
 const router = useRouter();
 const mobile = ref(null);
 const email = ref(null);
+const code = ref(null);
 const testStore = useTestStore();
 const inside = ref(true);
+const step = ref(1);
 
-// watchEffect(() => {
-//   height.value = testStore.test?.height;
-// });
+watchEffect(() => {
+  mobile.value = testStore.test?.phone;
+  email.value = testStore.test?.email;
+});
 
-function operation() {
+function sendCode() {
+  axios
+    .post(`/api/weight-less/set-phone-or-mail`, {
+      inside: inside.value,
+      phone: mobile.value,
+      email: email.value,
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+  step.value = 2;
+  // router.push({ name: nextPageName(route.name) });
+}
+
+function approveCode() {
+  console.log("approve");
+  axios
+    .post(`/api/weight-less/approve-code`, {
+      code: code.value,
+      step: route.name,
+    })
+    .then(function (response) {
+      console.log(response.data);
+      router.push({ name: nextPageName(route.name) });
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+  // router.push({ name: nextPageName(route.name) });
+}
+
+function changeNumber() {
+  console.log("change");
+  step.value = 1;
+  // router.push({ name: nextPageName(route.name) });
+}
+
+function nextPage() {
   router.push({ name: nextPageName(route.name) });
 }
 </script>
 
 <template>
   <Base>
-    <div class="c-box">
+    <div
+      class="c-box"
+      v-if="testStore.test.phone_verified || testStore.test.email_verified"
+    >
+      <div class="mt-10 text-center text-3xl">
+        <div v-if="testStore.test.phone_verified">
+          {{ testStore.test.phone }}
+        </div>
+        <div v-if="testStore.test.email_verified">
+          {{ testStore.test.email }}
+        </div>
+        <div class="text-green-500">تایید شده</div>
+      </div>
+      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="nextPage"
+        >مرحله بعدی</Btn
+      >
+    </div>
+    <div class="c-box" v-else>
       <QuestionBox
         ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
-      <div class="flex">
+      <div class="flex" v-show="step === 1">
         <div
           class="w-1/2 flex items-center gap-2 justify-center cursor-pointer"
           @click="inside = true"
@@ -65,7 +128,7 @@ function operation() {
         </div>
       </div>
       <hr class="my-5" />
-      <form @submit.prevent="operation">
+      <form @submit.prevent="sendCode" v-show="step === 1">
         <div v-show="inside">
           <small>شماره تماس</small>
           <Input
@@ -96,8 +159,26 @@ function operation() {
           </Input>
         </div>
 
-        <Btn class="w-full mt-6 !rounded-xl !h-14" type="submit">ثبت</Btn>
+        <Btn class="w-full mt-6 !rounded-xl !h-14" type="submit">ارسال کد</Btn>
       </form>
+
+      <form @submit.prevent="approveCode" v-show="step === 2">
+        <Input
+          class="!mt-0"
+          placeholder="کد ارسال شده"
+          v-model="code"
+          dir="ltr"
+        >
+        </Input>
+        <span
+          class="text-sky-400 cursor-pointer hover:text-sky-600 inline-block mt-2"
+          @click="changeNumber"
+        >
+          ویرایش شماره
+        </span>
+        <Btn class="w-full mt-6 !rounded-xl !h-14" type="submit">تایید</Btn>
+      </form>
+
       <p
         class="mt-5 p-5 border-green-500 bg-green-100 border rounded-lg"
         v-show="inside"

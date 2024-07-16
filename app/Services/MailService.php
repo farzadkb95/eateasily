@@ -7,7 +7,7 @@ use Mail;
 
 class MailService
 {
-    public function sendMail(string $to, int $code)
+    public function sendCode(string $to, int $code)
     {
         Mail::to($to)
             ->send(new TestCode($code));
