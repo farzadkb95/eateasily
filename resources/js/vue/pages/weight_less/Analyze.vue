@@ -36,7 +36,7 @@ function getAnalyze() {
     })
     .finally(function () {});
 }
-getAnalyze();
+setTimeout(getAnalyze, 2000);
 </script>
 
 <template>
