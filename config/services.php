@@ -31,4 +31,8 @@ return [
         ],
     ],
 
+    'faraz_sms' => [
+        'api_key' => env('FARAZ_SMS_APY_KEY'),
+    ],
+
 ];
