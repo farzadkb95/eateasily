@@ -48,32 +48,34 @@ setTimeout(getAnalyze, 2000);
       </div>
     </template>
     <template v-else>
-      <ScrollX class="flex gap-2 my-4 md:justify-center max-w-full">
-        <div
-          class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
-          @click="scrollTo(weightAnalyze)"
-        >
-          آنالیز وزنی
-        </div>
-        <div
-          class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
-          @click="scrollTo(realAge)"
-        >
-          آنالیز سن واقعی
-        </div>
-        <div
-          class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
-          @click="scrollTo(mezaj)"
-        >
-          آنالیز مزاج شناسی
-        </div>
-        <div
-          class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
-          @click="scrollTo(brainAnalyze)"
-        >
-          آنالیز نیم کره
-        </div>
-      </ScrollX>
+      <div class="sticky top-0 bg-white z-40 py-4">
+        <ScrollX class="flex gap-2 md:justify-center max-w-full">
+          <div
+            class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+            @click="scrollTo(weightAnalyze)"
+          >
+            آنالیز وزنی
+          </div>
+          <div
+            class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+            @click="scrollTo(realAge)"
+          >
+            آنالیز سن واقعی
+          </div>
+          <div
+            class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+            @click="scrollTo(mezaj)"
+          >
+            آنالیز مزاج شناسی
+          </div>
+          <div
+            class="border rounded-full px-2 py-1 text-zinc-500 w-fit shrink-0 hover:border-green-500 hover:text-green-600 cursor-pointer"
+            @click="scrollTo(brainAnalyze)"
+          >
+            آنالیز نیم کره
+          </div>
+        </ScrollX>
+      </div>
       <div class="c-container h-0 !my-10 px-1">
         <hr />
         <div
