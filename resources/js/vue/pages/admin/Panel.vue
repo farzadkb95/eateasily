@@ -56,6 +56,31 @@ function goTo(selectedTest) {
   router.push({ name: pages[0][0], query: { test_id: selectedTest.id } });
 }
 
+function exportExcel() {
+  axios
+    .get(`/api/admin/tests-export`, {
+      responseType: "arraybuffer",
+    })
+    .then(function (response) {
+      console.log(response.data);
+      forceFileDownload(response, "tests.xlsx");
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+}
+
+function forceFileDownload(response, title) {
+  console.log(title);
+  const url = window.URL.createObjectURL(new Blob([response.data]));
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("download", title);
+  document.body.appendChild(link);
+  link.click();
+}
+
 getTests();
 getTestsCount();
 </script>
@@ -104,6 +129,14 @@ getTestsCount();
           "
         >
           رها شده: {{ testCounts?.unfinished || 0 }}
+        </div>
+      </div>
+      <div class="my-5">
+        <div
+          class="shadow-md rounded-md inline-block px-3 py-2 bg-slate-50 hover:shadow-sm cursor-pointer"
+          @click="exportExcel"
+        >
+          خروجی اکسل
         </div>
       </div>
       <!-- <div class="flex justify-center my-5 gap-5">

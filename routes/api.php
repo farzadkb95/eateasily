@@ -15,6 +15,7 @@ Route::post('/new-test', [TestController::class, 'newTest']);
 
 Route::get('/admin/get-tests', [AdminController::class, 'getTests'])->middleware(IsAdminMiddleware::class);
 Route::get('/admin/get-tests-count', [AdminController::class, 'getTestsCount'])->middleware(IsAdminMiddleware::class);
+Route::get('/admin/tests-export', [AdminController::class, 'testsExport'])->middleware(IsAdminMiddleware::class);
 
 Route::prefix('weight-less/')->group(function () {
     Route::get('/get-config', [WeightLessTestController::class, 'getConfig']);

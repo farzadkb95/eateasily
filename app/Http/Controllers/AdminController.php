@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TestsExport;
 use App\Http\Resources\DataResource;
 use App\Models\Data;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -32,5 +34,10 @@ class AdminController extends Controller
         });
 
         return $tests;
+    }
+
+    public function testsExport()
+    {
+        return Excel::download(new TestsExport, 'tests.xlsx');
     }
 }
