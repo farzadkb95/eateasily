@@ -6,6 +6,7 @@ use App\Models\Data;
 use App\Models\Guest;
 use App\Models\OtherData;
 use App\Models\UserAction;
+use Facades\App\Services\PaymentService;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 final class TestService
@@ -133,5 +134,18 @@ final class TestService
         $guest->latestTest->step = $step;
         $guest->latestTest->save();
         $guest->latestTest->load('other');
+    }
+
+    public function payment(Guest $guest, int $testId): string
+    {
+        $test = Data::where('id', $testId)->where('guest_id', $guest->id)->first();
+
+        if (blank($test)) {
+            abort(422, 'test not found!');
+        }
+
+        $payment = PaymentService::createPayment($guest->id, $test->id);
+
+        return PaymentService::payRequest($payment);
     }
 }

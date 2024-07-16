@@ -14,6 +14,29 @@ import after3 from "@/assets/after3.png";
 import ScrollX from "../../components/ScrollX.vue";
 import UserNote from "../../components/UserNote.vue";
 import QuestionDropDown from "../../components/QuestionDropDown.vue";
+import { scrollTo } from "../../modules/utility";
+import { ref } from "vue";
+import { useTestStore } from "../../store/TestStore";
+
+const testStore = useTestStore();
+const buy = ref(null);
+
+function pay() {
+  axios
+    .post(`/api/weight-less/payment`, {
+      test: testStore.test.id,
+    })
+    .then(function (response) {
+      console.log(response.data);
+      window.location.assign(response.data.payment_url);
+    })
+    .catch(function (error) {
+      console.log(error.message);
+    })
+    .finally(function () {});
+  step.value = 2;
+  // router.push({ name: nextPageName(route.name) });
+}
 </script>
 
 <template>
@@ -49,7 +72,9 @@ import QuestionDropDown from "../../components/QuestionDropDown.vue";
               <div>اعتبار تخفیف تا:</div>
               <div class="font-black text-3xl ms-auto">09:59</div>
             </div>
-            <Btn class="w-full mt-5 !rounded-xl !h-14">دریافت برنامه</Btn>
+            <Btn class="w-full mt-5 !rounded-xl !h-14" @click="scrollTo(buy)"
+              >دریافت برنامه</Btn
+            >
           </div>
         </div>
         <div class="flex items-center justify-center w-full">
@@ -153,6 +178,7 @@ import QuestionDropDown from "../../components/QuestionDropDown.vue";
         </IconSideCard>
       </div>
       <div
+        ref="buy"
         class="sm:border-2 rounded-2xl border-pink-500 px-5 sm:px-10 py-12 mt-16 relative"
       >
         <div
@@ -190,7 +216,9 @@ import QuestionDropDown from "../../components/QuestionDropDown.vue";
             </div>
           </div>
         </div>
-        <Btn class="w-full mt-10 !rounded-xl !h-14">دریافت برنامه</Btn>
+        <Btn class="w-full mt-10 !rounded-xl !h-14" @click="pay"
+          >خرید و دریافت برنامه</Btn
+        >
       </div>
     </div>
     <div class="mt-20">
@@ -265,7 +293,9 @@ import QuestionDropDown from "../../components/QuestionDropDown.vue";
           <QuestionDropDown></QuestionDropDown>
           <QuestionDropDown></QuestionDropDown>
         </div>
-        <Btn class="max-w-full mx-auto mt-10 !rounded-xl !h-14 w-[500px]"
+        <Btn
+          class="max-w-full mx-auto mt-10 !rounded-xl !h-14 w-[500px]"
+          @click="scrollTo(buy)"
           >دریافت برنامه</Btn
         >
       </div>

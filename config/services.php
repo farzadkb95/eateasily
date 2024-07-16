@@ -35,4 +35,8 @@ return [
         'api_key' => env('FARAZ_SMS_APY_KEY'),
     ],
 
+    'zarinpal' => [
+        'merchant_key' => env('ZARINPAL_MERCHANT_KEY'),
+    ],
+
 ];

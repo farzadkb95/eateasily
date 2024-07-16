@@ -82,6 +82,22 @@ class WeightLessTestController extends Controller
         return response()->json(new GuestDataResource($request->guest()));
     }
 
+    public function payment(Request $request, TestService $testService)
+    {
+        $request->validate([
+            'test' => ['required', 'numeric'],
+        ]);
+
+        $payment = null;
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
+            $payment = $testService->payment($request->guest(), $request->test);
+        }
+
+        return response()->json([
+            'payment_url' => $payment,
+        ]);
+    }
+
     public function getAnalyze(Request $request, TestAnalyzeService $testService)
     {
         if (request()->user()?->is_admin && request()->has('test_id')) {
