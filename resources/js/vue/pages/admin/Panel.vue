@@ -2,13 +2,13 @@
 import Panel from "../../layouts/Panel.vue";
 import Input from "../../components/Input.vue";
 import { ref } from "vue";
-import { pageNumber } from "../../modules/config";
+import { getPages, pageNumber } from "../../modules/config";
 import Paginate from "../../components/paginate.vue";
 import { useRoute, useRouter } from "vue-router";
 import Btn from "@/components/Btn.vue";
-import { pages } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
 
+const pages = getPages();
 const testStore = useTestStore();
 const test = ref(null);
 const testCounts = ref(null);

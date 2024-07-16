@@ -1,13 +1,12 @@
 <script setup>
-import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
-import { questions } from "../../modules/config";
 
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

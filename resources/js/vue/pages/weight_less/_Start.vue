@@ -1,10 +1,11 @@
 <script setup>
 import { useRouter } from "vue-router";
-import { pages } from "../../modules/config";
 import axios from "axios";
 import { ref } from "vue";
 import Btn from "../../components/Btn.vue";
+import { getPages } from "../../modules/config";
 
+const pages = getPages();
 const router = useRouter();
 const guest = ref(null);
 

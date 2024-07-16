@@ -1,6 +1,4 @@
 <script setup>
-import InfoBox from "../../components/InfoBox.vue";
-import ItemBox from "../../components/ItemBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 
@@ -15,13 +13,13 @@ import mImage3 from "@/assets/40man.png";
 import mImage4 from "@/assets/50man.png";
 
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
 import Btn from "../../components/Btn.vue";
 import Input from "../../components/Input.vue";
 import { computed, ref, watchEffect } from "vue";
-import { questions } from "../../modules/config";
 
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

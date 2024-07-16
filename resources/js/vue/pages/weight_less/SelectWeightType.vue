@@ -13,10 +13,10 @@ import menImage3 from "@/assets/man-p-7-3.png";
 import menImage4 from "@/assets/man-p-7-2.png";
 import menImage5 from "@/assets/man-p-7-4.png";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
-import { questions } from "../../modules/config";
 
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

@@ -15,12 +15,11 @@ import image7 from "@/assets/food-p-20-7.png";
 import image8 from "@/assets/food-p-20-8.png";
 import Btn from "../../components/Btn.vue";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
-import { questions } from "../../modules/config";
 
 const items = ref([]);
-
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

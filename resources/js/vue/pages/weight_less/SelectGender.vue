@@ -9,8 +9,9 @@ import { nextPageName } from "../../modules/config";
 import ReadCheckBox from "../../components/ReadCheckBox.vue";
 import { useTestStore } from "../../store/TestStore";
 import { Icon } from "@iconify/vue";
-import { questions } from "../../modules/config";
+import { getQuestions } from "../../modules/config";
 
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

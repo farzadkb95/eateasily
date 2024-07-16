@@ -8,10 +8,10 @@ import image2 from "@/assets/girl-p28-2.png";
 import menImage1 from "@/assets/boy-q29-2.png";
 import menImage2 from "@/assets/boy-q29-1.png";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
-import { questions } from "../../modules/config";
 
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

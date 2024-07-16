@@ -7,10 +7,10 @@ import image2 from "@/assets/hand2.png";
 import image3 from "@/assets/hand3.png";
 import image4 from "@/assets/hand4.png";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
-import { questions } from "../../modules/config";
 
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

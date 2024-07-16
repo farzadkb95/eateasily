@@ -4,16 +4,15 @@ import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
 import ItemBox from "../../components/ItemBox.vue";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
 import { ref, watchEffect } from "vue";
 import ItemCheckBox from "../../components/ItemCheckBox.vue";
 import Btn from "../../components/Btn.vue";
-import { questions } from "../../modules/config";
 
 const items = ref([]);
 const none = ref(false);
-
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const testStore = useTestStore();

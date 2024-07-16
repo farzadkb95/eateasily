@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from "vue";
-import { steps } from "../modules/config";
+import { getSteps } from "../modules/config";
 
+const steps = getSteps();
 const bar = ref(null);
 const points = ref(0);
 const props = defineProps({

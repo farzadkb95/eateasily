@@ -5,7 +5,10 @@ import { onMounted, watchEffect } from "vue";
 import { useTestStore } from "./store/TestStore";
 import { useUserStore } from "./store/UserStore";
 import { useRoute, useRouter } from "vue-router";
+import { getConfig } from "./modules/config";
+import { useConfigStore } from "./store/ConfigStore";
 
+const configStore = useConfigStore();
 const testStore = useTestStore();
 const userStore = useUserStore();
 const route = useRoute();
@@ -14,6 +17,8 @@ const router = useRouter();
 onMounted(async () => {
   await router.isReady();
   await user.initial();
+  console.log("geeeeeeeeeet config");
+  await getConfig();
 
   router.beforeEach((to, from, next) => {
     if (from.query.test_id && !to.query.test_id) {
@@ -101,7 +106,7 @@ axios.interceptors.response.use(
 </script>
 
 <template>
-  <div>
+  <div v-if="configStore.config?.pages">
     <router-view></router-view>
   </div>
 </template>

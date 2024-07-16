@@ -5,12 +5,12 @@ import Base from "../../layouts/Base.vue";
 import Btn from "../../components/Btn.vue";
 import Input from "../../components/Input.vue";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { ref, watchEffect } from "vue";
 import { useTestStore } from "../../store/TestStore";
 import { Icon } from "@iconify/vue";
-import { questions } from "../../modules/config";
 
+const questions = getQuestions();
 const route = useRoute();
 const router = useRouter();
 const weight = ref(null);

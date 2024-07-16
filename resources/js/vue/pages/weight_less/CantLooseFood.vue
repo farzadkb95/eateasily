@@ -13,10 +13,10 @@ import image5 from "@/assets/deser-p21-5.png";
 import image6 from "@/assets/deser-p21-6.png";
 import Btn from "../../components/Btn.vue";
 import { useRoute, useRouter } from "vue-router";
-import { nextPageName } from "../../modules/config";
+import { getQuestions, nextPageName } from "../../modules/config";
 import { useTestStore } from "../../store/TestStore";
-import { questions } from "../../modules/config";
 
+const questions = getQuestions();
 const items = ref([]);
 
 const route = useRoute();
