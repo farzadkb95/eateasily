@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.png" type="image/svg+xml">
     <title>@yield('title', 'default title')</title>
     <meta name="description" content="@yield('info', 'default description')">
     <meta name="keywords" content="@yield('keys', 'default keywords')">
