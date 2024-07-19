@@ -23,6 +23,9 @@ return new class extends Migration
             $table->decimal('amount', 20, 2);
             $table->enum('status', ['success', 'fail', 'cancel', 'pending'])->nullable();
             $table->boolean('apply')->default(false);
+            $table->string('pay_code')->nullable();
+            $table->string('pay_ref')->nullable();
+            $table->string('card_number')->nullable();
             $table->timestamps();
         });
     }

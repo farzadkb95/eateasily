@@ -34,8 +34,6 @@ function pay() {
       console.log(error.message);
     })
     .finally(function () {});
-  step.value = 2;
-  // router.push({ name: nextPageName(route.name) });
 }
 </script>
 

@@ -13,6 +13,7 @@ class Payment extends Model
     {
         return [
             'info' => 'json',
+            'amount' => 'float',
         ];
     }
 }

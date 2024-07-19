@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\GuestDataResource;
+use App\Http\Resources\PaymentResource;
 use App\Services\TestAnalyzeService;
 use App\Services\TestService;
 use Illuminate\Http\Request;
@@ -96,6 +97,22 @@ class WeightLessTestController extends Controller
         return response()->json([
             'payment_url' => $payment,
         ]);
+    }
+
+    public function paymentCallBack(Request $request, TestService $testService)
+    {
+        $request->validate([
+            'payment' => ['required', 'string'],
+            'authority' => ['required', 'string'],
+            'status' => ['required', 'string', 'in:OK,NOK'],
+        ]);
+
+        $payment = null;
+        if (! (request()->user()?->is_admin && request()->has('test_id'))) {
+            $payment = $testService->paymentVerify($request->guest(), $request->payment, $request->authority, $request->status);
+        }
+
+        return new PaymentResource($payment);
     }
 
     public function getAnalyze(Request $request, TestAnalyzeService $testService)

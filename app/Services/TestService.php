@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Data;
 use App\Models\Guest;
 use App\Models\OtherData;
+use App\Models\Payment;
 use App\Models\UserAction;
 use Facades\App\Services\PaymentService;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -147,5 +148,18 @@ final class TestService
         $payment = PaymentService::createPayment($guest->id, $test->id);
 
         return PaymentService::payRequest($payment);
+    }
+
+    public function paymentVerify(Guest $guest, string $paymentCode, string $authority, string $status): Payment
+    {
+        $payment = Payment::where('code', $paymentCode)->where('guest_id', $guest->id)->first();
+
+        if (blank($payment)) {
+            abort(422, 'payment not found!');
+        }
+
+        $payment = PaymentService::verifyPayment($payment, $authority, $status);
+
+        return $payment;
     }
 }

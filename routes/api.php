@@ -26,6 +26,7 @@ Route::prefix('weight-less/')->group(function () {
     Route::post('/set-phone-or-mail', [WeightLessTestController::class, 'setPhoneOrMail']);
     Route::post('/approve-code', [WeightLessTestController::class, 'approveCode']);
     Route::post('/payment', [WeightLessTestController::class, 'payment']);
+    Route::post('/payment/verify', [WeightLessTestController::class, 'paymentCallBack']);
     Route::post('/set-other', [WeightLessTestController::class, 'setOther']);
     Route::get('/analyze', [WeightLessTestController::class, 'getAnalyze']);
 });

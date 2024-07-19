@@ -205,6 +205,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/pay-verify",
+        component: () => import("./pages/weight_less/PayVerify.vue"),
+        name: "weight-less|pay-verify",
+        meta: {},
+    },
+    {
         path: "/login",
         component: () => import("./pages/Login.vue"),
         name: "login",
