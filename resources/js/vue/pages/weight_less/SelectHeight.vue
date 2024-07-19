@@ -45,7 +45,7 @@ function operation() {
       >
 
       <form @submit.prevent="operation">
-        <Input placeholder="cm (سانتی متر)" v-model="height" type="number">
+        <Input placeholder="cm (سانتی متر)" v-model="height" :numeric="true">
           <template #start
             ><Icon icon="solar:ruler-outline" class="w-6 h-full"
           /></template>

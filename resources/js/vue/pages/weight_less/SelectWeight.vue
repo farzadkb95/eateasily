@@ -46,7 +46,7 @@ function operation() {
       >
 
       <form @submit.prevent="operation">
-        <Input placeholder="kg (کیلو گرم)" v-model="weight" type="number">
+        <Input placeholder="kg (کیلو گرم)" v-model="weight" :numeric="true">
           <template #start
             ><Icon icon="icon-park-outline:weight" class="w-6 h-full"
           /></template>

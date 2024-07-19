@@ -6,6 +6,7 @@ use App\Http\Resources\GuestDataResource;
 use App\Http\Resources\PaymentResource;
 use App\Services\TestAnalyzeService;
 use App\Services\TestService;
+use Facades\App\Services\Tools;
 use Illuminate\Http\Request;
 
 class WeightLessTestController extends Controller
@@ -21,6 +22,7 @@ class WeightLessTestController extends Controller
 
     public function selectAge(Request $request, TestService $testService)
     {
+        $request->merge(['age' => Tools::enNum($request->age)]);
         if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setAge($request->guest(), $request->step, $request->age);
         }
@@ -30,6 +32,7 @@ class WeightLessTestController extends Controller
 
     public function selectHeight(Request $request, TestService $testService)
     {
+        $request->merge(['height' => Tools::enNum($request->height)]);
         if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setHeight($request->guest(), $request->step, $request->height);
         }
@@ -39,6 +42,7 @@ class WeightLessTestController extends Controller
 
     public function selectWeight(Request $request, TestService $testService)
     {
+        $request->merge(['weight' => Tools::enNum($request->weight)]);
         if (! (request()->user()?->is_admin && request()->has('test_id'))) {
             $testService->setWeight($request->guest(), $request->step, $request->weight);
         }
@@ -48,6 +52,7 @@ class WeightLessTestController extends Controller
 
     public function setPhoneOrMail(Request $request, TestService $testService)
     {
+        $request->merge(['phone' => Tools::enNum($request->age)]);
         $request->validate([
             'inside' => ['required', 'boolean'],
             'phone' => 'required_if_accepted:inside',

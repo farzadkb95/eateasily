@@ -91,7 +91,7 @@ function operation() {
           <Input
             placeholder="سن خود را وارد کنید"
             v-model="age"
-            type="number"
+            :numeric="true"
             class="!mt-0"
           />
 

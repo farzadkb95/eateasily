@@ -136,6 +136,7 @@ function nextPage() {
             placeholder="09......"
             v-model="mobile"
             dir="ltr"
+            :numeric="true"
           >
             <template #start>
               <Icon icon="solar:phone-linear" class="w-6 h-full" />
@@ -168,6 +169,7 @@ function nextPage() {
           placeholder="کد ارسال شده"
           v-model="code"
           dir="ltr"
+          :numeric="true"
         >
         </Input>
         <span
