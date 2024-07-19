@@ -7,7 +7,7 @@ const router = useRouter();
 </script>
 
 <template>
-  <div class="mb-48">
+  <div class="">
     <header
       class="shadow-emerald-100 shadow-lg flex items-center justify-center h-12 relative"
     >
