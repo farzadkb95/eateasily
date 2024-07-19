@@ -8,7 +8,5 @@
 @section('content')
     <main>
         <h1>{{ $_serverMeta['title'] }}</h1>
-        <img src="{{ $_serverMeta['image'] }}" alt="{{ $_serverMeta['title'] }}" title="{{ $_serverMeta['title'] }}" />
-        <p>{{ $_serverMeta['info'] }}</p>
     </main>
 @endsection

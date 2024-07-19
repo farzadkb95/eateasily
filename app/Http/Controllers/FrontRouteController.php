@@ -8,10 +8,10 @@ class FrontRouteController extends Controller
     {
         return view('default', [
             '_serverMeta' => [
-                'title' => 'my title',
-                'info' => 'my info',
-                'keys' => 'mey keywords',
-                'image' => 'my image',
+                'title' => 'eat easily | ایت ایزیلی',
+                'info' => 'ایت ایزیلی: آزمون لاغری حرفه ای، مشاوره تغذیه و لاغری شما',
+                'keys' => 'آزمون لاغری، مشاوره لاغری، اپ لاغری، مشاوره تغذیه، آزمون جامع تغذیه',
+                'image' => url('header.png'),
             ],
         ]);
     }
