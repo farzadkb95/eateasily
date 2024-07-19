@@ -43,7 +43,7 @@ function operation(index) {
           @click="operation(1)"
           :select="testStore.test?.other?.[route.name] == 1"
         >
-          <p>{{ questions[$route.name]?.options?.[2] }}</p>
+          <p>{{ questions[$route.name]?.options?.[1] }}</p>
         </ItemBox>
         <ItemBox
           class="px-5 !text-lg"
