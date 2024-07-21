@@ -57,25 +57,27 @@ import QuestionDropDown from "../components/QuestionDropDown.vue";
       <div class="text-2xl font-[500]">راه‌های ارتباطی با ایت ایزلی</div>
       <div class="mt-10">
         <div class="flex gap-3 md:gap-5">
-          <div
+          <a
+            href="tel:02128421368"
             class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
             <Icon
               icon="solar:phone-linear"
               class="w-6 h-full text-green-500 shrink-0"
             />
-            021-123456789
-          </div>
+            021-28421368
+          </a>
 
-          <div
+          <a
+            href="mailto:info@eateasily.net"
             class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
             <Icon
               icon="hugeicons:mail-02"
               class="w-6 h-full text-green-500 shrink-0"
             />
-            sample@gmail.com
-          </div>
+            info@eateasily.net
+          </a>
         </div>
         <div
           class="p-5 flex rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 mt-3 md:mt-5"
@@ -97,10 +99,16 @@ import QuestionDropDown from "../components/QuestionDropDown.vue";
         <hr class="w-full" />
         <span class="shrink-0">شبکه های اجتماعی</span>
         <div class="flex gap-2 shrink-0">
-          <a href="#"><img src="@/assets/telegram.png" class="h-6" alt="" /></a>
-          <a href="#"><img src="@/assets/whatsapp.png" class="h-6" alt="" /></a>
-          <a href="#"><img src="@/assets/x.png" class="h-6" alt="" /></a>
-          <a href="#"
+          <a target="_blank" href="https://t.me/eateasily"
+            ><img src="@/assets/telegram.png" class="h-6" alt=""
+          /></a>
+          <a target="_blank" href="https://wa.me/+989336374188"
+            ><img src="@/assets/whatsapp.png" class="h-6" alt=""
+          /></a>
+          <a target="_blank" href="https://eitaa.com/eateasily"
+            ><img src="@/assets/eitaa.svg" class="h-6" alt=""
+          /></a>
+          <a target="_blank" href="https://www.instagram.com/eateasilyofficial/"
             ><img src="@/assets/instagram.png" class="h-6" alt=""
           /></a>
         </div>
