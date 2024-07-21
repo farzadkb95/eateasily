@@ -223,7 +223,18 @@ function pay() {
               </div>
             </div>
             <div class="ms-auto">
-              <span class="text-2xl font-bold">983/000</span> تومان
+              <div
+                class="w-16 rounded-t-xl bg-pink-500 text-center mx-auto text-white"
+              >
+                قیمت
+              </div>
+              <div class="p-3 bg-pink-100 rounded-lg">
+                <div class="relative">
+                  <hr class="border-red-500 absolute w-full top-3" />
+                  <span class="text-xl">3/000/000</span> تومان
+                </div>
+                <div><span class="text-2xl font-bold">983/000</span> تومان</div>
+              </div>
             </div>
           </div>
         </div>
