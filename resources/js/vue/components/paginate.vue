@@ -1,6 +1,6 @@
 <script setup>
 import paginate from "../modules/paginate";
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   first: {

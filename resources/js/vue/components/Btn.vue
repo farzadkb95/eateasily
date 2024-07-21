@@ -1,6 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
-
 const emits = defineEmits(["click"]);
 const props = defineProps({
   color: {
