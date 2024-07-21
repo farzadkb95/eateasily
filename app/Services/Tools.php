@@ -4,8 +4,12 @@ namespace App\Services;
 
 class Tools
 {
-    public function enNum(string $numbers)
+    public function enNum(?string $numbers)
     {
+        if (blank($numbers)) {
+            return $numbers;
+        }
+
         return str_replace([
             '۰',
             '۱',

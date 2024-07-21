@@ -76,7 +76,7 @@ function nextPage() {
   <Base>
     <div
       class="c-box"
-      v-if="testStore.test.phone_verified || testStore.test.email_verified"
+      v-if="testStore.test?.phone_verified || testStore.test?.email_verified"
     >
       <div class="mt-10 text-center text-3xl">
         <div v-if="testStore.test.phone_verified">
@@ -92,7 +92,7 @@ function nextPage() {
       >
     </div>
     <div class="c-box" v-else>
-      <QuestionBox
+      <QuestionBox v-show="step === 1"
         ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
       >
       <div class="flex" v-show="step === 1">
@@ -137,6 +137,7 @@ function nextPage() {
             v-model="mobile"
             dir="ltr"
             :numeric="true"
+            :max="11"
           >
             <template #start>
               <Icon icon="solar:phone-linear" class="w-6 h-full" />

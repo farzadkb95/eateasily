@@ -13,6 +13,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  max: {
+    type: [Number, null],
+    default: null,
+  },
   placeholder: {
     type: String,
   },
@@ -49,6 +53,7 @@ function onInput(e) {
       ref="input"
       :type="props.type"
       :placeholder="props.placeholder"
+      :maxlength="props.max"
       v-model="value"
       @input="onInput"
       class="w-full h-14 outline-none bg-transparent"

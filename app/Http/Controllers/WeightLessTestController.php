@@ -52,7 +52,7 @@ class WeightLessTestController extends Controller
 
     public function setPhoneOrMail(Request $request, TestService $testService)
     {
-        $request->merge(['phone' => Tools::enNum($request->age)]);
+        $request->merge(['phone' => Tools::enNum($request->phone)]);
         $request->validate([
             'inside' => ['required', 'boolean'],
             'phone' => 'required_if_accepted:inside',
