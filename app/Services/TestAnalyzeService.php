@@ -17,7 +17,7 @@ class TestAnalyzeService
         $test = $test->toArray();
         $test['other'] = $other;
 
-        return [
+        $data = [
             'x' => round($this->calcX($test), 1),
             'y' => round($this->calcY($test), 1),
             'r' => round($this->calcR($test), 0),
@@ -25,7 +25,64 @@ class TestAnalyzeService
             'age_offset' => round($this->calcAgeOffset($test), 1),
             'fat_risk' => round($this->calcFatRisk($test), 0),
         ];
+        $suggestionFoods = $this->suggestion($data['x'], $data['y']);
+        $data['suggestion'] = $suggestionFoods;
 
+        return $data;
+    }
+
+    public function suggestion(float $x, float $y): array
+    {
+        $arr = [];
+
+        if ($y > 0) {
+            $arr = array_merge($arr, [
+                'پنیر',
+                'ماست و کدو سبز',
+                'آب و عسل طبیعی',
+                'گوشت ماهی',
+                'گوشت مرغ محلی',
+                'عدس',
+                'سیب',
+                'انار',
+                'ماش',
+            ]);
+        } elseif ($y < 0) {
+            $arr = array_merge($arr, [
+                'آب و عسل و زنجبیل',
+                'کشمش',
+                'خرما',
+                'نخود پخته',
+                'گوشت گوسفند',
+                'گوشت بلدرچین',
+            ]);
+        }
+        if ($x > 0) {
+            $arr = array_merge($arr, [
+                'نعنا',
+                'زعفران',
+                'بادام درختی',
+                'تخم مرغ',
+                'گردو',
+                'عسل',
+                'تخم آفتابگردان',
+                'بروکلی',
+                'چای تازه دم',
+            ]);
+        } elseif ($x < 0) {
+            $arr = array_merge($arr, [
+                'کاهو',
+                'روغن زیتون',
+                'هویج خام',
+                'انجیر',
+                'خرما',
+                'بادام شیرین',
+                'خیار',
+                'انواع لوبیا',
+            ]);
+        }
+
+        return $arr;
     }
 
     protected function calcX($test)

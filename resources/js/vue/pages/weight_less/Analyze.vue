@@ -229,6 +229,29 @@ setTimeout(getAnalyze, 2000);
             <div class="bg-green-500 w-full h-full rounded-full"></div>
           </div>
         </div>
+        <div class="text-center">
+          <div
+            class="bg-green-100 text-green-600 py-2 px-14 inline-block rounded-lg"
+          >
+            نظر تیم پزشکی ایت‌ایزیلی:
+          </div>
+          <div class="font-bold my-5">
+            مواد غذایی توصیه شده برای تعادل مزاج شما:
+          </div>
+          <div class="text-green-500" v-if="result.suggestion.length == 0">
+            خوشبختانه مزاج شما در حالت تعادل قرار دارد و به شما بابت این موضوع
+            تبریک میگوییم.
+          </div>
+          <div class="grid grid-cols-3 gap-1" v-else>
+            <div
+              v-for="(item, index) in result.suggestion"
+              :key="index"
+              class="bg-green-100 py-2 rounded-md"
+            >
+              {{ item }}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="c-container h-0 !my-10 px-1">
         <hr />
