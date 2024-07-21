@@ -15,7 +15,7 @@ function getRunningTest() {
     .then(function (response) {
       console.log(response.data);
       guest.value = response.data;
-      if (response.data.latest_test?.status != "in_process") {
+      if (response.data?.guest?.latest_test?.status != "in_process") {
         newTest();
       }
     })

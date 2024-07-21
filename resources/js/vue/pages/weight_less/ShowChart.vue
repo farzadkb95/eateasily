@@ -30,7 +30,8 @@ function operation() {
       </p></QuestionBox
     >
     <p class="text-center text-lg font-[400] my-5">
-      تا به امروز ما به 637,425 نفـر کمک کردیم تا به وزن و اندام دلخواهشون برسن!
+      تا به امروز ما به {{ testStore.customers }} نفـر کمک کردیم تا به وزن و
+      اندام دلخواهشون برسن!
     </p>
     <div class="c-box">
       <div class="w-fit mx-auto relative">
