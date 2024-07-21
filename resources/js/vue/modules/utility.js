@@ -30,3 +30,10 @@ export function enNum(number) {
     })
     return number.join("");
 }
+
+export function preDigit(number, digit = 2) {
+    if (('' + number).length < digit) {
+        return '0'.repeat(digit - ('' + number).length) + number
+    }
+    return number;
+}
