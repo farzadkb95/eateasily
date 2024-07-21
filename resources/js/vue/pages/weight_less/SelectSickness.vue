@@ -100,6 +100,13 @@ function operation() {
             }}</span></ItemCheckBox
           >
         </ItemBox>
+        <div
+          v-if="items.includes('5')"
+          class="shadow-md rounded-lg p-2 border-r-4 border-green-500"
+        >
+          با آرزوی سلامتی برای شما و فرزندت عزیزتان، تا 9 ماه بعد از زایمان
+          استفاده از هیچ رژیمی برای شما توصیه نمی‌شود.
+        </div>
         <ItemBox v-if="testStore.test?.gender != 'male'">
           <ItemCheckBox
             @on="none = false"
