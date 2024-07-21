@@ -7,13 +7,13 @@ const el = ref(null);
 const { distanceX } = usePointerSwipe(el, {
   disableTextSelect: true,
   onSwipeStart() {
-    // xPosition = el.value.scrollLeft;
+    xPosition = el.value.scrollLeft;
   },
   onSwipe() {
-    el.value.scroll(xPosition + distanceX.value / 2.2, 0);
+    el.value.scroll(xPosition + distanceX.value / 1.2, 0);
   },
   onSwipeEnd() {
-    // xPosition = el.value.scrollLeft;
+    xPosition = el.value.scrollLeft;
   },
 });
 
