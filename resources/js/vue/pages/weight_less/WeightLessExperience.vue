@@ -49,6 +49,7 @@ function operation() {
       <div class="flex flex-col gap-4">
         <ItemBox class="px-5 !text-lg">
           <ItemCheckBox
+            @on="none = false"
             value="1"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -60,6 +61,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
           <ItemCheckBox
+            @on="none = false"
             value="2"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -71,6 +73,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
           <ItemCheckBox
+            @on="none = false"
             value="3"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -82,6 +85,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
           <ItemCheckBox
+            @on="none = false"
             value="4"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
@@ -93,6 +97,7 @@ function operation() {
         </ItemBox>
         <ItemBox class="px-5 !text-lg">
           <ItemCheckBox
+            @on="none = false"
             value="5"
             v-model="items"
             class="px-3 h-full w-full cursor-pointer"
