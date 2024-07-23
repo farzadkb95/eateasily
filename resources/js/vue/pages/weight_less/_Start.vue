@@ -14,7 +14,7 @@ function getRunningTest() {
     .get(`/api/get-latest-test`)
     .then(function (response) {
       console.log(response.data);
-      guest.value = response.data;
+      guest.value = response.data.guest;
       if (response.data?.guest?.latest_test?.status != "in_process") {
         newTest();
       }
