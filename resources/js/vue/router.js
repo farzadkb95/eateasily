@@ -217,6 +217,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/buy-bulimia-nervosa",
+        component: () => import("./pages/weight_less/BuyBulimiaNervosa.vue"),
+        name: "weight-less|buy-bulimia-nervosa",
+        meta: {},
+    },
+    {
         path: "/weight-less/pay-verify",
         component: () => import("./pages/weight_less/PayVerify.vue"),
         name: "weight-less|pay-verify",
