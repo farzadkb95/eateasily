@@ -1,6 +1,5 @@
 <script setup>
 import Btn from "../../components/Btn.vue";
-import InfoBox from "../../components/InfoBox.vue";
 import LightInfoBox from "../../components/LightInfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";

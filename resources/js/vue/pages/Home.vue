@@ -1,19 +1,7 @@
 <script setup>
 import Raw from "../layouts/Raw.vue";
 import Btn from "../components/Btn.vue";
-import IconSideCard from "../components/IconSideCard.vue";
 import { Icon } from "@iconify/vue";
-import logo from "@/assets/white-logo.png";
-import UserChange from "../components/UserChange.vue";
-import before1 from "@/assets/before1.png";
-import after1 from "@/assets/after1.png";
-import before2 from "@/assets/before2.jpg";
-import after2 from "@/assets/after2.jpg";
-import before3 from "@/assets/before3.png";
-import after3 from "@/assets/after3.png";
-import ScrollX from "../components/ScrollX.vue";
-import UserNote from "../components/UserNote.vue";
-import QuestionDropDown from "../components/QuestionDropDown.vue";
 </script>
 
 <template>

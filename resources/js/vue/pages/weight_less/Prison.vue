@@ -1,8 +1,6 @@
 <script setup>
-import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
-import ItemBox from "../../components/ItemBox.vue";
 import Btn from "../../components/Btn.vue";
 import { Icon } from "@iconify/vue";
 import { useRoute, useRouter } from "vue-router";

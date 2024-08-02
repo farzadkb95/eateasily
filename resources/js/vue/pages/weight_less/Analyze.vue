@@ -5,7 +5,6 @@ import Base from "../../layouts/Base.vue";
 import mezajChart from "@/assets/mezaj_chart.png";
 import { useTestStore } from "../../store/TestStore";
 import { ref } from "vue";
-import { RouterLink } from "vue-router";
 import { scrollTo } from "../../modules/utility";
 import Loader from "../../components/Loader.vue";
 

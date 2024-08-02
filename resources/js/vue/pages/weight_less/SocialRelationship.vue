@@ -1,8 +1,6 @@
 <script setup>
-import InfoBox from "../../components/InfoBox.vue";
 import QuestionBox from "../../components/QuestionBox.vue";
 import Base from "../../layouts/Base.vue";
-import ItemBox from "../../components/ItemBox.vue";
 import image1 from "@/assets/girl-p28-1.png";
 import image2 from "@/assets/girl-p28-2.png";
 import menImage1 from "@/assets/boy-q29-2.png";
