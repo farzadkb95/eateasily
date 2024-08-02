@@ -56,14 +56,10 @@ function pay() {
       <div class="c-container flex max-md:flex-col gap-5 pt-16 md:pb-10">
         <div class="w-full flex justify-center">
           <div class="w-[480px] px-5 leading-normal">
-            <h1 class="text-3xl md:text-4xl font-black leading-normal">
+            <h1 class="text-3xl md:text-3xl font-black leading-normal">
               کاهش وزن 6 تا 8 کیلوگرم در ماه با
               <span class="text-green-500">ایت ایزیلی</span>
-              <img
-                src="@/assets/draw.png"
-                class="inline-block mx-2 w-24"
-                alt=""
-              />
+              بدون بازگشت وزن
             </h1>
             <p class="text-lg mt-5">
               به جمع هــزاران نفری که با کمک ایت ایزیلی به وزن و اندام دلخواهشون
@@ -170,23 +166,112 @@ function pay() {
             اصلا از سفره خانواده جدا نمیشه!!
           </template>
         </IconSideCard>
-        <IconSideCard :time="counterTime" class="mt-5">
-          <template #image>
-            <img src="@/assets/icon-potion.png" alt="" />
-          </template>
-          <template #title> دسترسی به فرمول بطری جادویی</template>
-          <template #default>
-            ارائه دستورات کوچک کردن معده کاملاً خانگی زیر نظر تیم پزشکی
-          </template>
-        </IconSideCard>
-        <IconSideCard :time="counterTime" class="mt-5">
-          <template #image>
-            <img src="@/assets/icon-weight.png" alt="" />
-          </template>
-          <template #title>
-            دریافت برنامه تثبیت وزنی زیر نظر تیم پزشکی</template
+
+        <div class="bg-pink-50 p-5 rounded-md relative">
+          <span
+            class="block absolute -top-6 w-12 aspect-square bg-pink-500 border-4 border-white text-white rounded-full p-2"
+            ><Icon icon="teenyicons:gift-outline" class="w-full h-full"
+          /></span>
+          <div
+            class="absolute left-5 -top-4 bg-pink-500 rounded-2xl text-white text-xl font-bold px-5 py-1"
           >
-        </IconSideCard>
+            {{ counterTime }}
+          </div>
+          <div class="mt-5 text-sm">
+            <span class="text-pink-500 text-xl">توجه: </span> تنها تا پایان مهلت
+            بلیت تخفیفی امکان دریافت این دو هدیه ارزشمند را دارید!
+          </div>
+          <IconSideCard :color="true" class="mt-5">
+            <template #image>
+              <img src="@/assets/icon-potion.png" alt="" />
+            </template>
+            <template #title> دسترسی به فرمول بطری جادویی</template>
+            <template #default>
+              <div>
+                <div class="text-sm">
+                  ارائه دستورات کوچک کردن معده کاملاً خانگی زیر نظر تیم پزشکی
+                </div>
+                <div class="flex justify-end">
+                  <div class="inline-block">
+                    <div class="relative text-center">
+                      <hr class="border-red-500 absolute w-full top-3" />
+                      <span class="text-xl">1/200/000</span> تومان
+                    </div>
+                    <div>
+                      <span class="text-pink-600"
+                        ><Icon
+                          icon="teenyicons:gift-outline"
+                          class="w-6 h-full inline pe-1"
+                        />هدیه ایت ایزیلی به شما</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </IconSideCard>
+          <IconSideCard :color="counterTime" class="mt-5">
+            <template #image>
+              <img src="@/assets/icon-weight.png" alt="" />
+            </template>
+            <template #title>
+              دریافت برنامه تثبیت وزنی زیر نظر تیم پزشکی
+            </template>
+            <template #default>
+              <div>
+                <div class="flex justify-end">
+                  <div class="inline-block">
+                    <div class="relative text-center">
+                      <hr class="border-red-500 absolute w-full top-3" />
+                      <span class="text-xl">1/200/000</span> تومان
+                    </div>
+                    <div>
+                      <span class="text-pink-600"
+                        ><Icon
+                          icon="teenyicons:gift-outline"
+                          class="w-6 h-full inline pe-1"
+                        />هدیه ایت ایزیلی به شما</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </IconSideCard>
+        </div>
+
+        <div class="bg-amber-50 p-5 rounded-md relative mt-10">
+          <span
+            class="block absolute -top-6 w-12 aspect-square bg-green-500 border-4 border-white text-white rounded-full p-2"
+            ><Icon icon="teenyicons:gift-outline" class="w-full h-full"
+          /></span>
+          <div
+            class="absolute left-5 -top-4 bg-green-500 rounded-2xl text-white text-xl font-bold px-5 py-1"
+          >
+            {{ counterTime }}
+          </div>
+          <div class="mt-5 text-sm">
+            <span class="text-red-500 text-xl">توجه: </span> تنها تا پایان مهلت
+            بلیت تخفیفی امکان دریافت ضمانت بازگشت وجه رو دارید!
+          </div>
+          <div class="flex gold-gradient mt-5 rounded-xl p-5 gap-5">
+            <div
+              class="bg-white rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <Icon
+                icon="lucide:shield-check"
+                class="w-10 h-full text-pink-700"
+              />
+            </div>
+            <div>
+              <div class="text-xl font-bold">ضمانت بازگشت وجه ۱۰۰ ٪</div>
+              <div class="text-sm font-bold">
+                اعتماد و اعتقاد به محصول لاغری ایت ایزیلی به پشتوانه نتیجه
+                هزاران نفری
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         ref="buy"
@@ -337,3 +422,16 @@ function pay() {
     </div>
   </div>
 </template>
+
+<style scoped>
+.gold-gradient {
+  background: rgb(237, 197, 70);
+  background: linear-gradient(
+    111deg,
+    rgba(237, 197, 70, 1) 0%,
+    rgba(180, 142, 49, 1) 35%,
+    rgba(237, 197, 70, 1) 65%,
+    rgba(180, 142, 49, 1) 100%
+  );
+}
+</style>
