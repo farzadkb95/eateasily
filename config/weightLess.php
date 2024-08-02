@@ -26,6 +26,7 @@ return [
                 ],
             ],
             'weight-less|show-chart' => [],
+            'weight-less|show-change-weight' => [],
             'weight-less|insert-phone' => [
                 'question' => 'کجا زندگی می‌کنید؟',
             ],
