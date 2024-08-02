@@ -60,6 +60,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/show-weight-typee",
+        component: () => import("./pages/weight_less/ShowWeightType.vue"),
+        name: "weight-less|show-weight-type",
+        meta: {},
+    },
+    {
         path: "/weight-less/relish-condition",
         component: () => import("./pages/weight_less/RelishCondition.vue"),
         name: "weight-less|relish-condition",

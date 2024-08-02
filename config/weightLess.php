@@ -41,6 +41,7 @@ return [
                     5 => 'چاقی به صورت متوازن و سراسری در بدن من وجود دارد (بادکنکی)',
                 ],
             ],
+            'weight-less|show-weight-type' => [],
             'weight-less|relish-condition' => [
                 'question' => 'در چه شرایطی میل شما به غذا خوردن بیشتر است؟',
                 'options' => [
