@@ -127,6 +127,7 @@ return [
                     5 => 'زیر نظر پزشک متخصص تغذیه',
                 ],
             ],
+            'weight-less|prison' => [],
             'weight-less|your-description' => [
                 'question' => 'کدام جمله شما رو بهتر توصیف می‌کنه؟',
                 'options' => [

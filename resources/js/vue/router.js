@@ -126,6 +126,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/prison",
+        component: () => import("./pages/weight_less/Prison.vue"),
+        name: "weight-less|prison",
+        meta: {},
+    },
+    {
         path: "/weight-less/your-description",
         component: () => import("./pages/weight_less/YourDescription.vue"),
         name: "weight-less|your-description",
