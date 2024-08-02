@@ -17,13 +17,13 @@ class DataResource extends JsonResource
         $idealWeight = $this->gender == 'male' ? $this->height - 104 : $this->height - 108;
         $extraWeight = $this->weight - $idealWeight;
         $idealWeightTime = 1;
-        if ($extraWeight >= 8) {
+        if (abs($extraWeight) >= 8) {
             $idealWeightTime = 2;
         }
-        if ($extraWeight >= 12) {
+        if (abs($extraWeight) >= 12) {
             $idealWeightTime = 3;
         }
-        if ($extraWeight >= 19) {
+        if (abs($extraWeight) >= 19) {
             $idealWeightTime = 4;
         }
 
