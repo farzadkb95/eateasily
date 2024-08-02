@@ -150,6 +150,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/eat-everything",
+        component: () => import("./pages/weight_less/EatEverything.vue"),
+        name: "weight-less|eat-everything",
+        meta: {},
+    },
+    {
         path: "/weight-less/smooth-muscle",
         component: () => import("./pages/weight_less/SmoothMuscle.vue"),
         name: "weight-less|smooth-muscle",

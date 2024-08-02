@@ -168,6 +168,7 @@ return [
                     6 => 'پاستیل',
                 ],
             ],
+            'weight-less|eat-everything' => [],
             'weight-less|smooth-muscle' => [
                 'question' => 'آیا قسمت های گوشتی بدنتان مانند ران و بازو خیلی نرم است؟',
                 'options' => [
