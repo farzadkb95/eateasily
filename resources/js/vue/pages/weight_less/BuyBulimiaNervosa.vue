@@ -56,17 +56,17 @@ function pay() {
       <div class="c-container flex max-md:flex-col gap-5 pt-16 md:pb-10">
         <div class="w-full flex justify-center">
           <div class="w-[480px] px-5 leading-normal">
-            <h1 class="text-3xl md:text-3xl font-black leading-normal">
-              کاهش وزن 6 تا 8 کیلوگرم در ماه با
-              <span class="text-green-500">ایت ایزیلی</span>
-              بدون بازگشت وزن
+            <h1 class="text-3xl md:text-4xl font-black leading-normal">
+              کاهش وزن <span class="text-pink-500">6 تا 8</span> کیلوگرم در ماه
+              با درمان
+              <span class="text-green-500">پرخوری عصبی</span>
             </h1>
             <p class="text-lg mt-5">
-              به جمع هــزاران نفری که با کمک ایت ایزیلی به وزن و اندام دلخواهشون
-              رسیدند بپیوندید.
+              به جمع خانواده هزاران نفری که با درمان پرخوری عصبی به وزن و اندام
+              دلخواهشون رسیدند بپیوندید.
             </p>
             <p class="text-pink-500 text-lg font-black mt-5">
-              همین الان می‌تونید ایت ایزیلی رو با %70 تخفیف دریافت کنید!
+              همین الان می‌تونید درمان پرخوری عصبی رو با %70 تخفیف دریافت کنید!
             </p>
             <div
               class="bg-pink-100 p-3 rounded-md flex text-xl text-pink-600 gap-2 items-center mt-5"
