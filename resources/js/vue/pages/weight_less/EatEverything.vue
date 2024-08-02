@@ -21,6 +21,26 @@ import deser4 from "@/assets/deser-p21-4.png";
 import deser5 from "@/assets/deser-p21-5.png";
 import deser6 from "@/assets/deser-p21-6.png";
 
+const lunch = {
+  1: lunch1,
+  2: lunch2,
+  3: lunch3,
+  4: lunch4,
+  5: lunch5,
+  6: lunch6,
+  7: lunch7,
+  8: lunch8,
+};
+
+const deser = {
+  1: deser1,
+  2: deser2,
+  3: deser3,
+  4: deser4,
+  5: deser5,
+  6: deser6,
+};
+
 const testStore = useTestStore();
 const router = useRouter();
 const route = useRoute();
@@ -28,11 +48,11 @@ const route = useRoute();
 const foods = computed(() => {
   let foods = [];
   (testStore.test?.other?.["weight-less|select-lunch"] || []).forEach((i) => {
-    foods.push(eval("lunch" + i));
+    foods.push(lunch[i]);
   });
   (testStore.test?.other?.["weight-less|cant-loose-food"] || []).forEach(
     (i) => {
-      foods.push(eval("deser" + i));
+      foods.push(deser[i]);
     }
   );
   return foods.slice(0, 6);
