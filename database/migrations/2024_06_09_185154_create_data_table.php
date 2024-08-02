@@ -26,6 +26,14 @@ return new class extends Migration
             $table->unsignedTinyInteger('age')->nullable();
             $table->unsignedTinyInteger('height')->nullable();
             $table->unsignedTinyInteger('weight')->nullable();
+            $table->tinyInteger('ideal_weight')->nullable();
+            $table->tinyInteger('extra_weight')->nullable();
+            $table->tinyInteger('x_value')->nullable();
+            $table->tinyInteger('y_value')->nullable();
+            $table->decimal('right')->nullable();
+            $table->decimal('left')->nullable();
+            $table->tinyInteger('age_offset')->nullable();
+            $table->decimal('fat_risk')->nullable();
             $table->timestamps();
         });
     }

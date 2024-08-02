@@ -47,14 +47,22 @@ final class TestService
     {
         $guest->latestTest->height = $value;
         $guest->latestTest->step = $step;
-        $guest->latestTest->save();
+
+        $this->calculateExtraWeight($guest->latestTest);
+        if ($guest->latestTest->isDirty()) {
+            $guest->latestTest->save();
+        }
     }
 
     public function setWeight(Guest $guest, $step, $value)
     {
         $guest->latestTest->weight = $value;
         $guest->latestTest->step = $step;
-        $guest->latestTest->save();
+
+        $this->calculateExtraWeight($guest->latestTest);
+        if ($guest->latestTest->isDirty()) {
+            $guest->latestTest->save();
+        }
     }
 
     public function setPhoneOrMail(Guest $guest, string $step, bool $inside, ?string $phone, ?string $email)
@@ -161,5 +169,17 @@ final class TestService
         $payment = PaymentService::verifyPayment($payment, $authority, $status);
 
         return $payment;
+    }
+
+    public function calculateExtraWeight(Data $test)
+    {
+        if ($test->gender && $test->weight && $test->height) {
+            $idealWeight = $test->gender == 'male' ? $test->height - 104 : $test->height - 108;
+            $extraWeight = $test->weight - $idealWeight;
+
+            $test->extra_weight = $extraWeight;
+            $test->ideal_weight = $idealWeight;
+            $test->save();
+        }
     }
 }

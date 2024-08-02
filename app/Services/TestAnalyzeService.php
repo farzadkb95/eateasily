@@ -14,19 +14,21 @@ class TestAnalyzeService
         });
 
         // $test->merge(['other' => $other]);
-        $test = $test->toArray();
-        $test['other'] = $other;
+        $arrayTest = $test->toArray();
+        $arrayTest['other'] = $other;
 
         $data = [
-            'x' => round($this->calcX($test), 1),
-            'y' => round($this->calcY($test), 1),
-            'r' => round($this->calcR($test), 0),
-            'l' => round($this->calcL($test), 0),
-            'age_offset' => round($this->calcAgeOffset($test), 1),
-            'fat_risk' => round($this->calcFatRisk($test), 0),
+            'x' => round($this->calcX($arrayTest), 1),
+            'y' => round($this->calcY($arrayTest), 1),
+            'r' => round($this->calcR($arrayTest), 0),
+            'l' => round($this->calcL($arrayTest), 0),
+            'age_offset' => round($this->calcAgeOffset($arrayTest), 1),
+            'fat_risk' => round($this->calcFatRisk($arrayTest), 0),
         ];
         $suggestionFoods = $this->suggestion($data['x'], $data['y']);
         $data['suggestion'] = $suggestionFoods;
+
+        $this->saveAnalyze($test, $data);
 
         return $data;
     }
@@ -267,5 +269,17 @@ class TestAnalyzeService
     protected function removeNull($var)
     {
         return $var !== null && $var !== false && $var !== '';
+    }
+
+    protected function saveAnalyze(Data $test, array $data)
+    {
+        $test->x_value = $data['x'];
+        $test->y_value = $data['y'];
+        $test->right = $data['r'];
+        $test->left = $data['l'];
+        $test->age_offset = $data['age_offset'];
+        $test->fat_risk = $data['fat_risk'];
+
+        $test->save();
     }
 }

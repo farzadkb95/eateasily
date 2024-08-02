@@ -14,16 +14,14 @@ class DataResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $idealWeight = $this->gender == 'male' ? $this->height - 104 : $this->height - 108;
-        $extraWeight = $this->weight - $idealWeight;
         $idealWeightTime = 1;
-        if (abs($extraWeight) >= 8) {
+        if (abs($this->extra_weight) >= 8) {
             $idealWeightTime = 2;
         }
-        if (abs($extraWeight) >= 12) {
+        if (abs($this->extra_weight) >= 12) {
             $idealWeightTime = 3;
         }
-        if (abs($extraWeight) >= 19) {
+        if (abs($this->extra_weight) >= 19) {
             $idealWeightTime = 4;
         }
 
@@ -38,8 +36,8 @@ class DataResource extends JsonResource
             'age' => $this->age,
             'height' => $this->height,
             'weight' => $this->weight,
-            'ideal_weight' => $idealWeight,
-            'extra_weight' => $extraWeight,
+            'ideal_weight' => $this->ideal_weight,
+            'extra_weight' => $this->extra_weight,
             'ideal_weight_time' => $idealWeightTime,
             'phone' => $this->phone,
             'phone_verified' => filled($this->phone_verified_at),
