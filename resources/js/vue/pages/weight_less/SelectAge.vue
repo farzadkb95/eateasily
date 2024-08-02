@@ -58,7 +58,6 @@ function operation() {
       step: route.name,
     })
     .then(function (response) {
-      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error.message);

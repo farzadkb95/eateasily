@@ -17,7 +17,6 @@ const router = useRouter();
 onMounted(async () => {
   await router.isReady();
   await user.initial();
-  console.log("geeeeeeeeeet config");
   await getConfig();
 
   router.beforeEach((to, from, next) => {
@@ -26,7 +25,6 @@ onMounted(async () => {
     } else if (to.name == "login" && userStore?.login) {
       next({ name: "panel" });
     } else if (to.name == "panel" && !userStore?.isAdmin) {
-      console.log("eeeeeee", to.name, userStore?.isAdmin);
       next({ name: "home" });
     } else {
       next();
@@ -38,13 +36,10 @@ onMounted(async () => {
   });
 
   const pathPart = route.path.split("/");
-  console.log("rrrr", pathPart);
   if (pathPart[1] == "weight-less" && testStore.test == undefined) {
     axios
       .get(`/api/get-latest-test`)
-      .then(function (response) {
-        console.log(response.data);
-      })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error.message);
       })
@@ -83,7 +78,6 @@ axios.interceptors.response.use(
       !response.data?.user?.is_admin &&
       route.name == "panel"
     ) {
-      console.log("oooo");
       router.push({ name: "home" });
     }
 

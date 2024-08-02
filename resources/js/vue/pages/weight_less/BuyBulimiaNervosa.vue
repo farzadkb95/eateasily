@@ -40,7 +40,6 @@ function pay() {
       test: testStore.test.id,
     })
     .then(function (response) {
-      console.log(response.data);
       window.location.assign(response.data.payment_url);
     })
     .catch(function (error) {

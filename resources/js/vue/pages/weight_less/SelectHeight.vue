@@ -25,9 +25,7 @@ function operation() {
       height: height.value,
       step: route.name,
     })
-    .then(function (response) {
-      console.log(response.data);
-    })
+    .then(function (response) {})
     .catch(function (error) {
       console.log(error.message);
     })

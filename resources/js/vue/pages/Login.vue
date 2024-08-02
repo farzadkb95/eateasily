@@ -16,7 +16,6 @@ function login() {
       password: password.value,
     })
     .then(function (response) {
-      console.log(response.data);
       localStorage.setItem("token", response.data.token);
       axios.defaults.headers["Authorization"] =
         "Bearer " + localStorage.getItem("token");

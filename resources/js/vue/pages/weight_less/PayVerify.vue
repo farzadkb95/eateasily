@@ -16,7 +16,6 @@ function payVerify() {
       status: route.query.Status,
     })
     .then(function (response) {
-      console.log(response.data);
       payment.value = response.data.data;
     })
     .catch(function (error) {
@@ -34,7 +33,6 @@ function pay() {
       test: payment.value.data_id,
     })
     .then(function (response) {
-      console.log(response.data);
       window.location.assign(response.data.payment_url);
     })
     .catch(function (error) {

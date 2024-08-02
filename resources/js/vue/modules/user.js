@@ -13,7 +13,6 @@ async function setUser(user) {
         isAdmin: user.is_admin,
         login: true,
     });
-    console.log('bbb set', user);
 }
 
 function getUser() {
@@ -25,7 +24,6 @@ function getUser() {
 async function initial() {
     try {
         const response = await axios.get("/api/initial-data");
-        console.log('bbb req', response);
         if (response.data.user) {
             await setUser(response.data.user);
         }

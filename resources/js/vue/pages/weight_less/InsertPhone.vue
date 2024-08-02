@@ -32,9 +32,7 @@ function sendCode() {
       email: email.value,
       step: route.name,
     })
-    .then(function (response) {
-      console.log(response.data);
-    })
+    .then(function (response) {})
     .catch(function (error) {
       console.log(error.message);
     })
@@ -44,14 +42,12 @@ function sendCode() {
 }
 
 function approveCode() {
-  console.log("approve");
   axios
     .post(`/api/weight-less/approve-code`, {
       code: code.value,
       step: route.name,
     })
     .then(function (response) {
-      console.log(response.data);
       router.push({ name: nextPageName(route.name) });
     })
     .catch(function (error) {
@@ -62,7 +58,6 @@ function approveCode() {
 }
 
 function changeNumber() {
-  console.log("change");
   step.value = 1;
   // router.push({ name: nextPageName(route.name) });
 }

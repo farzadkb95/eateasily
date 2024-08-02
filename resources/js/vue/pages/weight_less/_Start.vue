@@ -13,7 +13,6 @@ function getRunningTest() {
   axios
     .get(`/api/get-latest-test`)
     .then(function (response) {
-      console.log(response.data);
       guest.value = response.data.guest;
       if (response.data?.guest?.latest_test?.status != "in_process") {
         newTest();
@@ -27,11 +26,9 @@ function getRunningTest() {
 getRunningTest();
 
 function newTest() {
-  console.log("new test");
   axios
     .post(`/api/new-test`)
     .then(function (response) {
-      console.log(response.data);
       router.replace({ name: pages[0][0] });
     })
     .catch(function (error) {
@@ -41,7 +38,6 @@ function newTest() {
 }
 
 function continueTest() {
-  console.log("continue test");
   router.replace({ name: guest.value.latest_test?.step || pages[0][0] });
 }
 </script>

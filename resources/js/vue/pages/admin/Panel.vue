@@ -28,7 +28,6 @@ async function getTests() {
       params: { page: page.value, status: route?.query?.status || "all" },
     })
     .then(function (response) {
-      console.log(response.data);
       test.value = response.data;
     })
     .catch(function (error) {
@@ -41,7 +40,6 @@ function getTestsCount() {
   axios
     .get(`/api/admin/get-tests-count`)
     .then(function (response) {
-      console.log(response.data);
       testCounts.value = response.data;
     })
     .catch(function (error) {
@@ -62,7 +60,6 @@ function exportExcel() {
       responseType: "arraybuffer",
     })
     .then(function (response) {
-      console.log(response.data);
       forceFileDownload(response, "tests.xlsx");
     })
     .catch(function (error) {
@@ -72,7 +69,6 @@ function exportExcel() {
 }
 
 function forceFileDownload(response, title) {
-  console.log(title);
   const url = window.URL.createObjectURL(new Blob([response.data]));
   const link = document.createElement("a");
   link.href = url;

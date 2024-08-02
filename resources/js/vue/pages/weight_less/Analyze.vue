@@ -28,7 +28,6 @@ function getAnalyze() {
   axios
     .get(`/api/weight-less/analyze`)
     .then(function (response) {
-      console.log("aaa", response.data);
       result.value = response.data;
     })
     .catch(function (error) {
