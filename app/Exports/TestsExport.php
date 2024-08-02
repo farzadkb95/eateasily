@@ -34,6 +34,14 @@ class TestsExport implements FromCollection
                 'age' => $test->age,
                 'height' => $test->height,
                 'weight' => $test->weight,
+                'ideal_weight' => $test->ideal_weight,
+                'extra_weight' => $test->extra_weight,
+                'x_value' => $test->x_value,
+                'y_value' => $test->y_value,
+                'right' => $test->right,
+                'left' => $test->left,
+                'age_offset' => $test->age_offset,
+                'fat_risk' => $test->fat_risk,
                 'date' => $test->created_at,
                 ...collect($test->other)->mapWithKeys(function ($item) use ($pages) {
                     if ($item['type'] == 'json') {
