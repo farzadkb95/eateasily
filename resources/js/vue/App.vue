@@ -109,13 +109,16 @@ watch(
   (to, from) => {
     let toDepth = pageNumber(to);
     let fromDepth = pageNumber(from);
-    transitionName.value = toDepth < fromDepth ? "slide-right" : "slide-left";
+
+    if (toDepth > 0 && fromDepth > 0) {
+      transitionName.value = toDepth < fromDepth ? "slide-right" : "slide-left";
+    }
   }
 );
 </script>
 
 <template>
-  <div v-if="configStore.config?.pages" class="test">
+  <div v-if="configStore.config?.pages">
     <!-- <router-view></router-view> -->
     <router-view v-slot="{ Component }">
       <Transition :name="transitionName">
