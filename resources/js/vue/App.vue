@@ -1,11 +1,11 @@
 <script setup>
 import user from "./modules/user";
 import axios from "axios";
-import { onMounted, watchEffect } from "vue";
+import { onMounted, ref, watch, watchEffect } from "vue";
 import { useTestStore } from "./store/TestStore";
 import { useUserStore } from "./store/UserStore";
 import { useRoute, useRouter } from "vue-router";
-import { getConfig } from "./modules/config";
+import { getConfig, pageNumber } from "./modules/config";
 import { useConfigStore } from "./store/ConfigStore";
 
 const configStore = useConfigStore();
@@ -13,6 +13,7 @@ const testStore = useTestStore();
 const userStore = useUserStore();
 const route = useRoute();
 const router = useRouter();
+const transitionName = ref();
 
 onMounted(async () => {
   await router.isReady();
@@ -102,10 +103,24 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+watch(
+  () => route?.name,
+  (to, from) => {
+    let toDepth = pageNumber(to);
+    let fromDepth = pageNumber(from);
+    transitionName.value = toDepth < fromDepth ? "slide-right" : "slide-left";
+  }
+);
 </script>
 
 <template>
-  <div v-if="configStore.config?.pages">
-    <router-view></router-view>
+  <div v-if="configStore.config?.pages" class="test">
+    <!-- <router-view></router-view> -->
+    <router-view v-slot="{ Component }">
+      <Transition :name="transitionName">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
   </div>
 </template>

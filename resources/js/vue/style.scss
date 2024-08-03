@@ -59,3 +59,53 @@ html {
 .c-shadow-green-xl {
     box-shadow: 0px 10px 15px 5px #dcf1e5;
 }
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+    transition: all 0.75s ease-out;
+}
+
+.slide-left-enter-to,
+.slide-left-enter-from,
+.slide-left-leave-to,
+.slide-left-leave-from,
+.slide-right-enter-to,
+.slide-right-enter-from,
+.slide-right-leave-to,
+.slide-right-leave-from {
+    position: fixed;
+}
+
+.slide-left-enter-to {
+    right: 0;
+}
+
+.slide-left-enter-from {
+    right: 100%;
+}
+
+.slide-left-leave-to {
+    left: 100%;
+}
+
+.slide-left-leave-from {
+    left: 0;
+}
+
+.slide-right-enter-to {
+    right: 0;
+}
+
+.slide-right-enter-from {
+    right: -100%;
+}
+
+.slide-right-leave-to {
+    left: -100%;
+}
+
+.slide-right-leave-from {
+    left: 0;
+}
