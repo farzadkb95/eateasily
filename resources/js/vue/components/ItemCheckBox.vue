@@ -44,7 +44,7 @@ const on = computed(() => {
       class="hidden"
     />
     <div
-      class="w-6 aspect-square border-2 rounded-md flex items-center justify-center"
+      class="w-6 h-6 border-2 rounded-md flex items-center justify-center"
       :class="{
         'border-green-500 bg-green-500': on,
         'border-gray-400': !on,

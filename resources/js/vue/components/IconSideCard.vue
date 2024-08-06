@@ -23,7 +23,7 @@ const props = defineProps({
     </div>
     <div class="flex flex-col gap-1 items-center">
       <div
-        class="w-14 aspect-square p-3 rounded-full bg-zinc-100"
+        class="w-14 h-14 p-3 rounded-full bg-zinc-100"
         :class="{ '!bg-white': props.color }"
       >
         <slot name="image"></slot>

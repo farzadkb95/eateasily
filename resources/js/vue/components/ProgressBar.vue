@@ -46,7 +46,7 @@ function getPercent() {
       class="absolute flex w-full h-full left-0 top-0 justify-evenly items-center"
     >
       <div
-        class="h-5 aspect-square rounded-full bg-slate-200 flex items-center justify-center"
+        class="h-5 w-5 rounded-full bg-slate-200 flex items-center justify-center"
         v-for="i in steps.length - 1"
         :key="i"
         :class="{ '!bg-green-500': points > i - 1 }"

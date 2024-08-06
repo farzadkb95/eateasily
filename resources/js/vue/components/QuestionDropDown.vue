@@ -12,7 +12,7 @@ const open = ref(false);
       @click="open = !open"
     >
       <div
-        class="border border-pink-500 bg-white rounded-full w-6 aspect-square flex items-center justify-center"
+        class="border border-pink-500 bg-white rounded-full w-6 h-6 flex items-center justify-center"
       >
         <Icon icon="ph:question-fill" class="h-full w-6 text-pink-500" />
       </div>

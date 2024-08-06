@@ -4,7 +4,7 @@ const props = defineProps(["on"]);
 
 <template>
   <div
-    class="w-6 aspect-square border-2 rounded-md flex items-center justify-center border-white"
+    class="w-6 h-6 border-2 rounded-md flex items-center justify-center border-white"
   >
     <svg
       v-show="on"
