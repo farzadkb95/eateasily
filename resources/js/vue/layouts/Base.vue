@@ -41,7 +41,7 @@ function previousPage() {
               سوال قبل
             </Btn>
             <div
-              class="max-sm:w-full border border-gray-300 rounded-md px-5 h-10 flex items-center justify-center font-bold text-pink-500 text-xl"
+              class="max-sm:w-full border border-gray-300 rounded-md px-5 h-10 flex items-center justify-center font-bold text-pink-500 text-xl whitespace-nowrap"
             >
               سوال {{ number }} از {{ pagesCount() }}
             </div>
