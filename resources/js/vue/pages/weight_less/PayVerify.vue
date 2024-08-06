@@ -104,10 +104,19 @@ function pay() {
       <div class="flex items-center mt-5 gap-5">
         <hr class="w-full" />
         <div class="flex gap-2 shrink-0">
-          <a href="#"><img src="@/assets/telegram.png" class="h-6" alt="" /></a>
-          <a href="#"><img src="@/assets/whatsapp.png" class="h-6" alt="" /></a>
-          <a href="#"><img src="@/assets/x.png" class="h-6" alt="" /></a>
-          <a href="#"
+          <a target="_blank" href="https://t.me/eateasily"
+            ><img src="@/assets/telegram.png" class="h-6" alt=""
+          /></a>
+          <a target="_blank" href="https://wa.me/+989336374188"
+            ><img src="@/assets/whatsapp.png" class="h-6" alt=""
+          /></a>
+          <a target="_blank" href="https://eitaa.com/eateasily"
+            ><img src="@/assets/eitaa.svg" class="h-6" alt=""
+          /></a>
+          <a target="_blank" href="https://ble.ir/eateasily"
+            ><img src="@/assets/bale-color.png" class="h-6" alt=""
+          /></a>
+          <a target="_blank" href="https://www.instagram.com/eateasilyofficial/"
             ><img src="@/assets/instagram.png" class="h-6" alt=""
           /></a>
         </div>
