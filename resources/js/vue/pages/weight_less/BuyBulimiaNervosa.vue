@@ -21,6 +21,7 @@ import { useTestStore } from "../../store/TestStore";
 const testStore = useTestStore();
 const buy = ref(null);
 const counter = ref(600);
+const scrollBox = ref(null);
 
 onMounted(() => {
   setInterval(() => {
@@ -220,7 +221,7 @@ function pay() {
               </div>
             </template>
           </IconSideCard>
-          <IconSideCard :color="counterTime" class="mt-5">
+          <IconSideCard :time="counterTime" class="mt-5">
             <template #image>
               <img src="@/assets/icon-weight.png" alt="" />
             </template>
@@ -369,8 +370,22 @@ function pay() {
       <div class="mb-10 text-center text-2xl font-bold">
         نظرات کاربران ایت ایزیلی
       </div>
-      <div class="flex justify-center">
-        <ScrollX class="flex py-10 px-5 w-[1000px]">
+      <div
+        class="flex justify-center relative w-[1100px] max-w-full px-2 md:px-20 mx-auto"
+      >
+        <div
+          class="absolute top-1/2 end-2 w-10 h-10 bg-pink-500 rounded-full text-white cursor-pointer"
+          @click="scrollBox.swipeEnd(320)"
+        >
+          <Icon icon="mingcute:left-fill" class="w-full h-full" />
+        </div>
+        <div
+          class="absolute top-1/2 start-2 w-10 h-10 bg-pink-500 rounded-full text-white cursor-pointer"
+          @click="scrollBox.swipeStart(320)"
+        >
+          <Icon icon="mingcute:right-fill" class="w-full h-full" />
+        </div>
+        <ScrollX ref="scrollBox" class="flex py-10 px-5 w-full">
           <div class="w-[320px] p-2 shrink-0">
             <UserNote></UserNote>
           </div>

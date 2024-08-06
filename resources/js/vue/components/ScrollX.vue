@@ -4,6 +4,7 @@ import { usePointerSwipe } from "@vueuse/core";
 
 let xPosition = 0;
 const el = ref(null);
+const scrollWithBtn = ref(false);
 const { distanceX } = usePointerSwipe(el, {
   disableTextSelect: true,
   onSwipeStart() {
@@ -25,11 +26,33 @@ function onWheel(e) {
   }
   xPosition = el.value.scrollLeft;
 }
+
+function swipeEnd(value) {
+  scrollWithBtn.value = true;
+  setTimeout(() => {
+    el.value.scroll(el.value.scrollLeft - value, 0);
+    scrollWithBtn.value = false;
+  }, 10);
+}
+
+function swipeStart(value) {
+  scrollWithBtn.value = true;
+  setTimeout(() => {
+    el.value.scroll(el.value.scrollLeft + value, 0);
+    scrollWithBtn.value = false;
+  }, 10);
+}
+
+defineExpose({
+  swipeEnd,
+  swipeStart,
+});
 </script>
 
 <template>
   <div
     class="x-scroll overflow-x-hidden"
+    :class="{ 'scroll-smooth': scrollWithBtn }"
     ref="el"
     @click="xPosition = el.scrollLeft"
     @wheel="onWheel"
