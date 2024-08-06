@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div id="progress-bar--container">
+  <div id="progress-bar--container" class="relative">
     <svg viewBox="0 0 100 100">
       <circle
         stroke="#fcf5fa"
@@ -29,16 +29,12 @@ const props = defineProps({
         pathLength="100"
         :style="{ 'stroke-dashoffset': 100 - props.percent }"
       />
-      <text
-        id="progress--text"
-        x="50"
-        y="52"
-        text-anchor="middle"
-        dominant-baseline="middle"
-      >
-        {{ props.percent }}%
-      </text>
     </svg>
+    <div
+      class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-[60px] font-black text-[#e46eac]"
+    >
+      {{ props.percent }}%
+    </div>
   </div>
 </template>
 
@@ -56,14 +52,6 @@ const props = defineProps({
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   stroke-linecap: round;
-}
-
-#progress--text {
-  fill: #e46eac;
-  font-weight: 750;
-  font-size: 20px;
-  transform-origin: center;
-  transform: rotate(90deg);
 }
 
 svg {
