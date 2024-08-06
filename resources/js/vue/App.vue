@@ -118,11 +118,13 @@ watch(
 
 <template>
   <div v-if="configStore.config?.pages">
-    <!-- <router-view></router-view> -->
-    <router-view v-slot="{ Component }">
-      <Transition :name="transitionName">
-        <component :is="Component" />
-      </Transition>
-    </router-view>
+    <template v-if="transitionName">
+      <router-view v-slot="{ Component }">
+        <Transition :name="transitionName">
+          <component :is="Component" />
+        </Transition>
+      </router-view>
+    </template>
+    <router-view v-else></router-view>
   </div>
 </template>
