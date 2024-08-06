@@ -98,6 +98,13 @@ function pay() {
         />
       </svg>
     </div>
+    <div class="relative flex justify-center">
+      <div
+        class="bg-white shadow-md w-[360px] h-[200px] relative -top-16 -mb-16 p-4 rounded-xl"
+      >
+        <div class="w-full h-full bg-slate-100 rounded-xl"></div>
+      </div>
+    </div>
     <div class="c-box !w-[570px]">
       <div class="text-3xl font-bold text-center mt-10">
         آنچه دریافت می‌کنید
