@@ -71,7 +71,7 @@ function pay() {
               class="bg-pink-100 p-3 rounded-md flex text-xl text-pink-600 gap-2 items-center mt-5"
             >
               <div
-                class="w-10 aspect-square bg-pink-300 rounded-full flex items-center justify-center"
+                class="w-10 h-10 bg-pink-300 rounded-full flex items-center justify-center"
               >
                 <Icon icon="solar:ticket-sale-outline" class="h-full w-6" />
               </div>
@@ -172,7 +172,7 @@ function pay() {
 
         <div class="bg-pink-50 p-5 rounded-md relative">
           <span
-            class="block absolute -top-6 w-12 aspect-square bg-pink-500 border-4 border-white text-white rounded-full p-2"
+            class="block absolute -top-6 w-12 h-12 bg-pink-500 border-4 border-white text-white rounded-full p-2"
             ><Icon icon="teenyicons:gift-outline" class="w-full h-full"
           /></span>
           <div
@@ -245,7 +245,7 @@ function pay() {
 
         <div class="bg-amber-50 p-5 rounded-md relative mt-10">
           <span
-            class="block absolute -top-6 w-12 aspect-square bg-green-500 border-4 border-white text-white rounded-full p-2"
+            class="block absolute -top-6 w-12 h-12 bg-green-500 border-4 border-white text-white rounded-full p-2"
             ><Icon icon="teenyicons:gift-outline" class="w-full h-full"
           /></span>
           <div
@@ -295,7 +295,7 @@ function pay() {
             <div>
               <div class="flex items-center gap-2 my-1">
                 <div
-                  class="bg-pink-100 rounded-full w-6 aspect-square flex items-center justify-center"
+                  class="bg-pink-100 rounded-full w-6 h-6 flex items-center justify-center"
                 >
                   <Icon icon="tabler:plus" class="h-full w-6 text-pink-500" />
                 </div>
@@ -303,7 +303,7 @@ function pay() {
               </div>
               <div class="flex items-center gap-2 my-1">
                 <div
-                  class="bg-pink-100 rounded-full w-6 aspect-square flex items-center justify-center"
+                  class="bg-pink-100 rounded-full w-6 h-6 flex items-center justify-center"
                 >
                   <Icon icon="tabler:plus" class="h-full w-6 text-pink-500" />
                 </div>
