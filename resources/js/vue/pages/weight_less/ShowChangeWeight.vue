@@ -17,17 +17,13 @@ function operation() {
 <template>
   <Base>
     <div class="c-box">
-      <div class="h-[300px] my-10">
+      <div class="my-10">
         <img
           src="@/assets/woman-change-weight.png"
-          v-if="testStore.test.gender == 'female'"
-          class="h-full mx-auto"
+          v-if="testStore.test?.gender == 'female'"
+          class="mx-auto"
         />
-        <img
-          src="@/assets/man-change-weight.png"
-          v-else
-          class="h-full mx-auto"
-        />
+        <img src="@/assets/man-change-weight.png" v-else class="mx-auto" />
       </div>
       <p class="text-center text-xl">
         تو هم می‌تونی در <span class="text-green-500">2 ماه آینده</span> این
