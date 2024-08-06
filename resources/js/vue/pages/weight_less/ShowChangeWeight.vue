@@ -26,8 +26,11 @@ function operation() {
         <img src="@/assets/man-change-weight.png" v-else class="mx-auto" />
       </div>
       <p class="text-center text-xl">
-        تو هم می‌تونی در <span class="text-green-500">2 ماه آینده</span> این
-        تغییر رو احساس کنی!
+        تو هم می‌تونی در
+        <span class="text-green-500"
+          >{{ testStore.test?.ideal_weight_time }} ماه آینده</span
+        >
+        این تغییر رو احساس کنی!
       </p>
 
       <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ادامه</Btn>
