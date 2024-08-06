@@ -269,7 +269,7 @@ setTimeout(getAnalyze, 2000);
         />
         <img
           v-else
-          src="@/assets/right-brain.png"
+          src="@/assets/left-brain.png"
           class="w-[200px] mx-auto"
           alt=""
         />
