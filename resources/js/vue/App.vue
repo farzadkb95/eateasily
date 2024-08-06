@@ -68,7 +68,6 @@ axios.interceptors.response.use(
     }
     if (response.data?.latest_test) {
       testStore.test = response.data?.latest_test;
-      testStore.customers = response.data?.customers;
     }
     let url = new URL(response.request.responseURL);
     if (
