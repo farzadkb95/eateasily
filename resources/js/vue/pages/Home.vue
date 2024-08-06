@@ -96,6 +96,9 @@ import { Icon } from "@iconify/vue";
           <a target="_blank" href="https://eitaa.com/eateasily"
             ><img src="@/assets/eitaa.svg" class="h-6" alt=""
           /></a>
+          <a target="_blank" href="https://ble.ir/eateasily"
+            ><img src="@/assets/bale-color.png" class="h-6" alt=""
+          /></a>
           <a target="_blank" href="https://www.instagram.com/eateasilyofficial/"
             ><img src="@/assets/instagram.png" class="h-6" alt=""
           /></a>
