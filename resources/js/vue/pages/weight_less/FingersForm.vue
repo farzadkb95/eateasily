@@ -47,7 +47,7 @@ function operation(index) {
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
             <div
-              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 aspect-square"
+              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 h-14"
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
@@ -65,7 +65,7 @@ function operation(index) {
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
             <div
-              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 aspect-square"
+              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 h-14"
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
@@ -83,7 +83,7 @@ function operation(index) {
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
             <div
-              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 aspect-square"
+              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 h-14"
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"
@@ -101,7 +101,7 @@ function operation(index) {
             class="pt-2 ms-3 h-full relative flex items-center justify-center w-20 overflow-clip shrink-0"
           >
             <div
-              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 aspect-square"
+              class="bg-green-200 rounded-full absolute z-0 w-14 -bottom-3 right-3 h-14"
             ></div>
             <div
               class="w-full h-full relative z-10 bg-contain bg-no-repeat bg-center"

@@ -35,7 +35,7 @@ function operation() {
         class="border-2 border-pink-500 rounded-2xl mt-10 pt-10 pb-5 px-5 relative"
       >
         <div
-          class="absolute bg-white rounded-full w-16 aspect-square left-1/2 -top-8 -translate-x-1/2 p-3"
+          class="absolute bg-white rounded-full w-16 h-16 left-1/2 -top-8 -translate-x-1/2 p-3"
         >
           <Icon
             icon="solar:microphone-broken"

@@ -168,7 +168,7 @@ function pay() {
 
         <div class="bg-pink-50 p-5 rounded-md relative">
           <span
-            class="block absolute -top-6 w-12 aspect-square bg-pink-500 border-4 border-white text-white rounded-full p-2"
+            class="block absolute -top-6 w-12 h-12 bg-pink-500 border-4 border-white text-white rounded-full p-2"
             ><Icon icon="teenyicons:gift-outline" class="w-full h-full"
           /></span>
           <div

@@ -57,8 +57,7 @@ function operation() {
       age: age.value,
       step: route.name,
     })
-    .then(function (response) {
-    })
+    .then(function (response) {})
     .catch(function (error) {
       console.log(error.message);
     })
@@ -76,9 +75,7 @@ function operation() {
       >
       <div class="flex flex-col">
         <div class="flex w-full h-32 items-center justify-center relative">
-          <div
-            class="bg-green-200 rounded-full absolute z-0 w-24 aspect-square"
-          ></div>
+          <div class="bg-green-200 rounded-full absolute z-0 w-24 h-24"></div>
           <div
             class="h-32 w-full relative z-10 bg-contain bg-no-repeat bg-center"
             :style="{
