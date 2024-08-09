@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Payment;
+use App\Models\UserAction;
 use Facades\App\Services\MailService;
 use Facades\App\Services\SmsService;
 use Http;
@@ -73,6 +74,11 @@ class PaymentService
         if ($payment->data->email) {
             MailService::sendPayAlert($payment->data->phone);
         }
+
+        $userAction = new UserAction;
+        $userAction->guest_id = $payment->guest_id;
+        $userAction->action = 'weight_less_pay_alert';
+        $userAction->save();
 
         return $payment;
     }
