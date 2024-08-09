@@ -235,6 +235,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/buy-slive",
+        component: () => import("./pages/weight_less/BuySlive.vue"),
+        name: "weight-less|buy-slive",
+        meta: {},
+    },
+    {
         path: "/weight-less/pay-verify",
         component: () => import("./pages/weight_less/PayVerify.vue"),
         name: "weight-less|pay-verify",

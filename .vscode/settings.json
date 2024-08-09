@@ -17,5 +17,6 @@
                 "cmd": "docker compose exec laravel php artisan ide-helper:generate"
             }
         ]
-    }
+    },
+    "cSpell.words": ["slive"]
 }
