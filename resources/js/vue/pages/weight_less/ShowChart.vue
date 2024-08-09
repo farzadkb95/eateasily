@@ -33,7 +33,7 @@ function operation() {
         <span class="text-red-500"
           >{{ -testStore.test?.extra_weight }} کیلوگرم</span
         >
-        کاهش وزن دارید و تنها نیستید!
+        کمبود وزن دارید و نیاز به افزایش وزن دارید!
       </p>
     </QuestionBox>
     <p class="text-center text-lg font-[400] my-5">
@@ -57,7 +57,9 @@ function operation() {
       </div>
     </div>
     <div class="c-box">
-      <LightInfoBox class="text-lg font-bold text-slate-800"
+      <LightInfoBox
+        class="text-lg font-bold text-slate-800"
+        v-if="testStore.test?.extra_weight >= 0"
         >خوشبختانه <span class="text-green-500">%93</span> از افـراد با وضعیت
         مشابه شما فقط
         <span class="text-green-500"
@@ -66,6 +68,13 @@ function operation() {
         زمـان نیـاز داشتـن تـا زیر نظـر تیم پزشکـی مـا به وزن ایده آلشون
         برسن.</LightInfoBox
       >
+      <LightInfoBox class="text-lg font-bold text-slate-800" v-else>
+        برنامه ایت ایزیلی مخصوص کاهش وزن طراحی شده و متاسفانه برای شما مناسب
+
+        <span class="text-red-500">
+          نیست و اطلاعات وزنی رو برای شما با خطا نشان خواهد داد
+        </span>
+      </LightInfoBox>
 
       <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ادامه</Btn>
     </div>
