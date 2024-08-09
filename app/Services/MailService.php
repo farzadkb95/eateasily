@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Mail\ContinueReminder;
 use App\Mail\PayAlert;
 use App\Mail\TestCode;
 use Mail;
@@ -18,5 +19,11 @@ class MailService
     {
         Mail::to($to)
             ->send(new PayAlert());
+    }
+
+    public function continueReminder(string $to)
+    {
+        Mail::to($to)
+            ->send(new ContinueReminder());
     }
 }

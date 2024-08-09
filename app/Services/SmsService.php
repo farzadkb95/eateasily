@@ -48,4 +48,19 @@ class SmsService
 
         return $messageId;
     }
+
+    public function continueReminder(string $to)
+    {
+        $client = new Client($this->apiKey);
+        $pattern = 'oz04ebb68e3cjcw';
+
+        $messageId = $client->sendPattern(
+            $pattern,    // pattern code
+            '+98EVENT',      // originator
+            $to,  // recipient
+            [],  // pattern values
+        );
+
+        return $messageId;
+    }
 }

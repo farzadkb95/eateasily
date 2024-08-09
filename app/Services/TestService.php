@@ -7,7 +7,9 @@ use App\Models\Guest;
 use App\Models\OtherData;
 use App\Models\Payment;
 use App\Models\UserAction;
+use Facades\App\Services\MailService;
 use Facades\App\Services\PaymentService;
+use Facades\App\Services\SmsService;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 final class TestService
@@ -181,5 +183,39 @@ final class TestService
             $test->ideal_weight = $idealWeight;
             $test->save();
         }
+    }
+
+    public function reminderAlert()
+    {
+        $tests = Data::where('status', 'in_process')->where(function (Builder $q) {
+            $q->whereNull('remind_at')->orWhere('remind_at', '<', now()->subDay());
+        })->where(function (Builder $q) {
+            $q->whereNotNull('phone')->orWhereNotNull('email');
+        })->where('remind_count', '<', 2)->where('updated_at', '<', now()->subDay())->get();
+
+        $tests->each(function (Data $test) {
+            $sended = false;
+            if ($test->phone) {
+                /**
+                 * @uses \App\Services\MailService::continueReminder
+                 */
+                SmsService::continueReminder($test->phone);
+                $sended = true;
+            }
+            if ($test->email) {
+                /**
+                 * @uses \App\Services\MailService::continueReminder
+                 */
+                MailService::continueReminder($test->email);
+                $sended = true;
+            }
+            if ($sended) {
+                $test->remind_at = now();
+                $test->remind_count++;
+                $test->save();
+            }
+        });
+
+        return $tests;
     }
 }

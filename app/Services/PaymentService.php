@@ -69,9 +69,15 @@ class PaymentService
         $payment->save();
 
         if ($payment->data->phone) {
+            /**
+             * @uses \App\Services\SmsService::sendPayAlert
+             */
             SmsService::sendPayAlert($payment->data->phone);
         }
         if ($payment->data->email) {
+            /**
+             * @uses \App\Services\MailService::sendPayAlert
+             */
             MailService::sendPayAlert($payment->data->phone);
         }
 
