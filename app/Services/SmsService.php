@@ -33,4 +33,19 @@ class SmsService
 
         return $messageId;
     }
+
+    public function sendPayAlert(string $to)
+    {
+        $client = new Client($this->apiKey);
+        $pattern = 'zb7j4pq1h2rmo08';
+
+        $messageId = $client->sendPattern(
+            $pattern,    // pattern code
+            '+98EVENT',      // originator
+            $to,  // recipient
+            [],  // pattern values
+        );
+
+        return $messageId;
+    }
 }

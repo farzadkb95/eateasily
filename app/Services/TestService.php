@@ -160,7 +160,7 @@ final class TestService
 
     public function paymentVerify(Guest $guest, string $paymentCode, string $authority, string $status): Payment
     {
-        $payment = Payment::where('code', $paymentCode)->where('guest_id', $guest->id)->first();
+        $payment = Payment::where('code', $paymentCode)->where('guest_id', $guest->id)->with('data')->first();
 
         if (blank($payment)) {
             abort(422, 'payment not found!');

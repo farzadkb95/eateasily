@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\Payment;
+use Facades\App\Services\MailService;
+use Facades\App\Services\SmsService;
 use Http;
 use Illuminate\Support\Str;
 
@@ -64,6 +66,13 @@ class PaymentService
         $payment->pay_ref = data_get($res, 'data.ref_id');
         $payment->card_number = data_get($res, 'data.card_pan');
         $payment->save();
+
+        if ($payment->data->phone) {
+            SmsService::sendPayAlert($payment->data->phone);
+        }
+        if ($payment->data->email) {
+            MailService::sendPayAlert($payment->data->phone);
+        }
 
         return $payment;
     }
