@@ -73,13 +73,17 @@ final class TestService
         if ($inside) {
             $guest->latestTest->phone = $phone;
             $action = 'weight_less_phone';
-            $smsService = new SmsService();
-            $smsService->sendCode($phone, $randomCode);
+            /**
+             * @uses SmsService::sendCode
+             */
+            SmsService::sendCode($phone, $randomCode);
         } else {
             $guest->latestTest->email = $email;
             $action = 'weight_less_email';
-            $mailService = new MailService();
-            $mailService->sendCode($email, $randomCode);
+            /**
+             * @uses MailService::sendCode
+             */
+            MailService::sendCode($email, $randomCode);
         }
         $guest->latestTest->step = $step;
         $guest->latestTest->save();
