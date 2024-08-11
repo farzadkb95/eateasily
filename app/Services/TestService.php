@@ -125,6 +125,8 @@ final class TestService
         }
         $guest->latestTest->step = $step;
         $guest->latestTest->save();
+
+        return ['ok' => true];
     }
 
     public function setOther(Guest $guest, $step, $value)
