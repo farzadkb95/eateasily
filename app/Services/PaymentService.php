@@ -68,17 +68,19 @@ class PaymentService
         $payment->card_number = data_get($res, 'data.card_pan');
         $payment->save();
 
-        if ($payment->data->phone) {
-            /**
-             * @uses \App\Services\SmsService::sendPayAlert
-             */
-            SmsService::sendPayAlert($payment->data->phone);
-        }
-        if ($payment->data->email) {
-            /**
-             * @uses \App\Services\MailService::sendPayAlert
-             */
-            MailService::sendPayAlert($payment->data->phone);
+        if ($payment->status >= 100) {
+            if ($payment->data->phone) {
+                /**
+                 * @uses \App\Services\SmsService::sendPayAlert
+                 */
+                SmsService::sendPayAlert($payment->data->phone);
+            }
+            if ($payment->data->email) {
+                /**
+                 * @uses \App\Services\MailService::sendPayAlert
+                 */
+                MailService::sendPayAlert($payment->data->phone);
+            }
         }
 
         $userAction = new UserAction;
