@@ -124,25 +124,27 @@ function pay() {
       </div>
       <div class="mt-10">
         <div class="flex gap-3 md:gap-5">
-          <div
+          <a
+            href="tel:02128421368"
             class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
             <Icon
               icon="solar:phone-linear"
               class="w-6 h-full text-green-500 shrink-0"
             />
-            021-123456789
-          </div>
+            021-28421368
+          </a>
 
-          <div
+          <a
+            href="mailto:info@eateasily.net"
             class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
             <Icon
               icon="hugeicons:mail-02"
               class="w-6 h-full text-green-500 shrink-0"
             />
-            sample@gmail.com
-          </div>
+            info@eateasily.net
+          </a>
         </div>
         <div
           class="p-5 flex rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 mt-3 md:mt-5"
