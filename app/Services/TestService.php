@@ -107,15 +107,12 @@ final class TestService
             ->where('code', $code)
             ->first();
 
-        info($userAction);
-        info($code);
-
         if ($guest->latestTest->phone_verified_at || $guest->latestTest->email_verified_at) {
-            return true;
+            return ['ok' => true, 'message' => 'قبلا ثبت شده'];
         }
 
         if (blank($userAction)) {
-            abort(422, 'code not found!');
+            return ['ok' => false, 'message' => 'کد اشتباه است!'];
         }
 
         $userAction->used_at = now();

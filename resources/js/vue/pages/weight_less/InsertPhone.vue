@@ -18,6 +18,8 @@ const code = ref(null);
 const testStore = useTestStore();
 const inside = ref(true);
 const step = ref(1);
+const wrongCode = ref(false);
+const errorMessage = ref("");
 
 watchEffect(() => {
   mobile.value = testStore.test?.phone;
@@ -32,16 +34,19 @@ function sendCode() {
       email: email.value,
       step: route.name,
     })
-    .then(function (response) {})
+    .then(function (response) {
+      step.value = 2;
+    })
     .catch(function (error) {
       console.log(error.message);
     })
     .finally(function () {});
-  step.value = 2;
+
   // router.push({ name: nextPageName(route.name) });
 }
 
 function approveCode() {
+  wrongCode.value = false;
   axios
     .post(`/api/weight-less/approve-code`, {
       code: code.value,
@@ -51,7 +56,9 @@ function approveCode() {
       router.push({ name: nextPageName(route.name) });
     })
     .catch(function (error) {
-      console.log(error.message);
+      console.log(error.response.data.message);
+      wrongCode.value = true;
+      errorMessage.value = error.response.data.message;
     })
     .finally(function () {});
   // router.push({ name: nextPageName(route.name) });
@@ -174,7 +181,18 @@ function nextPage() {
         >
           ویرایش شماره
         </span>
-        <Btn class="w-full mt-6 !rounded-xl !h-14" type="submit">تایید</Btn>
+        <div
+          class="bg-red-100 border border-red-400 rounded-lg p-3 text-red-600 font-bold my-3"
+          v-if="wrongCode"
+        >
+          کد اشتباه است
+        </div>
+        <Btn
+          class="w-full mt-6 !rounded-xl !h-14"
+          type="submit"
+          :disable="code == ''"
+          >تایید</Btn
+        >
       </form>
 
       <p

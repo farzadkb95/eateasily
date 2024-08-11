@@ -85,7 +85,7 @@ axios.interceptors.response.use(
       router.push({ name: "home" });
     }
 
-    if (response.data.gid) {
+    if (response.data?.gid) {
       localStorage.setItem("gid", response.data.gid);
       axios.defaults.headers["gid"] = response.data.gid;
       if (localStorage.getItem("token") && response.data.user == null) {

@@ -73,7 +73,10 @@ class WeightLessTestController extends Controller
         ]);
 
         if (! (request()->user()?->is_admin && request()->has('test_id'))) {
-            $testService->approveCode($request->guest(), $request->step, $request->code);
+            $res = $testService->approveCode($request->guest(), $request->step, $request->code);
+            if ($res['ok'] == false) {
+                return response()->json(['message' => $res['message']], 422);
+            }
         }
 
         return response()->json(new GuestDataResource($request->guest()));
