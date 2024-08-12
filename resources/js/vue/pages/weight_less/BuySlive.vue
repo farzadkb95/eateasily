@@ -278,13 +278,13 @@ function pay() {
     </div>
 
     <div class="!my-20 c-box !w-[570px]">
-      <div class="bg-pink-50 p-5 rounded-lg relative">
+      <div class="bg-pink-50 py-5 sm:px-5 sm:rounded-lg relative">
         <div
-          class="absolute left-1/2 -translate-x-1/2 -top-4 bg-pink-500 rounded-2xl text-white text-xl font-bold px-5 py-1"
+          class="absolute left-1/2 -translate-x-1/2 -top-4 bg-pink-500 rounded-2xl text-white text-xl font-bold px-5 py-1 whitespace-nowrap"
         >
           ورود و عضویت در چالش
         </div>
-        <div class="mt-5 text-sm">
+        <div class="mt-5 text-sm px-2">
           <span class="text-pink-500 text-xl">توجه: </span> لورم ایپسوم متن
           ساختگی با تولید سادگی نامفهوم؟
         </div>
