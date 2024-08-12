@@ -92,46 +92,52 @@ class TestAnalyzeService
         $x = [];
 
         $x[] = [
+            0 => null,
             1 => -2,
             2 => 3,
             3 => 3,
             4 => 2,
             5 => 4,
-        ][$test['other']['weight-less|select-weight-type']];
+        ][@$test['other']['weight-less|select-weight-type'] ?: 0];
 
         $x[] = [
+            0 => null,
             1 => -1,
             2 => 0,
             3 => 3,
-        ][$test['other']['weight-less|sleep-question']];
+        ][@$test['other']['weight-less|sleep-question'] ?: 0];
 
         $x[] = [
+            0 => null,
             1 => 1,
             2 => 1,
             3 => 1,
             4 => -1,
-        ][$test['other']['weight-less|smooth-muscle']];
+        ][@$test['other']['weight-less|smooth-muscle'] ?: 0];
 
         $x[] = [
+            0 => null,
             1 => -2,
             2 => 2,
             3 => 2,
             4 => -2,
-        ][$test['other']['weight-less|fingers-form']];
+        ][@$test['other']['weight-less|fingers-form'] ?: 0];
 
         $x[] = [
+            0 => null,
             1 => 0,
             2 => 0,
             3 => 2,
             4 => -3,
             5 => -3,
-        ][$test['other']['weight-less|your-description-two']];
+        ][@$test['other']['weight-less|your-description-two'] ?: 0];
 
         $x[] = [
+            0 => null,
             1 => 3,
             2 => 0,
             3 => -3,
-        ][$test['other']['weight-less|wrist-size']];
+        ][@$test['other']['weight-less|wrist-size'] ?: 0];
 
         return collect($x)->reject(function ($value) {
             return $value === null || $value === '';
@@ -143,38 +149,43 @@ class TestAnalyzeService
         $y = [];
 
         $y[] = [
+            0 => null,
             1 => -2,
             2 => 0,
             3 => 2,
             4 => 1,
-        ][$test['other']['weight-less|smooth-muscle']];
+        ][@$test['other']['weight-less|smooth-muscle'] ?: 0];
 
         $y[] = [
+            0 => null,
             1 => 2,
             2 => 2,
             3 => -2,
             4 => -2,
-        ][$test['other']['weight-less|fingers-form']];
+        ][@$test['other']['weight-less|fingers-form'] ?: 0];
 
         $y[] = [
+            0 => null,
             1 => 3,
             2 => 0,
             3 => -4,
-        ][$test['other']['weight-less|pulse-status']];
+        ][@$test['other']['weight-less|pulse-status'] ?: 0];
 
         $y[] = [
+            0 => null,
             1 => -3,
             2 => 3,
             3 => 0,
             4 => -2,
             5 => 2,
-        ][$test['other']['weight-less|your-description-two']];
+        ][@$test['other']['weight-less|your-description-two'] ?: 0];
 
         $y[] = [
+            0 => null,
             1 => -2,
             2 => 0,
             3 => 2,
-        ][$test['other']['weight-less|wrist-size']];
+        ][@$test['other']['weight-less|wrist-size'] ?: 0];
 
         return collect($y)->reject(function ($value) {
             return $value === null || $value === '';
@@ -186,14 +197,16 @@ class TestAnalyzeService
         $r = [];
 
         $r[] = [
+            0 => null,
             1 => 70,
             2 => 30,
-        ][$test['other']['weight-less|relish-condition']];
+        ][@$test['other']['weight-less|relish-condition'] ?: 0];
 
         $r[] = [
+            0 => null,
             1 => 60,
             2 => 40,
-        ][$test['other']['weight-less|weight-less-target']];
+        ][@$test['other']['weight-less|weight-less-target'] ?: 0];
 
         return collect($r)->reject(function ($value) {
             return $value === null || $value === '';
@@ -205,14 +218,16 @@ class TestAnalyzeService
         $l = [];
 
         $l[] = [
+            0 => null,
             1 => 40,
             2 => 60,
-        ][$test['other']['weight-less|relish-condition']];
+        ][@$test['other']['weight-less|relish-condition'] ?: 0];
 
         $l[] = [
+            0 => null,
             1 => 40,
             2 => 60,
-        ][$test['other']['weight-less|weight-less-target']];
+        ][@$test['other']['weight-less|weight-less-target'] ?: 0];
 
         return collect($l)->reject(function ($value) {
             return $value === null || $value === '';
@@ -224,17 +239,19 @@ class TestAnalyzeService
         $age = [];
 
         $age[] = [
+            0 => null,
             1 => 5,
             2 => 3,
             3 => 0,
             4 => -1.5,
-        ][$test['other']['weight-less|walking-condition']];
+        ][@$test['other']['weight-less|walking-condition'] ?: 0];
 
         $age[] = [
+            0 => null,
             1 => -1,
             2 => 0,
             3 => 4,
-        ][$test['other']['weight-less|sleep-question']];
+        ][@$test['other']['weight-less|sleep-question'] ?: 0];
 
         return collect($age)->reject(function ($value) {
             return $value === null || $value === '';
@@ -246,20 +263,23 @@ class TestAnalyzeService
         $risk = [];
 
         $risk[] = [
+            0 => null,
             1 => 60,
             2 => 20,
-        ][$test['other']['weight-less|your-description']];
+        ][@$test['other']['weight-less|your-description'] ?: 0];
 
         $risk[] = [
+            0 => null,
             1 => 70,
             2 => 30,
-        ][$test['other']['weight-less|social-relationship']];
+        ][@$test['other']['weight-less|social-relationship'] ?: 0];
 
         $risk[] = [
+            0 => null,
             1 => 70,
             2 => 50,
             3 => 30,
-        ][$test['other']['weight-less|community-influence']];
+        ][@$test['other']['weight-less|community-influence'] ?: 0];
 
         return collect($risk)->reject(function ($value) {
             return $value === null || $value === '';
