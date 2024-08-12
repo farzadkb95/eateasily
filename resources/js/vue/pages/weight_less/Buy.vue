@@ -217,7 +217,7 @@ function pay() {
               </div>
             </template>
           </IconSideCard>
-          <IconSideCard :time="counterTime" class="mt-5">
+          <IconSideCard :color="true" class="mt-5">
             <template #image>
               <img src="@/assets/icon-weight.png" alt="" />
             </template>
