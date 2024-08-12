@@ -74,10 +74,17 @@ function pay() {
             class="mx-auto w-72 p-2 border-2 border-white rounded-lg flex items-center text-pink-600"
           >
             <div class="flex items-center gap-2">
-              <div class="inline-block w-7 h-7 bg-pink-200 rounded-full"></div>
+              <div
+                class="w-7 h-7 bg-pink-200 rounded-full flex items-center justify-center"
+              >
+                <Icon
+                  icon="fluent:hourglass-one-quarter-16-regular"
+                  class="w-5 h-5"
+                />
+              </div>
               <span>اعتبار تخفیف تا:</span>
             </div>
-            <div class="ms-auto text-3xl font-black">9:59</div>
+            <div class="ms-auto text-3xl font-black">{{ counterTime }}</div>
           </div>
         </div>
         <div
@@ -168,26 +175,77 @@ function pay() {
         <div class="w-full h-full bg-slate-100 rounded-xl"></div>
       </div>
     </div>
-    <div class="c-box !w-[570px] mx-auto py-10 px-5">
-      <div class="font-bold text-center">مسیر چالش اسلیو معده بدون جراحی</div>
-
-      <div
-        class="w-[380px] max-w-full mx-auto bg-no-repeat bg-top my-10 relative bg-[length:100%] pt-28 pb-5"
-        :style="{ 'background-image': 'url(' + roadImage + ')' }"
-      >
-        <!-- <img src="@/assets/road.png" /> -->
-        <div class="relative h-[240px] flex items-center">
-          <div>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم؟</div>
-        </div>
-        <div class="relative h-[240px] flex items-center ps-10">
-          <div>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم؟</div>
-        </div>
-        <div class="relative h-[240px] flex items-center">
-          <div>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم؟</div>
-        </div>
-        <div class="relative h-[240px] flex items-center ps-10">
-          <div>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم؟</div>
-        </div>
+    <div class="c-box !w-[570px]">
+      <div class="text-3xl font-bold text-center mt-10">
+        آنچه دریافت می‌کنید
+      </div>
+      <div class="flex flex-col gap-5 mt-10">
+        <IconSideCard>
+          <template #image>
+            <img src="@/assets/icon-doctor.png" alt="" />
+          </template>
+          <template #title> دریافت طرح پزشک خصوصی </template>
+          <template #default>
+            پشتیبان های پزشکی ما هرروز هفته و بدون تعطیلی با شما درارتباط هستند
+            تا روند مفید لاغری و مسائل مربوط سلامتی شما رو پیگیری کنند.
+          </template>
+        </IconSideCard>
+        <IconSideCard>
+          <template #image>
+            <img src="@/assets/icon-apple.png" alt="" />
+          </template>
+          <template #title> دریافت برنامه لاغری به صورت مادام العمر</template>
+          <template #default>
+            بر خلاف تمام روش های لاغری، ایت ایزیلی به صورت دوره اینیست و شما
+            دسترسی مادام العمر به این روش لاغری و برنامه ها دارید و دیگه نیازی
+            به هزینه برای دریافت رژیم نیست چون ایت ایزیلی ایستگاه آخر لاغریه!!
+          </template>
+        </IconSideCard>
+        <IconSideCard>
+          <template #image>
+            <img src="@/assets/icon-body.png" alt="" />
+          </template>
+          <template #title> تنظیم سوخت و ساز بدن</template>
+          <template #default>
+            ایت ایزیلی با روش قدرتمند و علمی ریشه‌ی چاقیت رو درمان می‌کنه و
+            متابولیسم بدن شما رو برای چربی سوزی بالاتر تنظیم می‌کنه.
+          </template>
+        </IconSideCard>
+        <IconSideCard>
+          <template #image>
+            <img src="@/assets/icon-health.png" alt="" />
+          </template>
+          <template #title>
+            استفاده از متدولوژی جهانی GLR لاغری بدون رژیم و ورزش
+          </template>
+          <template #default>
+            بدون محدودیت خوراکی و تمرینات ورزشی می‌تونید لاغری بدون بازگشت رو
+            تجربه کنید، علت شکست تمام رژیم ها محدودیت در خوراکی هاست پس دیگه
+            اشتباه نکن!!!
+          </template>
+        </IconSideCard>
+        <IconSideCard>
+          <template #image>
+            <img src="@/assets/icon-fat.png" alt="" />
+          </template>
+          <template #title>
+            برنامه اختصاصی شکست استپ وزنی زیر نظر تیم پزشکی</template
+          >
+          <template #default>
+            اگر دچار استپ وزنی هستید و خیلی وقته دیگه لاغر نشدید، اصلا نگران
+            نباشید !!! برنامه اختصاصی شکست استپ وزنی ایت ایزیلی برای شماست
+          </template>
+        </IconSideCard>
+        <IconSideCard>
+          <template #image>
+            <img src="@/assets/icon-lose-weight.png" alt="" />
+          </template>
+          <template #title> دریافت تکنیک های لاغری بدون محدودیت</template>
+          <template #default>
+            هیچ محدودیتی وجود نداره و اصلا نیاز به تهیه غذای رژیمی نیست، سفره‌ت
+            اصلا از سفره خانواده جدا نمیشه!!
+          </template>
+        </IconSideCard>
       </div>
     </div>
 
@@ -218,6 +276,52 @@ function pay() {
         ></UserChange>
       </div>
     </div>
+
+    <div class="!my-20 c-box !w-[570px]">
+      <div class="bg-pink-50 p-5 rounded-lg relative">
+        <div
+          class="absolute left-1/2 -translate-x-1/2 -top-4 bg-pink-500 rounded-2xl text-white text-xl font-bold px-5 py-1"
+        >
+          ورود و عضویت در چالش
+        </div>
+        <div class="mt-5 text-sm">
+          <span class="text-pink-500 text-xl">توجه: </span> لورم ایپسوم متن
+          ساختگی با تولید سادگی نامفهوم؟
+        </div>
+
+        <div
+          class="px-5 py-2 bg-pink-100 rounded-lg my-3 flex items-center gap-2"
+        >
+          <div class="bg-white p-2 rounded-full">
+            <img src="@/assets/eitaa.svg" class="h-8" />
+          </div>
+          <div class="w-1 h-3 bg-pink-400 inline-block rounded-lg"></div>
+          عضویت در کانال چالش در ایتا
+          <div class="w-1 h-3 bg-pink-400 inline-block rounded-lg"></div>
+        </div>
+        <div
+          class="px-5 py-2 bg-pink-100 rounded-lg my-3 flex items-center gap-2"
+        >
+          <div class="bg-white p-2 rounded-full">
+            <img src="@/assets/bale-color.png" class="h-8" />
+          </div>
+          <div class="w-1 h-3 bg-pink-400 inline-block rounded-lg"></div>
+          عضویت در کانال چالش در بله
+          <div class="w-1 h-3 bg-pink-400 inline-block rounded-lg"></div>
+        </div>
+        <div
+          class="px-5 py-2 bg-pink-100 rounded-lg my-3 flex items-center gap-2"
+        >
+          <div class="bg-white p-2 rounded-full">
+            <img src="@/assets/telegram.png" class="h-8" />
+          </div>
+          <div class="w-1 h-3 bg-pink-400 inline-block rounded-lg"></div>
+          عضویت در کانال چالش در تلگرام
+          <div class="w-1 h-3 bg-pink-400 inline-block rounded-lg"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="mt-20">
       <div class="mb-10 text-center text-2xl font-bold">
         نظرات کاربران ایت ایزیلی
