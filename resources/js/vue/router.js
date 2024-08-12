@@ -247,6 +247,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/buy-fat-burn",
+        component: () => import("./pages/weight_less/BuyFatBurn.vue"),
+        name: "weight-less|buy-fat-burn",
+        meta: {},
+    },
+    {
         path: "/weight-less/pay-verify",
         component: () => import("./pages/weight_less/PayVerify.vue"),
         name: "weight-less|pay-verify",
