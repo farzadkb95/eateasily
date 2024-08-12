@@ -173,7 +173,12 @@ function operation() {
           >
         </ItemBox>
       </div>
-      <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ثبت</Btn>
+      <Btn
+        class="w-full mt-6 !rounded-xl !h-14"
+        @click="operation"
+        :disabled="items.length < 1"
+        >ثبت</Btn
+      >
     </div>
   </Base>
 </template>
