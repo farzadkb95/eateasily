@@ -20,6 +20,7 @@ const inside = ref(true);
 const step = ref(1);
 const wrongCode = ref(false);
 const errorMessage = ref("");
+const sending = ref(false);
 
 watchEffect(() => {
   mobile.value = testStore.test?.phone;
@@ -27,6 +28,7 @@ watchEffect(() => {
 });
 
 function sendCode() {
+  sending.value = true;
   axios
     .post(`/api/weight-less/set-phone-or-mail`, {
       inside: inside.value,
@@ -40,7 +42,9 @@ function sendCode() {
     .catch(function (error) {
       console.log(error.message);
     })
-    .finally(function () {});
+    .finally(function () {
+      sending.value = false;
+    });
 
   // router.push({ name: nextPageName(route.name) });
 }
@@ -163,7 +167,12 @@ function nextPage() {
           </Input>
         </div>
 
-        <Btn class="w-full mt-6 !rounded-xl !h-14" type="submit">ارسال کد</Btn>
+        <Btn
+          class="w-full mt-6 !rounded-xl !h-14"
+          type="submit"
+          :disabled="sending"
+          >ارسال کد</Btn
+        >
       </form>
 
       <form @submit.prevent="approveCode" v-show="step === 2">
