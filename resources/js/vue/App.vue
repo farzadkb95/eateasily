@@ -64,7 +64,7 @@ axios.interceptors.response.use(
   function (response) {
     if (response.data?.guest?.latest_test) {
       testStore.test = response.data?.guest?.latest_test;
-      testStore.customers = response.data?.customers;
+      testStore.customers = response.data?.customers || testStore.customers;
     }
     if (response.data?.latest_test) {
       testStore.test = response.data?.latest_test;
