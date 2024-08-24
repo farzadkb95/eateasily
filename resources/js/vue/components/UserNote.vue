@@ -1,8 +1,13 @@
 <template>
   <div class="c-shadow-green-xl px-3 py-2 rounded-3xl">
     <div class="flex h-14 items-center gap-2">
-      <img src="@/assets/user1.jpg" class="h-full rounded-full" alt="" />
-      <div class="font-bold">کاربر فرضی</div>
+      <slot name="image">
+        <img src="@/assets/user1.jpg" class="h-full rounded-full" alt="" />
+      </slot>
+      <div class="font-bold">
+        <slot name="name"> کاربر فرضی </slot>
+      </div>
+
       <div class="ms-auto flex">
         <svg
           width="17"
@@ -26,9 +31,11 @@
     </div>
     <div>
       <p class="font-normal text-sm py-5">
-        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-        از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر
-        آنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
+        <slot name="text">
+          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+          از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر
+          آنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
+        </slot>
       </p>
     </div>
   </div>

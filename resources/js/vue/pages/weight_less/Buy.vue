@@ -383,16 +383,109 @@ function pay() {
         </div>
         <ScrollX ref="scrollBox" class="flex py-10 px-5 w-full">
           <div class="w-[320px] p-2 shrink-0">
-            <UserNote></UserNote>
+            <UserNote>
+              <template #image>
+                <img
+                  src="@/assets/user_note_1.png"
+                  class="h-full rounded-full"
+                  alt=""
+                />
+              </template>
+              <template #name> آتوسا پورمحمدی </template>
+              <template #text
+                >من عاشق ایت ایزیلی شدم چون از روز اول منو زیر نظر تیم پزشکی
+                قرار داد تمام حرفاشون با عملشون یکی بود تا الان هم توی ۴۵ روز ۱۱
+                کیلو وزن کم کردم کاری که فکر می‌کردم غیر ممکنه</template
+              >
+            </UserNote>
           </div>
           <div class="w-[320px] p-2 shrink-0">
-            <UserNote></UserNote>
+            <UserNote>
+              <template #image>
+                <img
+                  src="@/assets/user_note_2.jpg"
+                  class="h-full rounded-full"
+                  alt=""
+                />
+              </template>
+              <template #name>پانیز کاشانی</template>
+              <template #text
+                >به خاطر دیابت نمیتونستم سمت رژیم‌های لاغری برم ولی وقتی با ایت
+                ایزیلی شروع کردم حتی دوز مصرف  انسولینم هم کم شد  تونستم خیلی
+                راحت و آسون با مشورت و برنامه‌های پشتیبان پزشکیم به وزن دلخواهم
+                برسم</template
+              >
+            </UserNote>
           </div>
           <div class="w-[320px] p-2 shrink-0">
-            <UserNote></UserNote>
+            <UserNote>
+              <template #image>
+                <img
+                  src="@/assets/user_note_3.jpg"
+                  class="h-full rounded-full"
+                  alt=""
+                />
+              </template>
+              <template #name> شایان نعمتی </template>
+              <template #text>
+                من سه بار تجربه رژیم لاغری داشتم آخریشم رژیم کتوژنیک بود که باعث
+                شد کلیه‌م سنگساز بشه هر بارم کلی بازگشته وزن رو داشتم ولی چهار
+                ماه زیر نظر تیم ایت ایزیلی تونستم بدون بازگشت وزن ۱۶ کیلو کم
+                کردم اونم بدون دارو ورزش و رژیم
+              </template>
+            </UserNote>
           </div>
           <div class="w-[320px] p-2 shrink-0">
-            <UserNote></UserNote>
+            <UserNote>
+              <template #image>
+                <img
+                  src="@/assets/user_note_4.png"
+                  class="h-full rounded-full"
+                  alt=""
+                />
+              </template>
+              <template #name> عاطفه منصوری </template>
+              <template #text>
+                اولش یکم تردید داشتم به خاطر کلی تجربه شکست تو لاغری الان
+                می‌تونم بگم ایت ایزیلی سکوی قطعی لاغریه من باهاش ۱۷ کیلو کاهش
+                داشتم
+              </template>
+            </UserNote>
+          </div>
+          <div class="w-[320px] p-2 shrink-0">
+            <UserNote>
+              <template #image>
+                <img
+                  src="@/assets/user_note_5.png"
+                  class="h-full rounded-full"
+                  alt=""
+                />
+              </template>
+              <template #name> شیدا سنجری </template>
+              <template #text>
+                به هر کسی که دوست داره بدون زحمت لاغر شه حتماً توصیه می‌کنم
+                ایزیلی رو انتخاب کنه من و مادرم تو کمتر از سه ماه به وزن
+                دلخواهمون رسیدیم
+              </template>
+            </UserNote>
+          </div>
+          <div class="w-[320px] p-2 shrink-0">
+            <UserNote>
+              <template #image>
+                <img
+                  src="@/assets/user_note_6.png"
+                  class="h-full rounded-full"
+                  alt=""
+                />
+              </template>
+              <template #name> کیوان صالحی </template>
+              <template #text>
+                خیلی از مجموعه‌ها حرف از پشتیبانی می‌زنند ولی تنها پشتیبانی
+                واقعی  رو من تو  ایت ایزیلی  دیدم تازه وقتی عضو خانواده‌شون شدم
+                فهمیدم چقدر هوای ما رو دارند، بیشتر از خانواده ی واقعی مون!
+                دوستتون دارم
+              </template>
+            </UserNote>
           </div>
         </ScrollX>
       </div>
