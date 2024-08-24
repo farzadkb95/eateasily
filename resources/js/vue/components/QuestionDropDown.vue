@@ -16,7 +16,9 @@ const open = ref(false);
       >
         <Icon icon="ph:question-fill" class="h-full w-6 text-pink-500" />
       </div>
-      <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم؟</p>
+      <p>
+        <slot name="title"></slot>
+      </p>
       <Icon
         icon="formkit:down"
         class="h-full w-7 ms-auto"
@@ -26,9 +28,7 @@ const open = ref(false);
     <div class="px-5 mt-5" v-show="open">
       <div class="bg-white rounded-2xl p-6 border-2 border-green-500">
         <p class="text-sm text-zinc-500">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-          از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر
-          آنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
+          <slot name="text"></slot>
         </p>
       </div>
     </div>
