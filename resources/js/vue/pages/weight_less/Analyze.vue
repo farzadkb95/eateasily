@@ -42,7 +42,9 @@ setTimeout(getAnalyze, 2000);
     <template v-if="percent < 100">
       <div class="c-box">
         <Loader :percent="percent"></Loader>
-        <p class="text-center text-2xl">مزاج شما در حال آنالیز است...</p>
+        <p class="text-center text-2xl">
+          شرایط شما توسط هوش مصنوعی در حال آنالیز است
+        </p>
       </div>
     </template>
     <template v-else>
