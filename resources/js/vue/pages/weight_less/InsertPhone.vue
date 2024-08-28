@@ -178,7 +178,7 @@ function nextPage() {
       <form @submit.prevent="approveCode" v-show="step === 2">
         <Input
           class="!mt-0"
-          placeholder="کد ارسال شده"
+          placeholder="کد پیامک شده"
           v-model="code"
           dir="ltr"
           :numeric="true"
@@ -206,10 +206,15 @@ function nextPage() {
 
       <p
         class="mt-5 p-5 border-green-500 bg-green-100 border rounded-lg"
-        v-show="inside"
+        v-show="step === 1"
       >
-        برات آنالیز کـامل قراره پیامک بشه ، پس شماره‌ت رو وارد کن تا کلی اطلاعات
-        مفید راجع به شرایط بدنیت برات ارسال کنیم
+        شماره‌ت رو وارد کن تا کلی اطلاعات مفید راجع به شرایط بدنیت رو برات ارسال کنیم
+      </p>
+      <p
+        class="mt-5 p-5 border-green-500 bg-green-100 border rounded-lg"
+        v-show="step === 2"
+      >
+        لطفا کمی صبر کن؛ به زودی کد برات پیامک میشه
       </p>
     </div>
   </Base>

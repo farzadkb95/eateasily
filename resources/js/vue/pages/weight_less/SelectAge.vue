@@ -38,7 +38,7 @@ const image = computed(() => {
     } else if (age.value >= 30) {
       return mImage2;
     }
-    return mImage1;
+    return mImage2;
   } else {
     if (age.value >= 50) {
       return image4;
@@ -47,7 +47,7 @@ const image = computed(() => {
     } else if (age.value >= 30) {
       return image2;
     }
-    return image1;
+    return image2;
   }
 });
 

@@ -8,24 +8,22 @@ import { Icon } from "@iconify/vue";
   <Raw class="bg-white">
     <div class="bg-gradient-to-t from-green-50 to-white">
       <div class="c-container flex max-md:flex-col gap-5 pt-16">
-        <div
-          class="w-[480px] max-w-full mx-auto text-center relative pb-40 px-2"
-        >
+        <div class="w-[480px] max-w-full mx-auto text-center relative pb-40 px-2">
           <h1
             class="text-4xl xl:text-5xl font-[900] flex items-center justify-center gap-2 mt-10"
           >
             <img src="@/assets/edit-list.svg" alt="" />
-            پرسشنامه <span class="text-green-500">ایت ایزیلی</span>
+            تست لاغری <span class="text-green-500">ایت ایزیلی</span>
           </h1>
           <div class="text-sm mt-5">
             <p class="my-3">آنالیز کامل بدن شما با هوش مصنوعی ایت ایزیلی</p>
-            <p class="my-3">۶ تا ۸ کیلو در ماه بدون ورزش و رژیم</p>
+            <!-- <p class="my-3">۶ تا ۸ کیلو در ماه بدون ورزش و رژیم</p> -->
             <p class="my-3">
-              قدم اول برای رسیدن به وزن و اندام دلخواهت اینه که بدونی کدوم روش
-              برات مناسبه پس بیا تا با این هوش مصنوعی سن واقعی ، میزان دقیق
-              اضافه وزن،  زمان رسیدن به وزن ایده ئال و...  رو دقیق دریافت کنی
+              قدم اول برای رسیدن به وزن و اندام دلخواهت اینه که بدونی کدوم روش برات مناسبه
+              پس بیا تا با این هوش مصنوعی سن واقعی ، میزان دقیق اضافه وزن،  زمان رسیدن به
+              وزن ایده ئال و...  رو دریافت کنی
             </p>
-            <p class="my-3">طراحی شده زیر نظر تیم پزشکی پژوهشی است ایزیلی</p>
+            <p class="my-3">طراحی شده زیر نظر تیم پزشکی پژوهشی ایزیلی</p>
           </div>
           <Btn
             class="mt-10 !h-12 !rounded-2xl !shadow-green-300 !shadow-xl"
@@ -47,7 +45,7 @@ import { Icon } from "@iconify/vue";
       </svg>
     </div>
     <div class="w-[480px] max-w-full mx-auto pt-40 text-center px-2">
-      <div class="text-2xl font-[500]">راه‌های ارتباطی با ایت ایزلی</div>
+      <div class="text-2xl font-[500]">راه‌های ارتباطی با ایت ایزیلی</div>
       <div class="mt-10">
         <div class="flex gap-3 md:gap-5">
           <a

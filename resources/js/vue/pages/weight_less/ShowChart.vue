@@ -60,13 +60,9 @@ function operation() {
       <LightInfoBox
         class="text-lg font-bold text-slate-800"
         v-if="testStore.test?.extra_weight >= 0"
-        >خوشبختانه <span class="text-green-500">%93</span> از افـراد با وضعیت
-        مشابه شما فقط
-        <span class="text-green-500"
-          >{{ testStore.test?.ideal_weight_time }} ماه</span
         >
-        زمـان نیـاز داشتـن تـا زیر نظـر تیم پزشکـی مـا به وزن ایده آلشون
-        برسن.</LightInfoBox
+        خوشبختانه شما در حال حاضر اضافه وزن نداری، حتما تا پایان تست رو ادامه بده و اطلاعات جالب در مورد سن واقعی بدن، مزاج و توصیه های مربوط به سلامتیت رو دریافت کن!
+        </LightInfoBox
       >
       <LightInfoBox class="text-lg font-bold text-slate-800" v-else>
         برنامه ایت ایزیلی مخصوص کاهش وزن طراحی شده و متاسفانه برای شما مناسب

@@ -44,7 +44,7 @@ function operation() {
         </div>
         <p class="font-bold">
           علت اصلی چاقی شکم پهلو شما استرس هست و شما دچار
-          <span class="text-red-500">چاقی کورتیزولی</span> هستید!
+          <span class="text-red-500">چاقی کورتیزولی</span> هستی!
         </p>
       </template>
 
@@ -121,9 +121,9 @@ function operation() {
           />
         </div>
         <p class="font-bold">
-          فرم بدنی شما <span class="text-green-500">بادکنکی</span> شکل هست و شما
-          در معرض خطر <span class="text-red-500">ژنتیکی</span>
-          <span class="text-red-500">غیر قابل اصلاح</span> است!
+          فرم بدنی شما <span class="text-green-500">بادکنکی</span> شکل هست و احتمالا فکر
+          میکنی که <span class="text-red-500">چاقیت ژنتیکی</span> و
+          <span class="text-red-500">غیر قابل اصلاحه!</span>
         </p>
       </template>
 
