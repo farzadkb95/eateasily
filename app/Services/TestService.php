@@ -179,7 +179,7 @@ final class TestService
     public function calculateExtraWeight(Data $test)
     {
         if ($test->gender && $test->weight && $test->height) {
-            $idealWeight = $test->gender == 'male' ? $test->height - 104 : $test->height - 108;
+            $idealWeight = $test->gender == 'male' ? $test->height - 103 : $test->height - 107;
             $extraWeight = $test->weight - $idealWeight;
 
             $test->extra_weight = $extraWeight;
