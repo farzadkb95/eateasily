@@ -64,7 +64,7 @@ function operation() {
         <p class="font-bold">
           فرم بدنی شما <span class="text-green-500">سیبی</span> شکل هست و شما در
           معرض خطر بیماری های
-          <span class="text-red-500">قلبی عروقی</span> هستید!
+          <span class="text-red-500">قلبی عروقی</span> هستی!
         </p>
       </template>
 
@@ -83,7 +83,7 @@ function operation() {
           فرم بدنی شما <span class="text-green-500">گلابی</span> شکل هست و شما
           در معرض خطر <span class="text-red-500">زانو درد</span>،
           <span class="text-red-500">کمر درد</span> و
-          <span class="text-red-500">ساییدگی زانو</span> هستید!
+          <span class="text-red-500">ساییدگی زانو</span> هستی!
         </p>
       </template>
 
@@ -103,7 +103,7 @@ function operation() {
         <p class="font-bold">
           فرم بدنی شما <span class="text-green-500">مثلثی</span> شکل هست و شما
           در معرض خطر <span class="text-red-500">دیسک گردن</span>
-          <span class="text-red-500">درد شانه</span> هستید!
+          <span class="text-red-500">درد شانه</span> هستی!
         </p>
       </template>
 

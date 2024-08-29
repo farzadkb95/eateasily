@@ -65,16 +65,23 @@ function operation(index) {
         </ItemBox>
       </div>
     </div>
-    <img
+    <!-- <img
       v-if="testStore.test?.gender == 'male'"
       src="@/assets/boy-q10.png"
-      class="h-52 md:h-60 fixed block bottom-0 left-[15%] -z-10"
+      class="h-52 md:h-60  block bottom-0  mt-4"
       alt=""
-    />
+    /> -->
+    <img
+  v-if="testStore.test?.gender == 'male'"
+  src="@/assets/boy-q10.png"
+  class="h-52 md:h-60 block bottom-0 mt-4 mx-auto"
+  alt=""
+/>
+
     <img
       v-else
       src="@/assets/girl-q10.png"
-      class="h-52 md:h-60 fixed block bottom-0 left-[15%] -z-10"
+      class="h-52 md:h-60 block bottom-0 mt-4 mx-auto"
       alt=""
     />
   </Base>

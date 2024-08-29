@@ -61,13 +61,13 @@ function operation(index) {
     <img
       v-if="testStore.test?.gender == 'male'"
       src="@/assets/boy-q11.png"
-      class="h-52 md:h-60 fixed block bottom-0 left-[20%] -z-10"
+      class="h-52 md:h-60 block bottom-0 mt-4 mx-auto"
       alt=""
     />
     <img
       v-else
       src="@/assets/girl-q11.png"
-      class="h-52 md:h-60 fixed block bottom-0 left-[20%] -z-10"
+      class="h-52 md:h-60 block bottom-0 mt-4 mx-auto"
       alt=""
     />
   </Base>
