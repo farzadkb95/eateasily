@@ -31,9 +31,11 @@ function operation(index) {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-10"
-        ><p>{{ questions[$route.name]?.question }}</p></QuestionBox
+        ><p>{{ questions[$route.name]?.question }}</p>
+        <p class="my-0 text-2x md:text-[18px] font-bold text-[#121212] text-center">(دور مچت رو با انگشت وسط و شستت اندازه بگیر!)</p>
+        </QuestionBox
       >
-
+      
       <div class="flex flex-col gap-4">
         <ItemBox
           class="px-5 !text-lg"

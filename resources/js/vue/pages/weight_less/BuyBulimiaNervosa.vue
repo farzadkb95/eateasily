@@ -307,7 +307,7 @@ function pay() {
                 >
                   <Icon icon="tabler:plus" class="h-full w-6 text-pink-500" />
                 </div>
-                پشتیبانی پزشکی
+                پشتیبانی پزشکی 110 روزه
               </div>
               <div class="flex items-center gap-2 my-1">
                 <div
@@ -315,7 +315,7 @@ function pay() {
                 >
                   <Icon icon="tabler:plus" class="h-full w-6 text-pink-500" />
                 </div>
-                محصول بطری جادویی
+                فرمول جادویی رفع پرخوری عصبی
               </div>
             </div>
             <div class="ms-auto">

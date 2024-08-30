@@ -108,6 +108,12 @@ const routes = [
         meta: {},
     },
     {
+        path: "/weight-less/best-way-weight-less-harvard",
+        component: () => import("./pages/weight_less/BestWayWeightLessHarvard.vue"),
+        name: "weight-less|best-way-weight-less-harvard",
+        meta: {},
+    },
+    {
         path: "/weight-less/fat-sadly",
         component: () => import("./pages/weight_less/FatSadly.vue"),
         name: "weight-less|fat-sadly",

@@ -59,9 +59,18 @@ function operation() {
     <div class="c-box">
       <LightInfoBox
         class="text-lg font-bold text-slate-800"
-        v-if="testStore.test?.extra_weight >= 0"
+        v-if="testStore.test?.extra_weight == 0"
         >
         خوشبختانه شما در حال حاضر اضافه وزن نداری، حتما تا پایان تست رو ادامه بده و اطلاعات جالب در مورد سن واقعی بدن، مزاج و توصیه های مربوط به سلامتیت رو دریافت کن!
+        </LightInfoBox
+      >
+      <LightInfoBox
+        class="text-lg font-bold text-slate-800"
+        v-else-if="testStore.test?.extra_weight > 0"
+        >
+        خوشبختانه <span class="text-green-500 font-bold">%93</span> از افراد با وضعیت مشابه شما فقط
+        <span class="text-green-500 font-bold">2 مـاه</span> زمـان نیـاز داشتـن تـا زیر نظـر تیم پزشکـی مـا به 
+وزن ایده آلشون برسن.
         </LightInfoBox
       >
       <LightInfoBox class="text-lg font-bold text-slate-800" v-else>

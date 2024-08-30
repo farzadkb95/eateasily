@@ -18,8 +18,9 @@ function operation() {
   <Base>
     <div class="c-box">
       <QuestionBox class="mb-0"
-        ><p>ما در ایت ایزیلی زندانی نداریم!</p></QuestionBox
+        ><p>زندانی که نیستیم!</p></QuestionBox
       >
+      <P>(در ایت ایزیلی هیچ محدودیتی نداریم)</P>
       <div>
         <img src="@/assets/prison.jpg" class="w-80 mx-auto mb-5" alt="" />
       </div>
@@ -43,7 +44,7 @@ function operation() {
           />
         </div>
         <p class="text-center px-10 text-xl">
-          نظر یکی از اعضای خانواده راجع به محدودیت های ایت ایزیلی:
+          تجربه ی یکی از عزیزان در حین اجرای روش لاغری ایت‌ایزیلی :
         </p>
         <audio controls class="mx-auto mt-5">
           <source src="@/assets/customer-voice.mp3" type="audio/mp3" />
