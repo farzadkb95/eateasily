@@ -68,7 +68,7 @@ class PaymentService
         $payment->card_number = data_get($res, 'data.card_pan');
         $payment->save();
 
-        if ($payment->status >= 100) {
+        if ($payment->status == 'success') {
             if ($payment->data->phone) {
                 /**
                  * @uses \App\Services\SmsService::sendPayAlert
