@@ -81,6 +81,19 @@ class PaymentService
                  */
                 MailService::sendPayAlert($payment->data->phone);
             }
+        } else {
+            if ($payment->data->phone) {
+                /**
+                 * @uses \App\Services\SmsService::sendPayFailAlert
+                 */
+                SmsService::sendPayFailAlert($payment->data->phone);
+            }
+            if ($payment->data->email) {
+                /**
+                 * @uses \App\Services\MailService::sendPayFailAlert
+                 */
+                MailService::sendPayFailAlert($payment->data->phone);
+            }
         }
 
         $userAction = new UserAction;
