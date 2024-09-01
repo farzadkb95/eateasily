@@ -32,10 +32,11 @@ function operation(index) {
     <div class="c-box">
       <QuestionBox class="mb-10"
         ><p>{{ questions[$route.name]?.question }}</p>
-        <p class="my-0 text-2x md:text-[18px] font-bold text-[#121212] text-center">(دور مچت رو با انگشت وسط و شستت اندازه بگیر!)</p>
-        </QuestionBox
-      >
-      
+        <p class="my-0 text-2x md:text-[18px] font-bold text-[#121212] text-center">
+          (دور مچت رو با انگشت وسط و شستت اندازه بگیر!)
+        </p>
+      </QuestionBox>
+
       <div class="flex flex-col gap-4">
         <ItemBox
           class="px-5 !text-lg"
@@ -63,14 +64,9 @@ function operation(index) {
     <img
       v-if="testStore.test?.gender == 'male'"
       src="@/assets/men-finger.png"
-      class="h-52 fixed block bottom-5 left-[20%] -z-10"
+      class="mt-4 bottom-5 mx-auto -z-10"
       alt=""
     />
-    <img
-      v-else
-      src="@/assets/finger.png"
-      class="h-52 fixed block bottom-5 left-[5%] -z-10"
-      alt=""
-    />
+    <img v-else src="@/assets/finger.png" class="mt-4 bottom-5 mx-auto -z-10" alt="" />
   </Base>
 </template>

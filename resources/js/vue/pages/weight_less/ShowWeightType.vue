@@ -102,8 +102,8 @@ function operation() {
         </div>
         <p class="font-bold">
           فرم بدنی شما <span class="text-green-500">مثلثی</span> شکل هست و شما
-          در معرض خطر <span class="text-red-500">دیسک گردن</span>
-          <span class="text-red-500">درد شانه</span> هستی!
+          در معرض خطر <span class="text-red-500">دیسک گردن و درد شانه</span>
+          هستی!
         </p>
       </template>
 

@@ -22,13 +22,19 @@ function operation() {
 <template>
   <Base>
     <QuestionBox class="mb-4 !text-xl">
-      <p v-if="testStore.test?.extra_weight >= 0">
+      <p v-if="testStore.test?.extra_weight > 0">
         شما در حال حاضر
         <span class="text-red-500"
           >{{ testStore.test?.extra_weight }} کیلوگرم</span
         >
         اضافه وزن دارید و تنها نیستید!
       </p>
+      <p v-else-if="testStore.test?.extra_weight == 0">
+       
+       خوشبختانه شمـا در حال حاضر <span class="text-red-500"
+       >اضافه وزن</span> ندارید
+       و وزن شما کاملا نرماله.
+     </p>
       <p v-else>
         شما در حال حاضر
         <span class="text-red-500"
@@ -76,10 +82,9 @@ function operation() {
         class="text-lg font-bold text-slate-800"
         v-else-if="testStore.test?.extra_weight > 0"
       >
-        خوشبختانه <span class="text-green-500 font-bold">%93</span> از افراد با
-        وضعیت مشابه شما فقط
-        <span class="text-green-500 font-bold">2 مـاه</span> زمـان نیـاز داشتـن
-        تـا زیر نظـر تیم پزشکـی مـا به وزن ایده آلشون برسن.
+      خوشبختانه <span class="text-green-500 font-bold">%93</span> از افراد با وضعیت مشابه شما فقط
+        <span class="text-green-500 font-bold">{{ testStore.test?.ideal_weight_time }} ماه</span> زمـان نیـاز داشتـن تـا زیر نظـر تیم پزشکـی مـا به 
+وزن ایده آلشون برسن.
       </LightInfoBox>
       <LightInfoBox class="text-lg font-bold text-slate-800" v-else>
         برنامه ایت ایزیلی مخصوص کاهش وزن طراحی شده و متاسفانه برای شما مناسب

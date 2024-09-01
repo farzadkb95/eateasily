@@ -32,7 +32,7 @@ function operation() {
       </RedBox>
       <div class="w-[300px] my-auto max-w-full flex mx-auto mt-10 relative">
         <img
-          src="@/assets/Group 2866.png"
+          src="@/assets/Group 6353.png"
           class="w-full"
           alt=""
         />

@@ -20,7 +20,7 @@ function operation() {
       <QuestionBox class="mb-0"
         ><p>زندانی که نیستیم!</p></QuestionBox
       >
-      <P>(در ایت ایزیلی هیچ محدودیتی نداریم)</P>
+      <P class="text-center">(در ایت ایزیلی هیچ محدودیتی نداریم)</P>
       <div>
         <img src="@/assets/prison.jpg" class="w-80 mx-auto mb-5" alt="" />
       </div>
