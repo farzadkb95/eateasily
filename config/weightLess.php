@@ -16,7 +16,7 @@ return [
                 'question' => 'وزنت چقدره؟',
             ],
             'weight-less|select-sickness' => [
-                'question' => 'کدام یک از شرایط زیر را دارید؟',
+                'question' => 'کدام یک از شرایط زیر را داری؟',
                 'options' => [
                     1 => 'کبد چرب',
                     2 => 'فشار خون',

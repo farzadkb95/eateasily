@@ -16,18 +16,25 @@ import { Icon } from "@iconify/vue";
             تست لاغری <span class="text-green-500">ایت ایزیلی</span>
           </h1>
           <div class="text-sm mt-5">
-            <p class="my-3 ">قبل از انجام هر روش لاغری، حتما این تست رو بده</p>
-            <p class="my-3 ">آنالیزور دقیق بدن با هوش مصنوعی</p>
-            <p class="my-3 ">اگه به این سوال ها با دقت پاسخ بدی👇<br>
-              این اطلاعات رو به دست میاری</p>
-            <p class="text-right">✅ آنالیز کامل فرم بدنیت، میزان اضافه وزن ناشی از چربی اضافی</p>
+            <p class="my-3">قبل از انجام هر روش لاغری، حتما این تست رو بده</p>
+            <p class="my-3">آنالیزور دقیق بدن با هوش مصنوعی</p>
+            <p class="my-3">
+              اگه به این سوال ها با دقت پاسخ بدی👇<br />
+              این اطلاعات رو به دست میاری
+            </p>
+            <p class="text-right">
+              ✅ آنالیز کامل فرم بدنیت، میزان اضافه وزن ناشی از چربی اضافی
+            </p>
             <p class="text-right">✅ مزاج واقعی خودت و غذاهایی که طبق مزاجت باید بخوری</p>
             <p class="text-right">✅ فعالیت نیمکره های مغزت در لاغری</p>
             <p class="text-right">✅ سن بیولوژیکی بدنت</p>
-            <p class="text-right">✅ سن بیولوژیکی بدنت</p>
-            <p class="my-3 ">بعد از این آنالیز، برای همیشه از هدر رفتن هزینه ها و تلف کردن زمان در امانی و راه لاغری اختصاصی خودتو پیدا میکنی😊</p>
-            
-            <p class="my-3 ">از نتایج این آزمون شگفت زده خواهی شد !!</p>
+            <p class="text-right">✅ از همه مهتر، مناسب ترین روش لاغری ویژه ی خودت</p>
+            <p class="my-3">
+              بعد از این آنالیز، برای همیشه از هدر رفتن هزینه ها و تلف کردن زمان در امانی
+              و راه لاغری اختصاصی خودتو پیدا میکنی😊
+            </p>
+
+            <p class="my-3">از نتایج این آزمون شگفت زده خواهی شد !!</p>
           </div>
           <Btn
             class="mt-10 !h-12 !rounded-2xl !shadow-green-300 !shadow-xl"
@@ -56,10 +63,7 @@ import { Icon } from "@iconify/vue";
             href="tel:02128421368"
             class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
-            <Icon
-              icon="solar:phone-linear"
-              class="w-6 h-full text-green-500 shrink-0"
-            />
+            <Icon icon="solar:phone-linear" class="w-6 h-full text-green-500 shrink-0" />
             021-28421368
           </a>
 
@@ -67,10 +71,7 @@ import { Icon } from "@iconify/vue";
             href="mailto:info@eateasily.net"
             class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
           >
-            <Icon
-              icon="hugeicons:mail-02"
-              class="w-6 h-full text-green-500 shrink-0"
-            />
+            <Icon icon="hugeicons:mail-02" class="w-6 h-full text-green-500 shrink-0" />
             info@eateasily.net
           </a>
         </div>
@@ -78,15 +79,12 @@ import { Icon } from "@iconify/vue";
           class="p-5 flex rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 mt-3 md:mt-5"
         >
           <div class="flex gap-2 items-center">
-            <Icon
-              icon="hugeicons:location-01"
-              class="w-6 h-full text-green-500"
-            />
+            <Icon icon="hugeicons:location-01" class="w-6 h-full text-green-500" />
             آدرس:
           </div>
           <p>
-            لورم ایپسوم متن ساختگی تولید سادگی نامفهوم صنعت چاپ و با استفاده از
-            طراحان گرافیک است.
+            لورم ایپسوم متن ساختگی تولید سادگی نامفهوم صنعت چاپ و با استفاده از طراحان
+            گرافیک است.
           </p>
         </div>
       </div>
