@@ -73,9 +73,36 @@ function pay() {
             لطفا شناسه پرداخت و شماره پیگیری را یادداشت کنید.
           </div>
 
-          <div class="text-green-600 mt-5 text-lg font-bold">
-            همکاران با به زودی با شما تماس می‌گیرند
+          <div class="text-amber-500 mt-5 text-lg font-bold">
+            همین الان از صفحه عکس بگیر و برای پشتیبانت ارسال کن            
           </div>
+          <div class="text-[#2aabee] mt-5 text-lg font-bold text-center">
+        
+        <a target="_blank" href="https://t.me/OurMethod" class="align-middle inline-block">
+          <span class="align-middle">
+            پشتیبان در تلگرام
+          </span>
+          <img src="@/assets/telegram.png" class="h-6 inline" alt="Telegram" />
+        </a>
+        </div>
+        <div class="text-[#41a89d] mt-5 text-lg font-bold text-center">
+          
+        <a target="_blank" href="https://ble.ir/eat_vip4" class="align-middle inline-block">
+          <span class="align-middle">
+            پشتیبان در بله
+          </span>
+          <img src="@/assets/bale-color.png" class="h-6 inline" alt="bale" />
+        </a>
+        </div>
+        <div class="text-[#e37600] mt-5 text-lg font-bold text-center">
+         
+        <a target="_blank" href="https://eitaa.com/eat_vip4" class="align-middle inline-block">
+          <span class="align-middle">
+            پشتیبان در ایتا
+          </span>
+          <img src="@/assets/eitaa.svg" class="h-6 inline" alt="eita" />
+        </a>
+        </div>
         </div>
       </div>
 
@@ -101,7 +128,7 @@ function pay() {
         <Btn class="my-5 w-full" @click="pay">پرداخت مجدد</Btn>
       </div>
 
-      <div class="flex items-center mt-5 gap-5">
+      <!-- <div class="flex items-center mt-5 gap-5">
         <hr class="w-full" />
         <div class="flex gap-2 shrink-0">
           <a target="_blank" href="https://t.me/eateasily"
@@ -121,9 +148,28 @@ function pay() {
           /></a>
         </div>
         <hr class="w-full" />
-      </div>
+      </div> -->
       <div class="mt-10">
-        <div class="flex gap-3 md:gap-5">
+        <div
+          class="p-5 flex rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 mt-3 md:mt-5"
+        >
+          <div class="flex gap-2 items-center">
+            <Icon
+              icon="hugeicons:location-01"
+              class="w-6 h-full text-green-500"
+            />
+            آدرس:
+          </div>
+          <div class="items-center">
+            <p>
+            امارات متحده عربی، دوبی، جمیرا،<br> پی او باکس شماره ۵۳۵۶۰
+          </p>
+          <p>
+            Jumeirah, Dubai, UAE. P.o.box: 53560
+          </p>
+          </div>
+        </div>
+        <div class="flex gap-3 md:gap-5 mt-3">
           <a
             href="tel:02128421368"
             class="py-2 rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 w-1/2 flex gap-2 justify-center items-center text-nowrap"
@@ -146,21 +192,7 @@ function pay() {
             info@eateasily.net
           </a>
         </div>
-        <div
-          class="p-5 flex rounded-md border border-zinc-300 bg-zinc-50 text-zinc-900 mt-3 md:mt-5"
-        >
-          <div class="flex gap-2 items-center">
-            <Icon
-              icon="hugeicons:location-01"
-              class="w-6 h-full text-green-500"
-            />
-            آدرس:
-          </div>
-          <p>
-            لورم ایپسوم متن ساختگی تولید سادگی نامفهوم صنعت چاپ و با استفاده از
-            طراحان گرافیک است.
-          </p>
-        </div>
+     
       </div>
     </div>
   </Raw>

@@ -82,10 +82,14 @@ import { Icon } from "@iconify/vue";
             <Icon icon="hugeicons:location-01" class="w-6 h-full text-green-500" />
             آدرس:
           </div>
-          <p>
-            لورم ایپسوم متن ساختگی تولید سادگی نامفهوم صنعت چاپ و با استفاده از طراحان
-            گرافیک است.
+          <div class="items-center">
+            <p>
+            امارات متحده عربی، دوبی، جمیرا،<br> پی او باکس شماره ۵۳۵۶۰
           </p>
+          <p>
+            Jumeirah, Dubai, UAE. P.o.box: 53560
+          </p>
+          </div>
         </div>
       </div>
       <div class="flex items-center mt-5 gap-5">
