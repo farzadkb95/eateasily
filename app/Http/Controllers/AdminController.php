@@ -27,7 +27,7 @@ class AdminController extends Controller
             });
         }
 
-        $tests = $tests->with('guest')->latest()->paginate(20);
+        $tests = $tests->with(['guest', 'payments'])->latest()->paginate(20);
 
         return DataResource::collection($tests);
     }

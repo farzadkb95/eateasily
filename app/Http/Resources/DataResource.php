@@ -30,6 +30,7 @@ class DataResource extends JsonResource
             // 'user_id' => $this->user_id,
             // 'guest_id' => $this->guest_id,
             'status' => $this->status,
+            'payed' => filled($this->payments->where('status', 'success')->first()),
             'step' => $this->step,
             'type' => $this->type,
             'gender' => $this->gender,
