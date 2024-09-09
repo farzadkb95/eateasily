@@ -100,7 +100,7 @@ getTestsCount();
           class="p-5 w-40 shadow-md rounded-md bg-green-500 text-white cursor-pointer"
           @click="router.push({ query: { ...route.query, status: 'payed' } })"
         >
-          پرداخت شده
+          پرداخت شده: {{ testCounts?.payed || 0 }}
         </div>
         <div
           class="p-5 w-40 shadow-md rounded-md bg-blue-500 text-white cursor-pointer"
