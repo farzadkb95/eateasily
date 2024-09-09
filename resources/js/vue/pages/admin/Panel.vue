@@ -152,7 +152,11 @@ getTestsCount();
         >
           <div class="w-10">{{ item.id }}</div>
           <div class="w-28">سوال {{ pageNumber(item.step) }}</div>
+          <div v-if="item.payed" class="w-28 font-bold !text-green-500">
+            پرداخت شده
+          </div>
           <div
+            v-else
             class="w-28 font-bold"
             :class="{
               '!text-amber-500': item.status == 'in_process',
