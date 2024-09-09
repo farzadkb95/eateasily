@@ -55,6 +55,6 @@ RUN chmod -R 755 /var/www/.composer
 RUN chown -R www-data:www-data /var/www/.composer
 
 # you can add php config 👇
-# RUN echo "memory_limit = 2048M" > $PHP_INI_DIR/conf.d/config.ini
+RUN echo "memory_limit = 2048M" > $PHP_INI_DIR/conf.d/config.ini
 
 ENTRYPOINT ["start-container"]
