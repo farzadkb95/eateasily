@@ -52,8 +52,9 @@ class TestsExport implements FromCollection
                             $value = implode(', ', $value);
                         }
                     } else {
-                        if (filled(@$pages[$item['key']]['options']) && filled(@$item['value'])) {
-                            $value = $pages[$item['key']]['options'][$item['value']];
+                        $options = data_get($pages, $item['key'].'.options');
+                        if (filled($options) && filled(data_get($options, $item['value']))) {
+                            $value = $options[$item['value']];
                         } else {
                             $value = data_get($item, 'value');
                         }
