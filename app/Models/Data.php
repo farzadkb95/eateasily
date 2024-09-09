@@ -20,4 +20,9 @@ class Data extends Model
     {
         return $this->belongsTo(Guest::class);
     }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

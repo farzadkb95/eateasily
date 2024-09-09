@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\TestsExport;
 use App\Http\Resources\DataResource;
 use App\Models\Data;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -20,6 +21,10 @@ class AdminController extends Controller
             $tests = $tests->where('status', 'in_process');
         } elseif ($request->status == 'unfinished') {
             $tests = $tests->where('status', 'unfinished');
+        } elseif ($request->status == 'payed') {
+            $tests = $tests->whereHas('payments', function (Builder $query) {
+                $query->where('status', 'success');
+            });
         }
 
         $tests = $tests->with('guest')->latest()->paginate(20);
@@ -32,6 +37,12 @@ class AdminController extends Controller
         $tests = Data::groupBy('status')->selectRaw('count(*) as total, status')->get()->mapWithKeys(function ($item) {
             return [$item['status'] => $item['total']];
         });
+
+        $payed = Data::whereHas('payments', function (Builder $query) {
+            $query->where('status', 'success');
+        })->count();
+
+        $tests['payed'] = $payed;
 
         return $tests;
     }
