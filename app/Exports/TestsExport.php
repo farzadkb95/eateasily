@@ -52,7 +52,7 @@ class TestsExport implements FromCollection
                             $value = implode(', ', $value);
                         }
                     } else {
-                        if (filled($pages[$item['key']]['options'])) {
+                        if (filled($pages[@$item['key']]['options'])) {
                             $value = $pages[$item['key']]['options'][$item['value']];
                         } else {
                             $value = $item['value'];
