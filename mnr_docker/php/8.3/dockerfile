@@ -29,8 +29,10 @@ RUN echo "deb http://mirror.arvancloud.ir/debian bookworm main" > /etc/apt/sourc
 
 #install composer
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
-RUN install-php-extensions @composer-2
-RUN install-php-extensions redis
+# RUN install-php-extensions @composer-2
+# RUN install-php-extensions redis
+RUN ( curl -sSLf --max-time 500 --retry 5 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o - || echo 'return 1' ) | sh -s \
+    @composer-2 redis
 
 # you can add other package like trader
 # RUN pecl install trader && docker-php-ext-enable trader
