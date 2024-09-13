@@ -12,7 +12,7 @@ class TestsExport implements FromCollection
      */
     public function collection()
     {
-        $tests = Data::with(['other', 'guest'])->get()->dot();
+        $tests = Data::with(['other', 'guest', 'payments'])->get()->dot();
 
         $pages = config('weightLess.pages');
         $pages = collect($pages);
@@ -21,14 +21,16 @@ class TestsExport implements FromCollection
         });
 
         $tests = $tests->map(function ($test) use ($pages) {
+            $payed = $test->payments->where('status', 'success')->first();
+
             return [
                 'id' => $test->id,
                 'guest_id' => $test->guest_id,
                 'phone' => $test->phone,
-                'phone_verified' => filled($test->phone_verified_at),
+                'phone_verified' => filled($test->phone_verified_at) ? '1' : '0',
                 'email' => $test->email,
-                'email_verified' => filled($test->email_verified_at),
-                'status' => filled($test->status),
+                'email_verified' => filled($test->email_verified_at) ? '1' : '0',
+                'status' => $test->status,
                 'step' => $test->step,
                 'gender' => $test->gender,
                 'age' => $test->age,
@@ -43,6 +45,7 @@ class TestsExport implements FromCollection
                 'age_offset' => $test->age_offset,
                 'fat_risk' => $test->fat_risk,
                 'date' => $test->created_at,
+                'payed' => filled($payed) ? '1' : '0',
                 ...collect($test->other)->mapWithKeys(function ($item) use ($pages) {
                     if ($item['type'] == 'json') {
                         $value = json_decode($item['value']);
