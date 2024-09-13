@@ -74,7 +74,14 @@ function pay() {
             <br>
             ⬇️
           </div>
-          <div class="text-[#41a89d] mt-2 text-lg font-bold text-center">
+          <div class="text-[#e37600] mt-2 text-lg font-bold text-center">
+            <button class="align-middle inline-block rounded-lg px-5 py-1 text-blue-100 bg-black duration-300"
+              onclick="window.open('https://eitaa.com/eat_vip4', '_blank')">
+              <span class="align-middle">پشتیبان در ایتا</span>
+              <img src="@/assets/eitaa.svg" class="h-6 inline" alt="eita" />
+            </button>
+          </div>
+          <div class="text-[#41a89d] mt-5 text-lg font-bold text-center">
             <button onclick="window.open('https://t.me/OurMethod', '_blank')"
               class="align-middle inline-block rounded-lg px-2 py-1 bg-blue-600 text-blue-100 hover:bg-blue-600 duration-300">
               <span class="align-middle">پشتیبان در تلگرام</span>
@@ -89,41 +96,6 @@ function pay() {
               <img src="@/assets/bale-color.png" class="h-6 inline" alt="bale" />
             </button>
           </div>
-
-          <div class="text-[#e37600] mt-5 text-lg font-bold text-center">
-            <button class="align-middle inline-block rounded-lg px-5 py-1 text-blue-100 bg-black duration-300"
-              onclick="window.open('https://eitaa.com/eat_vip4', '_blank')">
-              <span class="align-middle">پشتیبان در ایتا</span>
-              <img src="@/assets/eitaa.svg" class="h-6 inline" alt="eita" />
-            </button>
-          </div>
-          <!-- <div class="text-[#2aabee] mt-5 text-lg font-bold text-center">
-        
-        <a target="_blank" href="https://t.me/OurMethod" class="align-middle inline-block">
-          <span class="align-middle">
-            پشتیبان در تلگرام
-          </span>
-          <img src="@/assets/telegram.png" class="h-6 inline" alt="Telegram" />
-        </a>
-        </div>
-        <div class="text-[#41a89d] mt-5 text-lg font-bold text-center">
-          
-        <a target="_blank" href="https://ble.ir/eat_vip4" class="align-middle inline-block">
-          <span class="align-middle">
-            پشتیبان در بله
-          </span>
-          <img src="@/assets/bale-color.png" class="h-6 inline" alt="bale" />
-        </a>
-        </div>
-        <div class="text-[#e37600] mt-5 text-lg font-bold text-center">
-         
-        <a target="_blank" href="https://eitaa.com/eat_vip4" class="align-middle inline-block">
-          <span class="align-middle">
-            پشتیبان در ایتا
-          </span>
-          <img src="@/assets/eitaa.svg" class="h-6 inline" alt="eita" />
-        </a>
-        </div> -->
         </div>
       </div>
 
