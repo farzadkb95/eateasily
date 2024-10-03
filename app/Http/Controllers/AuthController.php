@@ -7,6 +7,7 @@ use App\Models\User;
 use Browser;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -27,6 +28,8 @@ class AuthController extends Controller
              * @var UserResource|null
              */
             'user' => request()->user() ? new UserResource(request()->user()) : null,
+            'current_url' => request()->fullUrl(), // Or url()->current() if you just want the path without query parameters
+
         ]);
     }
 

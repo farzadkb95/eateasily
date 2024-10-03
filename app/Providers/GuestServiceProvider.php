@@ -6,6 +6,7 @@ use App\Models\Guest;
 use App\Services\GuestService;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class GuestServiceProvider extends ServiceProvider
 {

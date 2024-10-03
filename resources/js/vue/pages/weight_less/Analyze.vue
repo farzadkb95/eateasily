@@ -35,9 +35,27 @@ function getAnalyze() {
     .finally(function () {});
 }
 setTimeout(getAnalyze, 2000);
-</script>
+function downloadAsJPEG() {
+  html2canvas(document.body).then(function(canvas) {
+    var link = document.createElement("a");
+    link.download = "page.jpg";
+    link.href = canvas.toDataURL("image/jpeg", 0.9);
+    link.click();
+  });
+}
 
-<template>
+function downloadAsPDF() {
+  html2pdf(document.body, {
+    filename: 'page.pdf',
+    jsPDF: {
+      format: 'a4',
+      orientation: 'portrait',
+    },
+    html2canvas: { scale: 2 },
+  });
+}
+</script>
+ <template>
   <Base>
     <template v-if="percent < 100">
       <div class="c-box">
@@ -331,8 +349,11 @@ setTimeout(getAnalyze, 2000);
           </div>
         </div>
       </div>
-
+      
       <div class="c-box">
+        <Btn style="background-color: gray!important;"class="w-full mt-10 !rounded-xl !h-14" @click="downloadAsJPEG">
+          دانلود تحلیل     
+        </Btn>
         <Btn
           class="w-full mt-10 !rounded-xl !h-14"
           :to="{ name: 'weight-less|buy' }"

@@ -80,11 +80,18 @@ function nextPage() {
 
 <template>
   <Base>
+    <p 
+        class="c-box mt-5 p-5 border-green-500 bg-green-100 border rounded-lg"
+        v-show="step === 1"
+      >
+      برای دریافت رایگان آنالیز آزمونت، همین الان شماره همراهتو وارد کن و منتظر آنالیز هوش مصنوعی باش      </p>
     <div
       class="c-box"
       v-if="testStore.test?.phone_verified || testStore.test?.email_verified"
     >
+    
       <div class="mt-10 text-center text-3xl">
+        
         <div v-if="testStore.test.phone_verified">
           {{ testStore.test.phone }}
         </div>
@@ -204,12 +211,7 @@ function nextPage() {
         >
       </form>
 
-      <p
-        class="mt-5 p-5 border-green-500 bg-green-100 border rounded-lg"
-        v-show="step === 1"
-      >
-        شماره‌ت رو وارد کن تا کلی اطلاعات مفید راجع به شرایط بدنیت رو برات ارسال کنیم
-      </p>
+
       <p
         class="mt-5 p-5 border-green-500 bg-green-100 border rounded-lg"
         v-show="step === 2"

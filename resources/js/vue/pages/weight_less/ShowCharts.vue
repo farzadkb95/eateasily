@@ -27,7 +27,7 @@ function operation() {
         <span class="text-red-500"
           >{{ testStore.test?.extra_weight }} کیلوگرم</span
         >
-        اضافه وزن دارید و تنها نیستید!
+        اضافه وزن دارید و تنها نیستید!!!!!
       </p>
       <p v-else-if="testStore.test?.extra_weight == 0">
        
@@ -93,32 +93,8 @@ function operation() {
           نیست و اطلاعات وزنی رو برای شما با خطا نشان خواهد داد
         </span>
       </LightInfoBox>
-      <div class="c-box">
-      <div class="my-10">
-        <img
-          src="@/assets/woman-change-weight.png"
-          v-if="testStore.test?.gender == 'female'"
-          class="mx-auto"
-        />
-        <img src="@/assets/man-change-weight.png" v-else class="mx-auto" />
-      </div>
-      <p class="text-center text-xl">
-        تو هم می‌تونی در
-        <span class="text-green-500"
-          >{{ testStore.test?.ideal_weight_time }} ماه آینده</span
-        >
-        این تغییر رو احساس کنی!
-      </p>
 
-     </div>
       <Btn class="w-full mt-6 !rounded-xl !h-14" @click="operation">ادامه</Btn>
     </div>
   </Base>
 </template>
-<style scoped>
-.text-pink-500 {
-  display: none !important;
-  --tw-text-opacity: 1;
-  color: rgb(236 72 153 / var(--tw-text-opacity));
-}
-</style>

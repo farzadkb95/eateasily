@@ -25,6 +25,12 @@ class AdminController extends Controller
             $tests = $tests->whereHas('payments', function (Builder $query) {
                 $query->where('status', 'success');
             });
+        }elseif ($request->status == 'failed') {
+            // $tests = $tests->whereHas('payments', function (Builder $query) {
+            //     $query->where('status', 'fail');
+            // });
+            $tests = $tests->whereHas('payments');
+
         }
 
         $tests = $tests->with(['guest', 'payments'])->latest()->paginate(20);
@@ -41,8 +47,16 @@ class AdminController extends Controller
         $payed = Data::whereHas('payments', function (Builder $query) {
             $query->where('status', 'success');
         })->count();
-
+        // $all_gateway = Data::whereHas('payments', function (Builder $query) {
+        //     $query->where('status', 'success')
+        //           ->orWhere('status', 'failed');
+        // })->orWhereNull('payments.status')->count();
+        // $failed = Data::whereHas('payments', function (Builder $query) {
+        //     $query->where('status', 'fail');
+        // })->count();
+        $failed =  Data::whereHas('payments')->count();
         $tests['payed'] = $payed;
+        $tests['failed'] = $failed;
 
         return $tests;
     }

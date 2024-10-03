@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use App\Models\Data;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Support\Facades\Log;
 
 class TestsExport implements FromCollection
 {
@@ -12,24 +13,38 @@ class TestsExport implements FromCollection
      */
     public function collection()
     {
-        $tests = Data::with(['other', 'guest', 'payments'])->get()->dot();
 
+        \Log::info('beforee thr collection ' );
+
+        $tests = Data::with(['other', 'guest', 'payments'])->latest()->take(15000)->get()->dot();
+        // $tests = Data::with(['other', 'guest', 'payments'])->get()->dot();
+
+        // $tests = Data::with(['other', 'guest', 'payments'])->latest()->get()->dot();
+
+        // \Log::info('Raw tests data:', $tests->toArray());
+        \Log::info('inside the collection' );
         $pages = config('weightLess.pages');
         $pages = collect($pages);
         $pages = $pages->flatMap(function (array $values, $key) {
             return $values;
         });
-
+        
+        
         $tests = $tests->map(function ($test) use ($pages) {
             $payed = $test->payments->where('status', 'success')->first();
-
+           // Get the current_url from the guest table
+           $currentUrl = $test->guest ? $test->guest->current_url : null; // Check if guest exists
+            
+           // Log the current_url
+        //    Log::info('Current URL from guest:', [$currentUrl]);
             return [
                 'id' => $test->id,
-                'guest_id' => $test->guest_id,
+                // 'guest_id' => $test->guest_id,
+                'input_link' => $currentUrl,
                 'phone' => $test->phone,
-                'phone_verified' => filled($test->phone_verified_at) ? '1' : '0',
+                // 'phone_verified' => filled($test->phone_verified_at) ? '1' : '0',
                 'email' => $test->email,
-                'email_verified' => filled($test->email_verified_at) ? '1' : '0',
+                // 'email_verified' => filled($test->email_verified_at) ? '1' : '0',
                 'status' => $test->status,
                 'step' => $test->step,
                 'gender' => $test->gender,

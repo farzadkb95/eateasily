@@ -8,11 +8,20 @@ use Facades\App\Services\MailService;
 use Facades\App\Services\SmsService;
 use Http;
 use Illuminate\Support\Str;
+use App\Models\Coupon;
+use App\Models\TestPrice; // Import the TestPrice model
 
 class PaymentService
 {
-    public function createPayment(int $guestId, int $testId): Payment
+    public function createPayment(int $guestId, int $testId, ?string $couponCode = null): Payment
     {
+            // Fetch the dynamic price from the TestPrice model
+            $testPrice = TestPrice::first(); // Retrieve the first record
+        
+            if (!$testPrice) {
+                throw new \Exception("Test price not set in the database.");
+            }
+    
         $payment = new Payment();
         $payment->code = uniqid(Str::random(6));
         $payment->guest_id = $guestId;
@@ -20,7 +29,30 @@ class PaymentService
         $payment->gateway = 'zarinpall';
         $payment->info = [];
         $payment->description = 'خرید برنامه ایت‌ایزیلی';
-        $payment->amount = 9830000;
+        // $payment->amount = 8930000;
+        $payment->amount = $testPrice->price; // Use the dynamic price from the database
+
+        $originalAmount= $payment->amount;
+        $discount = 0;
+        if ($couponCode) {
+            $coupon = Coupon::where('code', $couponCode)
+                ->where('expiry_date', '>=', now())
+                ->first();
+    
+            if ($coupon) {
+                // Determine discount based on coupon type
+                if ($coupon->discount_type === 'percentage') {
+                    $discount = $originalAmount * ($coupon->value / 100);
+                } elseif ($coupon->discount_type === 'amount') {
+                    $discount = $coupon->value;
+                }
+            }
+        }
+    
+        // Calculate the final amount
+        $payment->amount = $originalAmount - $discount;
+        
+
         $payment->save();
 
         return $payment;

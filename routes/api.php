@@ -7,6 +7,9 @@ use App\Http\Controllers\WeightLessTestController;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\NotEnterMiddleware;
 use Illuminate\Support\Facades\Route;
+use App\Models\TestPrice;
+use Illuminate\Http\Request;
+ 
 
 Route::post('/login', [AuthController::class, 'login'])->middleware(NotEnterMiddleware::class);
 Route::get('/initial-data', [AuthController::class, 'initialData']);
@@ -29,4 +32,24 @@ Route::prefix('weight-less/')->group(function () {
     Route::post('/payment/verify', [WeightLessTestController::class, 'paymentCallBack']);
     Route::post('/set-other', [WeightLessTestController::class, 'setOther']);
     Route::get('/analyze', [WeightLessTestController::class, 'getAnalyze']);
+});
+
+// Route to update the price
+Route::post('/admin/update-price', function (Request $request) {
+    $request->validate([
+        'price' => 'required|numeric|min:0',
+    ]);
+
+    $testPrice = TestPrice::first();
+    if ($testPrice) {
+        $testPrice->price = $request->input('price');
+        $testPrice->save();
+        return response()->json(['message' => 'Price updated successfully!']);
+    } else {
+        return response()->json(['message' => 'Price record not found.'], 404);
+    }
+});
+Route::get('/admin/get-price', function () {
+    $testPrice = TestPrice::first();
+    return response()->json(['price' => $testPrice ? $testPrice->price : null]);
 });

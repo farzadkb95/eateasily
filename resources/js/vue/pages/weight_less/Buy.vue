@@ -17,6 +17,8 @@ import QuestionDropDown from "../../components/QuestionDropDown.vue";
 import { preDigit, scrollTo } from "../../modules/utility";
 import { computed, onMounted, ref } from "vue";
 import { useTestStore } from "../../store/TestStore";
+import axios from 'axios';
+const price = ref(null); // Reactive property to store the price
 
 const testStore = useTestStore();
 const buy = ref(null);
@@ -28,7 +30,21 @@ onMounted(() => {
     counter.value--;
   }, 1000);
 });
+// Function to fetch the price from the server
+async function fetchPrice() {
+  try {
+    const response = await axios.get('/api/admin/get-price');
+    price.value = response.data.price; // Store the price in the reactive property
+  } catch (error) {
+    console.error("Failed to fetch price", error);
+    alert("Error fetching price. Please try again.");
+  }
+}
 
+// Fetch price when the component is mounted
+onMounted(() => {
+  fetchPrice();
+});
 const counterTime = computed(() => {
   let min = parseInt(counter.value / 60);
   let sec = counter.value % 60;
@@ -325,7 +341,16 @@ function pay() {
                   <hr class="border-red-500 absolute w-full top-3" />
                   <span class="text-xl">3/000/000</span> تومان
                 </div>
-                <div><span class="text-2xl font-bold">983/000</span> تومان</div>
+                <!-- <div>
+                  <span class="text-2xl font-bold">893/000</span> تومان
+                
+                </div> -->
+                <div>
+  <span class="text-2xl font-bold">
+    {{ price ? (Math.floor(price).toString().slice(0, -1)).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 'Loading...' }}
+  </span> تومان
+</div>
+
               </div>
             </div>
           </div>

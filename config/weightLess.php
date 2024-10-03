@@ -26,10 +26,8 @@ return [
                 ],
             ],
             'weight-less|show-chart' => [],
-            'weight-less|show-change-weight' => [],
-            'weight-less|insert-phone' => [
-                'question' => 'کجا زندگی می‌کنید؟',
-            ],
+            // 'weight-less|show-change-weight' => [],
+          
         ],
         [
             'weight-less|select-weight-type' => [
@@ -233,6 +231,7 @@ return [
                     2 => 'ترجیح به انفرادی رفتار کردن',
                 ],
             ],
+           
             'weight-less|community-influence' => [
                 'question' => 'معمولا جامعه اطرافم می‌توانند بر اینکه چگونه رفتار کنم تاثیر بگذارند:',
                 'options' => [
@@ -241,7 +240,11 @@ return [
                     3 => 'کاملا مخالفم',
                 ],
             ],
+            'weight-less|insert-phone' => [
+                'question' => 'کجا زندگی می‌کنید؟',
+            ],
             'weight-less|analyze' => [],
+           
         ],
     ],
 ];
