@@ -17,9 +17,15 @@ import QuestionDropDown from "../../components/QuestionDropDown.vue";
 import { preDigit, scrollTo } from "../../modules/utility";
 import { computed, onMounted, ref } from "vue";
 import { useTestStore } from "../../store/TestStore";
-import axios from 'axios';
+ import axios from 'axios';
 const price = ref(null); // Reactive property to store the price
+// new changed farzad
 
+const originalPrice = ref(null); // Store original price
+const discountedPrice = ref(null); // Store discounted price
+const couponCode = ref(""); // Store user input coupon code
+
+// end new changed 
 const testStore = useTestStore();
 const buy = ref(null);
 const counter = ref(600);
@@ -31,10 +37,23 @@ onMounted(() => {
   }, 1000);
 });
 // Function to fetch the price from the server
+// async function fetchPrice() {
+//   try {
+//     const response = await axios.get('/api/admin/get-price');
+//     price.value = response.data.price; // Store the price in the reactive property
+//   } catch (error) {
+//     console.error("Failed to fetch price", error);
+//     alert("Error fetching price. Please try again.");
+//   }
+// }
+// Function to fetch the original price when the component is mounted
 async function fetchPrice() {
   try {
     const response = await axios.get('/api/admin/get-price');
-    price.value = response.data.price; // Store the price in the reactive property
+        price.value = response.data.price; // Store the price in the reactive property
+
+    originalPrice.value = response.data.price;
+    discountedPrice.value = response.data.price; // Set discounted price initially equal to the original price
   } catch (error) {
     console.error("Failed to fetch price", error);
     alert("Error fetching price. Please try again.");
@@ -45,27 +64,123 @@ async function fetchPrice() {
 onMounted(() => {
   fetchPrice();
 });
+// Function to apply coupon and calculate discount
+async function applyCoupon() {
+  try {
+    const response = await axios.post('/api/apply-coupon', {
+      coupon_code: couponCode.value,
+    });
+    // Update the discounted price
+    discountedPrice.value = response.data.discounted_price;
+    alert("Coupon applied successfully! New discounted price: " + discountedPrice.value);
+
+  } catch (error) {
+    console.error("Failed to apply coupon", error);
+    alert("  کد تخفیف وجود ندارد");
+  }
+}
+
+
 const counterTime = computed(() => {
   let min = parseInt(counter.value / 60);
   let sec = counter.value % 60;
   return `${preDigit(min)}:${preDigit(sec)}`;
 });
 
+// function pay() {
+//   axios
+//     .post(`/api/weight-less/payment`, {
+//       test: testStore.test.id,
+//     })
+//     .then(function (response) {
+//       window.location.assign(response.data.payment_url);
+//     })
+//     .catch(function (error) {
+//       console.log(error.message);
+//     })
+//     .finally(function () {});
+// }
+
+// Payment function
+// function pay() {
+//   axios
+//     .post('/api/weight-less/payment', {
+//       test: testStore.test.id,
+//       coupon_code: couponCode.value, // Send the coupon code with the payment request
+      
+//     })
+//     .then((response) => {
+//       window.location.assign(response.data.payment_url);
+//     })
+//     .catch((error) => {
+//       console.log(error.message);
+//     });
+// }
+// function pay() {
+//   axios
+//     .post('/api/weight-less/payment', {
+//       test: testStore.test.id,
+//       coupon_code: couponCode.value, // Include the coupon code in the payment request
+//       discounted_price: discountedPrice.value // Send the discounted price, if calculated
+//     })
+//     .then(function (response) {
+//       window.location.assign(response.data.payment_url);
+//     })
+//     .catch(function (error) {
+//       console.log(error.message);
+//     })
+//     .finally(function () {});
+// }
+
 function pay() {
+  console.log("Payment initiated with test ID:", testStore.test.id);
+  console.log("Coupon code used:", couponCode.value);
+  console.log("Discounted price:", discountedPrice.value);
+
   axios
-    .post(`/api/weight-less/payment`, {
+  .post('/api/weight-less/payment', {
+    test: testStore.test.id,
+    coupon_code: couponCode.value, // Pass the coupon code
+    discounted_price: discountedPrice.value, // Pass the discounted price
+  })
+  .then(function (response) {
+    console.log("Request data sent:", {
       test: testStore.test.id,
-    })
-    .then(function (response) {
-      window.location.assign(response.data.payment_url);
-    })
-    .catch(function (error) {
-      console.log(error.message);
-    })
-    .finally(function () {});
+      coupon_code: couponCode.value,
+      discounted_price: discountedPrice.value,
+    });
+    window.location.assign(response.data.payment_url);
+  })
+  .catch(function (error) {
+    console.log("Payment failed:", error.message);
+  });
 }
+
 </script>
 
+<style>
+.coupon-section {
+  margin: 20px 0;
+}
+
+.coupon-input {
+  padding: 10px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.apply-coupon-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.apply-coupon-btn:hover {
+  background-color: #45a049;
+}
+</style>
 <template>
   <Raw class="bg-white">
     <div class="bg-gradient-to-t from-green-50 to-white">
@@ -341,10 +456,7 @@ function pay() {
                   <hr class="border-red-500 absolute w-full top-3" />
                   <span class="text-xl">3/000/000</span> تومان
                 </div>
-                <!-- <div>
-                  <span class="text-2xl font-bold">893/000</span> تومان
-                
-                </div> -->
+              
                 <div>
   <span class="text-2xl font-bold">
     {{ price ? (Math.floor(price).toString().slice(0, -1)).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 'Loading...' }}
@@ -359,6 +471,17 @@ function pay() {
           >خرید و دریافت برنامه</Btn
         >
       </div>
+
+      <div class="coupon-section">
+      <input
+        v-model="couponCode"
+        type="text"
+        placeholder="کد تخفیف را وارد کنید "
+        class="coupon-input"
+      />
+      <button @click="applyCoupon" class="apply-coupon-btn">  ثبت کد تخفیف</button>
+    </div>
+
     </div>
     <div class="mt-20">
       <div class="mb-10 text-center text-2xl font-bold">
