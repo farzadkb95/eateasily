@@ -22,4 +22,5 @@ Route::post('/coupons', [CouponController::class, 'store']);
 // If you also want to keep the GET route for listing coupons, include this:
 Route::get('/coupons', [CouponController::class, 'index']);
 
- 
+ // routes/web.php
+Route::post('/apply-coupon', [CouponController::class, 'applyCoupon']);
