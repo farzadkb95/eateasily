@@ -11,7 +11,9 @@ use Facades\App\Services\MailService;
 use Facades\App\Services\PaymentService;
 use Facades\App\Services\SmsService;
 use Illuminate\Contracts\Database\Eloquent\Builder;
-
+use App\Models\Coupon;
+use App\Models\TestPrice; // Import the TestPrice model
+use Illuminate\Http\RedirectResponse;
 final class TestService
 {
     public function newTest(Guest $guest)
@@ -150,19 +152,36 @@ final class TestService
         $guest->latestTest->load('other');
     }
 
+    // public function payment(Guest $guest, int $testId): string
+    // {
+    //     $test = Data::where('id', $testId)->where('guest_id', $guest->id)->first();
+
+    //     if (blank($test)) {
+    //         abort(422, 'test not found!');
+    //     }
+
+    //     $payment = PaymentService::createPayment($guest->id, $test->id);
+
+    //     return PaymentService::payRequest($payment);
+    // }
     public function payment(Guest $guest, int $testId): string
     {
         $test = Data::where('id', $testId)->where('guest_id', $guest->id)->first();
-
+    
         if (blank($test)) {
-            abort(422, 'test not found!');
+            abort(422, 'Test not found!');
         }
-
-        $payment = PaymentService::createPayment($guest->id, $test->id);
-
+    
+        // Assuming you're getting the coupon code and discounted price from the request
+        $couponCode = request()->input('coupon_code'); // Retrieve the coupon code from the request
+        $discountedPrice = request()->input('discounted_price'); // Retrieve the discounted price from the request
+    
+        // Pass all required parameters to createPayment
+        $payment = PaymentService::createPayment($guest->id, $test->id, $couponCode, $discountedPrice);
+    
         return PaymentService::payRequest($payment);
     }
-
+    
     public function paymentVerify(Guest $guest, string $paymentCode, string $authority, string $status): Payment
     {
         $payment = Payment::where('code', $paymentCode)->where('guest_id', $guest->id)->with('data')->first();
