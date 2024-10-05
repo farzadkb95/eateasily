@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\TestPrice;
 use Illuminate\Http\Request;
  
+use App\Http\Controllers\CouponController;
 
 Route::post('/login', [AuthController::class, 'login'])->middleware(NotEnterMiddleware::class);
 Route::get('/initial-data', [AuthController::class, 'initialData']);
@@ -53,3 +54,5 @@ Route::get('/admin/get-price', function () {
     $testPrice = TestPrice::first();
     return response()->json(['price' => $testPrice ? $testPrice->price : null]);
 });
+
+Route::post('/apply-coupon', [CouponController::class, 'applyCoupon']);
